@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="noskhe_drugstore_app.AcceptPH.AcceptUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:noskhe_drugstore_app.AcceptPH"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="700">
+
+
+    <Grid Grid.Row="1">
+        <!--About Grid-->
+        <Grid x:Name="LoginGrid" Margin="20 30 20 25" Background="{x:Null}" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="200*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{ Binding ElementName=BorderG1 }"/>
+            </Grid.OpacityMask>
+            <Border x:Name="BorderG1" CornerRadius="20"  Grid.RowSpan="6" Background="#FF593361"/>
+            <Grid>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+                    <TextBlock Text="Noskhe Acceptance" FontFamily="IRANSans" FontSize="30" FontWeight="Bold" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Separator Height="5" Foreground="LightGray" Margin="25 0 25 0"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="10 0 0 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12*"/>
+                        <RowDefinition Height="107*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="بدون نسخه" FontFamily="IRANSans" Foreground="LightGray" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Separator Margin="20 0"/>
+                    </StackPanel>                    
+                    <ScrollViewer Grid.Row="1" Margin="0 5 0 0">
+                        <StackPanel x:Name="WithOutNpanel"/>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Grid.Column="1" Margin="5 0 10 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12*"/>
+                        <RowDefinition Height="107*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="نسخه" FontFamily="IRANSans" Foreground="LightGray" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Separator Margin="20 0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="WithNpanel" Grid.Row="1" Margin="0 5 0 0"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button x:Name="RefuseButton" Content="Refuse" TextBlock.FontWeight="Bold" TextBlock.FontSize="20" Margin="10 0" Height="50" Width="250" Background="#FFB74A3A" BorderBrush="#FFB74A3A" Click="RefuseButton_Click"/>
+                    <Button x:Name="AcceptButton" Content="Accept" TextBlock.FontWeight="Bold" TextBlock.FontSize="20" Margin="10 0" Height="50" Width="250" Background="#FF55B73A" BorderBrush="#FF55B73A" Click="AcceptButton_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBlock x:Name="Timertxt" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="{Binding Path=timerModel.TimerAlert}" Text="{Binding Path=timerModel.sec}"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

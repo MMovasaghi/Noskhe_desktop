@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="noskhe_drugstore_app.Finance.RepoOfCashOut.View.CashOutitemUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:noskhe_drugstore_app.Finance.RepoOfCashOut.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="900">
+
+    <Grid x:Name="MainGrid" Margin="10" Cursor="Hand" MouseLeftButtonUp="MainGrid_MouseLeftButtonUp">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="White" RadiusX="10" RadiusY="10" Grid.RowSpan="5">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFC9C5C5" ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 30 0">
+                <TextBox x:Name="SerialOfCashOut" Text="NP234982304" IsReadOnly="True" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="   : کد تسویه حساب" Margin="0 10 0 0" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 0 0 0">
+                <DatePicker x:Name="DateOfCashOut" Width="140" materialdesign:HintAssist.Hint="2/2/2000" IsEnabled="False" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="   : تاریخ تسویه حساب" Margin="0 10 0 0" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230*"/>
+                <ColumnDefinition Width="650*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <GroupBox Margin="10">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="تعداد سفارش ها" Margin="0 0 0 10" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                        <TextBox Text="20" TextAlignment="Center" x:Name="NumberOfCashOut" Width="80" IsReadOnly="True" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 30 0">
+                        <TextBox x:Name="CreditAll" Width="250" IsReadOnly="True" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="   : (تومان)" Margin="0 10 0 0" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text=" مجموع مبلغ مانده حساب" Margin="0 10 0 0" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 30 0">
+                        <TextBox x:Name="PersentOfCashOut" Width="250" IsReadOnly="True" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="   : مجموع مبلغ کمسیون" Margin="0 10 0 0" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Margin="15 8" Background="Wheat">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0">
+                    <TextBox x:Name="EndCreditCashOut" Width="250" IsReadOnly="True" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Text="   : مجموع خالص دریافتی" Margin="0 10 0 0" FontFamily="IRANSans" Foreground="Black" FontSize="18" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="0">
+                <Button Content="مشاهده جزئیات" FontFamily="IRANSans" Margin="40 0 60 0" Background="#FF3AB758" BorderBrush="#FF3AB758" />
+            </Grid>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

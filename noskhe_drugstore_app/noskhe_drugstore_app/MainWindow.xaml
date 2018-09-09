@@ -1,0 +1,221 @@
+﻿<Window x:Class="noskhe_drugstore_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:noskheuc="clr-namespace:noskhe_drugstore_app.Noskhes"
+        xmlns:doingdetailuc="clr-namespace:noskhe_drugstore_app.Noskhes.Doing.View"
+        xmlns:financeuc="clr-namespace:noskhe_drugstore_app.Finance"
+        xmlns:staruc="clr-namespace:noskhe_drugstore_app.Star"
+        xmlns:statusuc="clr-namespace:noskhe_drugstore_app.Status"
+        xmlns:loginuc="clr-namespace:noskhe_drugstore_app.Login"
+        xmlns:aboutusuc="clr-namespace:noskhe_drugstore_app.AboutUs"
+        xmlns:acceptuc="clr-namespace:noskhe_drugstore_app.AcceptPH"
+        xmlns:profileuc="clr-namespace:noskhe_drugstore_app.Profile"
+        mc:Ignorable="d" Height="700" Width="1000" ResizeMode="NoResize" WindowStyle="None" Foreground="White" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Button of the window : Close & Minimizing-->
+        <Grid Grid.Row="0" x:Name="gridbar" Background="#FF092705"  MouseLeftButtonDown="Drag_MouseLeftButtonDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="1,0" Cursor="Hand">
+                <Button x:Name="helpbut" Background="{x:Null}" BorderBrush="{x:Null}" Width="45" Height="Auto" Click="HelpButton_Click">
+                    <materialdesign:PackIcon Kind="Help"/>
+                </Button>
+                <Button x:Name="Minimizedbut" Background="{x:Null}" BorderBrush="{x:Null}" Width="45" Height="Auto" Click="Minimizedbut_Click">
+                    <materialdesign:PackIcon Kind="WindowMinimize"/>
+                </Button>
+                <Button x:Name="Maximizesbut" Background="{x:Null}" BorderBrush="{x:Null}" Width="45" Height="Auto" Click="Maximizesbut_Click">
+                    <materialdesign:PackIcon x:Name="WindowMaxIco" Kind="WindowMaximize"/>
+                </Button>
+                <Button x:Name="Closebut" Background="{x:Null}" BorderBrush="{x:Null}" Width="45" Height="Auto" Click="CloseApp_Click">
+                    <materialdesign:PackIcon Kind="Close"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <!--Main Window-->
+            <Grid Background="LightGray" Grid.RowSpan="2">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="500*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <!--top bar {UserMode}-->
+                <Grid x:Name="TopUserModeBar" Grid.Row="0" Height="60" VerticalAlignment="Top" Background="#FF1F6129">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="WindowTitle" Text="نسخه - داروخانه" VerticalAlignment="Center" Margin="30 0 0 0" FontSize="22" FontWeight="Bold" FontFamily="IRANSans"/>
+                        <materialdesign:PackIcon x:Name="TitleIco" Visibility="Hidden" Width="25" Height="25" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0" Orientation="Horizontal">
+                        <Button x:Name="ONOFFButton" Content="Enable" Width="100" Foreground="White" Background="#FF1BD188" BorderBrush="#FF1BD188" Click="ONOFFButton_Click"/>
+                    </StackPanel>
+                    <!--About Menu-->
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">                        
+                        <materialdesign:PopupBox  Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                            <StackPanel Width="150">
+                                <Button x:Name="ServerStatusButton" Content="Server Status" Click="ServerStatusButton_Click"/>
+                                <Button x:Name="ProfileButton" Content="Profile" Click="ProfileButton_Click"/>
+                                <Button x:Name="HelpButton" Content="Help" Click="HelpButton_Click"/>
+                                <Button x:Name="AboutUsButton" Content="About Us" Click="AboutUsButton_Click"/>
+                                <Separator/>
+                                <Button x:Name="ButtonPopuplogout" Content="Log Out" Click="ButtonPopuplogout_Click"/>
+                            </StackPanel>
+                        </materialdesign:PopupBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Image Width="50" Height="50" Margin="10 0 10 0">
+                            <Image.Source>
+                                <BitmapImage UriSource="Images\noskheapp.png" />
+                            </Image.Source>
+                        </Image>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="200 0">
+                        <Button x:Name="AcceptShow" Click="AcceptShow_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <!--Menu Windows-->
+                <Grid x:Name="MenuWidows" Grid.Row="1" Grid.RowSpan="2" >
+                    <!--MainMenu window-->
+                    <Grid x:Name="NoskhesGrid" Visibility="Hidden">
+                        <noskheuc:NoskhesUC x:Name="nostest"/>
+                    </Grid>
+                    <Grid x:Name="FinanceGrid" Visibility="Hidden">
+                        <financeuc:FinanceUC/>                        
+                    </Grid>
+                    <Grid x:Name="StarGrid" Visibility="Hidden">
+                        <staruc:StarUC/>
+                    </Grid>
+                    <Grid x:Name="SettingsGrid" Visibility="Hidden">
+
+                    </Grid>
+                    <Grid x:Name="StatusGrid" Visibility="Hidden">
+                        <statusuc:StatusUC/>
+                    </Grid>
+                    <Grid x:Name="DoingDetailGrid" Visibility="Hidden">
+                        <ScrollViewer>
+                            <Grid  x:Name="XDingdetail" Height="1100">
+                                
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid x:Name="ProfileGrid" Visibility="Hidden"/>
+                </Grid>
+
+                <!--Left Menu-->
+                <Grid x:Name="GridMenu" Grid.Row="2" Height="60"  Width="750" HorizontalAlignment="Center" Background="#FF3C7544">
+                    <StackPanel>
+                        <!--left Button list Menu-->
+                        <ListView x:Name="ListMainLeft" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <!--Noskhes Button-->
+                            <ListViewItem x:Name="NoskhesItem" Height="60" MouseLeftButtonUp="NoskhesItem_MouseLeftButtonUp">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialdesign:PackIcon Kind="ContentPaste" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                                    <TextBlock Text="نسخه ها" FontFamily="IRANSans" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <!--FinanceItem Button-->
+                            <ListViewItem x:Name="FinanceItem" Height="60" MouseLeftButtonUp="FinanceItem_MouseLeftButtonUp">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialdesign:PackIcon Kind="Wallet" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                                    <TextBlock Text="کیف پول" FontFamily="IRANSans" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <!--StarItem Button-->
+                            <ListViewItem x:Name="StarItem" Height="60" MouseLeftButtonUp="StarItem_MouseLeftButtonUp">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialdesign:PackIcon Kind="Star" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                                    <TextBlock Text="رتبه بندی" FontFamily="IRANSans" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <!--Settings Button-->
+                            <!--<ListViewItem x:Name="SettingsItem" Height="60" MouseLeftButtonUp="SettingsItem_MouseLeftButtonUp">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialdesign:PackIcon Kind="Settings" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                                    <TextBlock Text="تنظیمات" FontFamily="IRANSans" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+                                </StackPanel>
+                            </ListViewItem>-->
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+
+
+            <!--Login Window-->
+            <Grid x:Name="LoginGrid" Grid.Column="2" Grid.RowSpan="2" Visibility="Hidden">
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="468"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="500"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <!--login form-->
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <loginuc:LoginUC/>
+                </Grid>
+            </Grid>
+            <!--About Window-->
+            <Grid x:Name="AboutGrid" Grid.Column="2" Grid.RowSpan="2" MouseLeftButtonUp="AboutGrid_MouseLeftButtonUp" Visibility="Hidden">
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="468"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="500"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <!--About form-->
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <aboutusuc:AboutusUC/>
+                </Grid>
+            </Grid>
+            <!--AcceptForm Window-->
+            <Grid x:Name="AcceptForm" Grid.Column="2" Grid.RowSpan="2" Visibility="Hidden">
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="750"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="610"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <!--AcceptForm-->
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <acceptuc:AcceptUC/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
