@@ -59,8 +59,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
                 NoskheChart noskheChart = new NoskheChart();
                 noskheChart.imageMV.ObjIm = new Models.ImageChartModels() { ImageUrl = fullFilePath, Price = 100 };
-                noskheChart.ImageItem.Children.Add(image);
-                noskheChart.PriceItem.Text = "100";
+                noskheChart.ImageItem.Children.Add(image);                
                 noskheChart.RowNumber.Text = a.ToString();
                 Xpanel.Children.Add(noskheChart);
             }

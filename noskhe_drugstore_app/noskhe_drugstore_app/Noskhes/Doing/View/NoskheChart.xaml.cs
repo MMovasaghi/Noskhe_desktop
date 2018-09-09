@@ -33,20 +33,9 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             Process.Start(imageMV.ObjIm.ImageUrl);
         }
 
-        private void PriceItem_TextChanged(object sender, TextChangedEventArgs e)
+        private void Details_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            try
-            {
-                double Price = Double.Parse(PriceItem.Text);
-                if (Price > 9999999 || Price <= 0)
-                {
-                    throw new Exception();
-                }
-            }
-            catch (Exception)
-            {
-                PriceItem.Text = "";
-            }
+
         }
     }
 }
