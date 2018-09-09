@@ -9,6 +9,6 @@
 **Framework:** WPF
 <br />
 ## Description
-Noskhe beta is written in C# using .NET WPF features. This version is currently developed is Visaul Studio on Windows.
+Noskhe beta is written in C# using .NET WPF features. This version is currently developed is Visual Studio 2017 on Windows.
 <br />
 let's [start](https://github.com/MMovasaghi/noskhe_desktop/tree/master/noskhe_drugstore_app#introduction)! :+1:
