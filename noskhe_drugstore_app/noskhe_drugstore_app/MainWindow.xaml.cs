@@ -100,9 +100,16 @@ namespace noskhe_drugstore_app
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            ProfileUC profileuc = new ProfileUC();
-            ProfileGrid.Children.Add(profileuc);
-            GridsShow(ref ProfileGrid, "Profile", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
+            try
+            {
+                ProfileUC profileuc = new ProfileUC();
+                ProfileGrid.Children.Add(profileuc);
+                GridsShow(ref ProfileGrid, "Profile", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
+            }
+            catch (Exception)
+            {
+            }
+            
         }
         private void AboutGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
