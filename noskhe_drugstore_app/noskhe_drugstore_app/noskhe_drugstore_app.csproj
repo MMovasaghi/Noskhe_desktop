@@ -122,7 +122,9 @@
     <Compile Include="Models\Minimals\Output\Score.cs" />
     <Compile Include="Models\Minimals\Output\Settle.cs" />
     <Compile Include="Models\Minimals\Output\ShoppingCart.cs" />
+    <Compile Include="Noskhes\Doing\Models\DetailsChartNoskhe.cs" />
     <Compile Include="Noskhes\Doing\Models\ImageChartModels.cs" />
+    <Compile Include="Noskhes\Doing\ViewModels\DetailsChartNoskheVM.cs" />
     <Compile Include="Noskhes\Doing\ViewModels\ImageChartMV.cs" />
     <Compile Include="Noskhes\Doing\View\DoingDetailofallUC.xaml.cs">
       <DependentUpon>DoingDetailofallUC.xaml</DependentUpon>

@@ -139,7 +139,7 @@ namespace noskhe_drugstore_app
         {
             try
             {
-                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, AcceptForm, LoginGrid , ProfileGrid };
+                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, AcceptForm, LoginGrid , ProfileGrid , DrugDetailForm };
                 GridToShow.Visibility = Visibility.Visible;
                 foreach (var item in ListOfGrids)
                 {

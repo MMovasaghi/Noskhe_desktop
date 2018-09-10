@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using noskhe_drugstore_app.Noskhes.Doing.Models;
+using noskhe_drugstore_app.Noskhes.Doing.ViewModels;
 
 namespace noskhe_drugstore_app.Noskhes.Doing.View
 {
@@ -20,30 +23,66 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     /// </summary>
     public partial class NoskheImageDetails : UserControl
     {
-        List<Sample> samples;
+        DetailsChartNoskheVM detailsChart = new DetailsChartNoskheVM();
+        public decimal AllMoneyResult = 0;
         public NoskheImageDetails()
         {
             InitializeComponent();
-            samples = new List<Sample>();
-            DrugDetailChart.ItemsSource = samples;
+            DataContext = detailsChart;
+            DrugDetailChart.ItemsSource = detailsChart.Details;
         }
-
-        private void AddRowButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            samples.Add(new Sample() { Name = "", Value = "" });
-            //DrugDetailChart.Items.Add(samples);
-        }
-
+        
         private void AcceptChange_Click(object sender, RoutedEventArgs e)
         {
+            CalculateAllMoney();
+            int Error = 0;
+            int DrugNumber = 0;
+            foreach (var item in detailsChart.Details)
+            {
+                if (item.AllMoney == 0 || item.Name == null)
+                {
+                    Error++;
+                }
+                else
+                    DrugNumber += item.Number;
+            }
+            if (Error == 0 && AllMoney.Text != "0")
+            {
+                string Result = string.Format("Money : {0} Toman\nDrug Number : {1} \nIf they are correct , Please press YES button.", AllMoney.Text, DrugNumber);
+                MessageBoxResult mbox = MessageBox.Show(Result, "Accepting", MessageBoxButton.YesNo,MessageBoxImage.Information);
+                if (mbox == MessageBoxResult.Yes)
+                {
+                    //call Repository
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() == typeof(MainWindow))
+                        {
+                            (window as MainWindow).DrugDetailForm.Visibility = Visibility.Hidden;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show($"There are Some feild empty or incorrect.", "Warning", MessageBoxButton.OK,MessageBoxImage.Warning);
+            }
+        }       
 
+        private void DrugDetailChart_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            CalculateAllMoney();
+        }
+
+        private void CalculateAllMoney()
+        {
+            AllMoneyResult = 0;
+            foreach (var item in detailsChart.Details)
+            {
+                this.AllMoneyResult += item.AllMoney;
+            }
+            AllMoney.Text = AllMoneyResult.ToString();
         }
     }
-    public class Sample
-    {
-        public string Name { get; set; }
-        public string Value { get; set; }
-    }
+    
 
 }

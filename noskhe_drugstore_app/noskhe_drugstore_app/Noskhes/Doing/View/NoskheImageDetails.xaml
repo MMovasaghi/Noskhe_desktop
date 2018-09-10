@@ -6,7 +6,7 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes.Doing.View"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="750" Background="White">
+             d:DesignHeight="500" d:DesignWidth="750" Background="LightGray">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -45,20 +45,23 @@
         </Grid>
         <Grid Grid.Row="1" Margin="20 10 10 10">            
             <ScrollViewer>
-                <DataGrid x:Name="DrugDetailChart" AutoGenerateColumns="False"  Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
+                <DataGrid x:Name="DrugDetailChart" MouseLeftButtonDown="DrugDetailChart_MouseLeftButtonDown" AutoGenerateColumns="False" ItemsSource="{Binding Path=DetailsChartNoskheVM.DetailsChartNoskhe}" Background="LightGray" Foreground="Black" FlowDirection="RightToLeft" FontFamily="IRANSans">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="نام دارو" Width="350" Binding="{Binding Path=Sample.Name}"/>
-                        <DataGridTextColumn Header="قیمت به تومان" Width="120" Binding="{Binding Path=Sample.Value}"/>
+                        <DataGridTextColumn Header="نام دارو" Width="300" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="قیمت به تومان" Width="150" Binding="{Binding Path=Value}"/>
+                        <DataGridTextColumn Header="تعداد" Width="59" Binding="{Binding Path=Number}"/>
+                        <DataGridTextColumn Header="جمع کل به تومان" Width="150" IsReadOnly="True" Binding="{Binding Path=AllMoney}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
-            <Button x:Name="AddRowButton" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="10" Background="#FF3AB74E" BorderBrush="#FF3AB74E" Click="AddRowButton_Click">
+            <!--<Button x:Name="AddRowButton" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="10" Background="#FF3AB74E" BorderBrush="#FF3AB74E" Click="AddRowButton_Click">
                 <materialdesign:PackIcon Kind="Plus" Width="15" Height="15"/>
-            </Button>
+            </Button>-->
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <TextBlock Foreground="Black" Text="200000" Margin="0 1 10 0" FontWeight="Bold" FontFamily="IRANSans"/>
+                <TextBlock Foreground="Black" Text="تومان" FontWeight="Bold" FontFamily="IRANSans"/>
+                <TextBlock x:Name="AllMoney" Foreground="Black" Text="0" Margin="10 1 10 0" FontWeight="Bold" FontFamily="IRANSans"/>
                 <TextBlock Foreground="Black" Text=" :  جمع کل" FontWeight="Bold" FontFamily="IRANSans"/>
             </StackPanel>            
         </Grid>

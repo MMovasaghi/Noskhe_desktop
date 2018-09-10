@@ -217,7 +217,7 @@
                 </Grid>
             </Grid>
             <!--DrugDetailForm Window-->
-            <Grid x:Name="DrugDetailForm" Grid.Column="2" Grid.RowSpan="2" Visibility="Visible">
+            <Grid x:Name="DrugDetailForm" Grid.Column="2" Grid.RowSpan="2" Visibility="Hidden">
                 <Grid.Background>
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Grid.Background>
