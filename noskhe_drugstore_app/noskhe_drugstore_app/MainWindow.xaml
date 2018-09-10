@@ -232,9 +232,7 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <!--DrugDetailForm-->
-                <Grid Grid.Column="1" Grid.Row="1">
-                    <doingdetailuc:NoskheImageDetails/>
-                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1" x:Name="XDrugDetailForm"/>
             </Grid>
         </Grid>
     </Grid>

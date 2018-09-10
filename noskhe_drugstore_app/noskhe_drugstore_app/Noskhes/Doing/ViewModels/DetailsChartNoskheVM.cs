@@ -7,7 +7,7 @@ using noskhe_drugstore_app.Noskhes.Doing.Models;
 
 namespace noskhe_drugstore_app.Noskhes.Doing.ViewModels
 {
-    class DetailsChartNoskheVM
+    public class DetailsChartNoskheVM
     {
         private List<DetailsChartNoskhe> _Details;
 

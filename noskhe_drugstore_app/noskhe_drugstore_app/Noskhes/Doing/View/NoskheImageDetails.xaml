@@ -6,10 +6,10 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes.Doing.View"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="750" Background="LightGray">
+             d:DesignHeight="500" d:DesignWidth="750" Background="Wheat">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2.5*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-                <StackPanel Width="200" Height="95" x:Name="ImageItem"/>
+                <StackPanel Width="200" Height="130" x:Name="ImageItem"/>
             </Grid>
             <Grid Grid.Column="0">
                 <StackPanel Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -36,7 +36,7 @@
                         <TextBlock Text=" :  ترجیح دارو" Foreground="Black" FontWeight="Bold" FontFamily="IRANSans" Margin="10 0 0 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 0 0">
-                        <TextBlock x:Name="Description" Foreground="Black" Text="من یک خری هستم که دومی ندارم" FontFamily="IRANSans"/>
+                        <TextBlock x:Name="Description" Foreground="Black" Text="من بیماری دارم" FontFamily="IRANSans"/>
                         <TextBlock Text=" :  توضیحات" Foreground="Black" FontWeight="Bold" FontFamily="IRANSans" Margin="10 0 0 0"/>
                     </StackPanel>
                 </StackPanel>
@@ -45,7 +45,7 @@
         </Grid>
         <Grid Grid.Row="1" Margin="20 10 10 10">            
             <ScrollViewer>
-                <DataGrid x:Name="DrugDetailChart" MouseLeftButtonDown="DrugDetailChart_MouseLeftButtonDown" AutoGenerateColumns="False" ItemsSource="{Binding Path=DetailsChartNoskheVM.DetailsChartNoskhe}" Background="LightGray" Foreground="Black" FlowDirection="RightToLeft" FontFamily="IRANSans">
+                <DataGrid x:Name="DrugDetailChart" MouseLeftButtonDown="DrugDetailChart_MouseLeftButtonDown" AutoGenerateColumns="False" ItemsSource="{Binding Path=DetailsChartNoskheVM.DetailsChartNoskhe}" Background="Wheat" Foreground="Black" FlowDirection="RightToLeft" FontFamily="IRANSans">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="نام دارو" Width="300" Binding="{Binding Path=Name}"/>
                         <DataGridTextColumn Header="قیمت به تومان" Width="150" Binding="{Binding Path=Value}"/>

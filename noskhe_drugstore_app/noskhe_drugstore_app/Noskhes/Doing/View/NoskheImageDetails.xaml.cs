@@ -23,7 +23,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     /// </summary>
     public partial class NoskheImageDetails : UserControl
     {
-        DetailsChartNoskheVM detailsChart = new DetailsChartNoskheVM();
+        public DetailsChartNoskheVM detailsChart = new DetailsChartNoskheVM();
         public decimal AllMoneyResult = 0;
         public NoskheImageDetails()
         {
