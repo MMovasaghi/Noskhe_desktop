@@ -96,6 +96,9 @@ namespace noskhe_drugstore_app.AcceptPH
                     doingObj.doingSicks.getparam(sp);
                     doingObj.doingSicks.StartTimer();
                     doingObj.Height = 300;
+
+                    doingObj.d = new DoingDetailofallUC();
+
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(MainWindow))

@@ -24,7 +24,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     /// </summary>
     public partial class DoingDetailUC : UserControl
     {
-
+        public DoingDetailofallUC d;
         public DoingSicksMV doingSicks = new DoingSicksMV();
         public DoingDetailUC()
         {
@@ -56,7 +56,6 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 Phone = "0912218934",
                 BirthDate = "1/1/1 - 12:00AM"
             };
-            DoingDetailofallUC d = new DoingDetailofallUC();
             d.doingSicks.getparam(sp);
 
 
