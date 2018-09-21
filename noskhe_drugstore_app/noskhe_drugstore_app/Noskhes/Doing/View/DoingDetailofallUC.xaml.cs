@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Threading;
 using noskhe_drugstore_app.Noskhes.Doing.ViewModels;
+using noskhe_drugstore_app.Noskhes.Doing.Models;
 
 namespace noskhe_drugstore_app.Noskhes.Doing.View
 {
@@ -62,6 +63,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 noskheChart.ImageItem.Children.Add(image);                
                 noskheChart.RowNumber.Text = a.ToString();
                 Xpanel.Children.Add(noskheChart);
+                
             }
             catch (Exception)
             {
@@ -69,6 +71,11 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             }
             MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که نسخه پیچیده شده است ؟", "Warrning", MessageBoxButton.YesNo);
 
+        }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
         }
     }
 }

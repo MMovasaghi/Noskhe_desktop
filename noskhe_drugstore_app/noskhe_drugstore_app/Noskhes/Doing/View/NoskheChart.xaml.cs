@@ -23,6 +23,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     public partial class NoskheChart : UserControl
     {
         public ImageChartMV imageMV = new ImageChartMV();
+        NoskheImageDetails noskheImageDetails = new NoskheImageDetails();
         public NoskheChart()
         {
             InitializeComponent();
@@ -42,8 +43,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
         private void ListViewItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             try
-            {
-                NoskheImageDetails noskheImageDetails = new NoskheImageDetails();
+            {                
 
 
                 var image = new Image();
@@ -59,12 +59,13 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 //NoskheChart noskheChart = new NoskheChart();
                 //noskheChart.imageMV.ObjIm = new Models.ImageChartModels() { ImageUrl = fullFilePath, Price = 100 };
                 noskheImageDetails.ImageItem.Children.Add(image);
+                noskheImageDetails.URL = fullFilePath;
                 //to show on window
                 foreach (Window window in Application.Current.Windows)
                 {
                     if (window.GetType() == typeof(MainWindow))
                     {
-                        (window as MainWindow).GridsShow(ref (window as MainWindow).DrugDetailForm, "", false, MaterialDesignThemes.Wpf.PackIconKind.AccessPoint);
+                        (window as MainWindow).DrugDetailForm.Visibility = Visibility.Visible;
                         (window as MainWindow).XDrugDetailForm.Children.Add(noskheImageDetails);
 
                     }

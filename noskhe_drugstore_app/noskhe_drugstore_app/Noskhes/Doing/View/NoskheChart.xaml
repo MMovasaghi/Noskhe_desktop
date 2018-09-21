@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes.Doing.View"
              mc:Ignorable="d" 
-             d:DesignHeight="81" d:DesignWidth="280" Background="White">
+             d:DesignHeight="81" d:DesignWidth="365" Background="White">
     <Grid>
         <StackPanel HorizontalAlignment="Right">
             <ListView>
@@ -18,8 +18,11 @@
                     <TextBlock Text="جزئیات" FontWeight="Bold" FontSize="20" TextAlignment="Center" Width="90" TextDecorations="Underline" FontFamily="IRANSans" Foreground="#DD292FD1"/>
                 </ListViewItem>
                 <ListViewItem Width="105" Height="80" Margin="0 0 0 0">
-                    <StackPanel Width="90" Height="70" x:Name="ImageItem" MouseLeftButtonUp="ImageItem_MouseLeftButtonUp"/>
+                    <TextBlock Margin="5 0 0 0" Text="{Binding Path=noskheImageDetails}" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" x:Name="AllMoney"/>
                 </ListViewItem>
+                <ListViewItem Width="105" Height="80" Margin="0 0 0 0">
+                    <StackPanel Width="90" Height="70" x:Name="ImageItem" MouseLeftButtonUp="ImageItem_MouseLeftButtonUp"/>
+                </ListViewItem>                
                 <ListViewItem Width="50" Height="80">
                     <TextBlock Margin="5 0 0 0" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" x:Name="RowNumber"/>
                 </ListViewItem>

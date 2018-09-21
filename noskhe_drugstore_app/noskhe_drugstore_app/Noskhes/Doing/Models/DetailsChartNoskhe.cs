@@ -53,7 +53,8 @@ namespace noskhe_drugstore_app.Noskhes.Doing.Models
             get { return _AllMoney; }
             set
             {
-                _AllMoney = value;                
+                _AllMoney = value;
+                OnPropertyChanged("AllMoney");
             }
         }
         public DetailsChartNoskhe()

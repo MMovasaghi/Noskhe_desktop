@@ -104,6 +104,8 @@ namespace noskhe_drugstore_app.AcceptPH
                         if (window.GetType() == typeof(MainWindow))
                         {
                             (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+                            (window as MainWindow).nostest.DonesGrid.Visibility = Visibility.Hidden;
+                            (window as MainWindow).nostest.DoingGrid.Visibility = Visibility.Visible;
                             (window as MainWindow).nostest.xpanel.Children.Add(doingObj);
                         }
                     }

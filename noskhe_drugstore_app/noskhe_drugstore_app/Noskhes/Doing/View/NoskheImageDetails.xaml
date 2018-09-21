@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-                <StackPanel Width="200" Height="130" x:Name="ImageItem"/>
+                <StackPanel Width="200" Height="130" x:Name="ImageItem" Cursor="Hand" MouseLeftButtonDown="ImageItem_MouseLeftButtonDown"/>
             </Grid>
             <Grid Grid.Column="0">
                 <StackPanel Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -61,7 +61,7 @@
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <TextBlock Foreground="Black" Text="تومان" FontWeight="Bold" FontFamily="IRANSans"/>
-                <TextBlock x:Name="AllMoney" Foreground="Black" Text="0" Margin="10 1 10 0" FontWeight="Bold" FontFamily="IRANSans"/>
+                <TextBlock x:Name="AllMoney" Foreground="Black" Text="{Binding Path=detailsChart.allMoney}" Margin="10 1 10 0" FontWeight="Bold" FontFamily="IRANSans"/>
                 <TextBlock Foreground="Black" Text=" :  جمع کل" FontWeight="Bold" FontFamily="IRANSans"/>
             </StackPanel>            
         </Grid>
