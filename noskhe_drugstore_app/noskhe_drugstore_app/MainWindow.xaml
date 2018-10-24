@@ -41,7 +41,7 @@
         <Grid Grid.Row="1">
             <!--Main Window-->
             <Grid Background="LightGray" Grid.RowSpan="2">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60*"/>
                     <RowDefinition Height="500*"/>
@@ -58,7 +58,7 @@
                         <Button x:Name="ONOFFButton" Content="Enable" Width="100" Foreground="White" Background="#FF1BD188" BorderBrush="#FF1BD188" Click="ONOFFButton_Click"/>
                     </StackPanel>
                     <!--About Menu-->
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">                        
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
                         <materialdesign:PopupBox  Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                             <StackPanel Width="150">
                                 <Button x:Name="ServerStatusButton" Content="Server Status" Click="ServerStatusButton_Click"/>
@@ -90,7 +90,7 @@
                         <noskheuc:NoskhesUC x:Name="nostest"/>
                     </Grid>
                     <Grid x:Name="FinanceGrid" Visibility="Hidden">
-                        <financeuc:FinanceUC/>                        
+                        <financeuc:FinanceUC/>
                     </Grid>
                     <Grid x:Name="StarGrid" Visibility="Hidden">
                         <staruc:StarUC/>
@@ -104,7 +104,7 @@
                     <Grid x:Name="DoingDetailGrid" Visibility="Hidden">
                         <ScrollViewer>
                             <Grid  x:Name="XDingdetail" Height="1100">
-                                
+
                             </Grid>
                         </ScrollViewer>
                     </Grid>
@@ -152,6 +152,12 @@
                         </ListView>
                     </StackPanel>
                 </Grid>
+                <Button Content="Signal-R Login" HorizontalAlignment="Left" Margin="125,135.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="162" Height="74" Click="Button_Click"/>
+                <Button Content="Signal-R SendMessage" HorizontalAlignment="Left" Margin="410,135.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="380" Height="74" Click="Button1_Click"/>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBox x:Name="SendUser" Width="200" Height="30" TextWrapping="Wrap" materialdesign:HintAssist.Hint="SendUser" Foreground="Black"/>
+                    <TextBox  x:Name="reciveUser" Width="200" Height="30" TextWrapping="Wrap" materialdesign:HintAssist.Hint="RecivedUser" Foreground="Black"/>
+                </StackPanel>
 
             </Grid>
 
@@ -212,8 +218,8 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <!--AcceptForm-->
-                <Grid Grid.Column="1" Grid.Row="1">
-                    <acceptuc:AcceptUC/>
+                <Grid x:Name="AcceptFormGrid" Grid.Column="1" Grid.Row="1">
+
                 </Grid>
             </Grid>
             <!--DrugDetailForm Window-->

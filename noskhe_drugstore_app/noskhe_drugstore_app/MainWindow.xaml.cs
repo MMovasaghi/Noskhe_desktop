@@ -16,6 +16,11 @@ using noskhe_drugstore_app.AcceptPH.ViewModels;
 using System.Diagnostics;
 using System.Windows.Controls.Primitives;
 using noskhe_drugstore_app.Profile;
+using noskhe_drugstore_app.AcceptPH;
+using noskhe_drugstore_app.Controller;
+using noskhe_drugstore_app.Models;
+
+
 
 namespace noskhe_drugstore_app
 {
@@ -29,7 +34,6 @@ namespace noskhe_drugstore_app
         {
             InitializeComponent();
         }
-        
         private void CloseApp_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -127,7 +131,9 @@ namespace noskhe_drugstore_app
 
         private void AcceptShow_Click(object sender, RoutedEventArgs e)
         {
-            GridsShow(ref AcceptForm, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.Contacts);
+            GridsShow(ref AcceptForm, "نسخه - داروخانه", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
+            AcceptUC acceptUC = new AcceptUC();
+            AcceptFormGrid.Children.Add(acceptUC);            
 
             try
             {
@@ -146,7 +152,7 @@ namespace noskhe_drugstore_app
         {
             try
             {
-                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, AcceptForm, LoginGrid , ProfileGrid , DrugDetailForm };
+                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, LoginGrid , ProfileGrid , DrugDetailForm };
                 GridToShow.Visibility = Visibility.Visible;
                 foreach (var item in ListOfGrids)
                 {
@@ -172,7 +178,8 @@ namespace noskhe_drugstore_app
         }
 
         private void ONOFFButton_Click(object sender, RoutedEventArgs e)
-        {
+        {           
+
             if (ONOFFButton.Content.ToString() == "Enable")
             {
                 MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که می خواهید وضعیت داروخانه را به حالت خاموش تغییر دهید؟", "Disabling", MessageBoxButton.YesNo);
@@ -195,6 +202,28 @@ namespace noskhe_drugstore_app
                     ONOFFButton.BorderBrush = (Brush)bc.ConvertFrom("#FF1BD188");
                 }
             }
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Connecting to Signal-R
+            SignalR_Sample signalR_Sample = new SignalR_Sample()
+            {
+                ID = 10,
+                Name = SendUser.Text,
+            };
+
+            await SignalR.ConnectingLogin(signalR_Sample);
+        }
+        private async void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            //Connecting to Signal-R
+            SignalR_Sample signalR_Sample = new SignalR_Sample()
+            {
+                ID = 10,
+                Name = SendUser.Text,
+            };
+            await SignalR.SendMessage(signalR_Sample,reciveUser.Text);
         }
     }
 }

@@ -55,7 +55,9 @@
                         <TextBlock Text="نسخه" FontFamily="IRANSans" Foreground="LightGray" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <Separator Margin="20 0"/>
                     </StackPanel>
-                    <StackPanel x:Name="WithNpanel" Grid.Row="1" Margin="0 5 0 0"/>
+                    <StackPanel x:Name="WithNpanel" Grid.Row="1" Margin="0 5 0 0">
+                        <TextBlock HorizontalAlignment="Center" x:Name="Alitext" Foreground="White" FontSize="20"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">

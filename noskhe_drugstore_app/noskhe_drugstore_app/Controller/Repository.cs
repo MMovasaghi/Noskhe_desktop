@@ -92,11 +92,14 @@ namespace noskhe_drugstore_app.Controller
                                 of 8 floats. The first 7 items are the time for the week days.
                                 The last item is for total packing average time of week.
         */
-        private HttpClient client = new HttpClient();
-        private HttpResponseMessage responseMessage = new HttpResponseMessage();
+
+        
+
+        public HttpClient client = new HttpClient();
+        public HttpResponseMessage responseMessage = new HttpResponseMessage();
         public Repository()
         {
-            client.BaseAddress = new Uri("http://localhost:19575/");            
+            client.BaseAddress = new Uri(ServerURL.Main_Server_url);            
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("desktop-api-key", "OWQ21KJED0ASDWQE0POCXM30239J");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

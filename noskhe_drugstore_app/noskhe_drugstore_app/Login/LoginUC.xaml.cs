@@ -28,7 +28,7 @@ namespace noskhe_drugstore_app.Login
 
         private void loginbut_Click(object sender, RoutedEventArgs e)
         {
-            CheckLogin();
+             CheckLogin();
         }
 
         private void Password_box_KeyDown(object sender, KeyEventArgs e)
@@ -63,6 +63,9 @@ namespace noskhe_drugstore_app.Login
                 bool result = await repo.Check_Login(Login);
                 if (result)
                 {
+                    //Connecting to Signal-R
+                    //await SignalR.ConnectingLogin("ali");
+
                     CurrentUser currentUser = new CurrentUser();
                     currentUser.SetDATAasync(Username_box.Text);
                     MainWindow mainWindow = new MainWindow();
@@ -74,8 +77,10 @@ namespace noskhe_drugstore_app.Login
                             (window as MainWindow).LoginGrid.Visibility = Visibility.Hidden;
                         }
                     }
+
                     var myWindow = Window.GetWindow(this);
                     myWindow.Close();
+
                 }
                 else
                 {
@@ -87,9 +92,9 @@ namespace noskhe_drugstore_app.Login
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBoxResult mbox1 = MessageBox.Show("Your Password or Username is incorrect !" + ex.Message, "Warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             
 

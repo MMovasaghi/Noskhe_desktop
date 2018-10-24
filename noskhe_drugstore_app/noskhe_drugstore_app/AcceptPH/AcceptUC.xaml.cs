@@ -16,6 +16,7 @@ using System.Windows.Threading;
 using noskhe_drugstore_app.AcceptPH.ViewModels;
 using noskhe_drugstore_app.Noskhes.Doing.View;
 using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Controller;
 
 namespace noskhe_drugstore_app.AcceptPH
 {
@@ -29,13 +30,15 @@ namespace noskhe_drugstore_app.AcceptPH
         {
             InitializeComponent();
             DataContext = timerVM;
+
+            
             //button click
             //TimerVM.StartTimer();
             //TimerVM.timerModel.sec = 60;
-        }
-
+        } 
         private void RefuseButton_Click(object sender, RoutedEventArgs e)
-        {
+        {           
+
             MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که می خوهید نسخه را نبپذیرید ؟", "Refusing", MessageBoxButton.YesNo);
             if (mbox == MessageBoxResult.Yes)
             {
