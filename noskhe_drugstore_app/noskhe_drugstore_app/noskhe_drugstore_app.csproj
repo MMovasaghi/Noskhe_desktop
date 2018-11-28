@@ -309,6 +309,7 @@
     </Compile>
     <Compile Include="AcceptPH\Models\TimerACModel.cs" />
     <Compile Include="AcceptPH\ViewModels\TimerACVM.cs" />
+    <Compile Include="Controller\NotificationFirstSR.cs" />
     <Compile Include="Controller\Repository.cs" />
     <Compile Include="Controller\ServerURL.cs" />
     <Compile Include="Controller\SignalR.cs" />

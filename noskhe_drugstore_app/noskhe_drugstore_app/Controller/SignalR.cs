@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.SignalR.Client;
 using System.Windows;
 using noskhe_drugstore_app.Models;
+using System.Diagnostics;
 
 namespace noskhe_drugstore_app.Controller
 {
@@ -22,24 +23,33 @@ namespace noskhe_drugstore_app.Controller
             
         }       
 
-        public static async Task ConnectingLogin(SignalR_Sample user)
+        public static async Task ConnectingLogin(string user)
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
-
-            hubConnection.On<SignalR_Sample>("HandleNotification", (message) =>
+            
+            hubConnection.On<sample>("HandleNotification", (message) =>
             {
-                MessageBoxResult mbox1 = MessageBox.Show(string.Format("Message ID : {0}\n From : {1}", message.ID,message.Name), "Signal-R", MessageBoxButton.OK, MessageBoxImage.Information);
+                //Debug.WriteLine(".....>>>>> " + message);
+                MessageBox.Show(string.Format("Url0 : {0}\nUrl2 : {1}\n", message.Url1, message.Url2),
+                    "Signal-R", MessageBoxButton.OK, MessageBoxImage.Information);
             });
             await hubConnection.StartAsync();
-            await hubConnection.InvokeAsync("Initialize", user.Name);
+            await hubConnection.InvokeAsync("Initialize", user);
 
         }
-        public static async Task SendMessage(SignalR_Sample user, string ToUser)
+        public static async Task SendMessage(sample user, string ToUser)
         {
-            await hubConnection.InvokeAsync("SendMessage", user.Name , user);
+            await hubConnection.InvokeAsync("SendMessage", ToUser, user);
         }
 
 
     }
+    public class sample
+    {
+        public string Url1 { get; set; }
+        public string Url2 { get; set; }
+        public string Url3 { get; set; }
+    }
+
     
 }
