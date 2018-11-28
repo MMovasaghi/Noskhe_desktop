@@ -27,11 +27,32 @@ namespace noskhe_drugstore_app.Controller
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
             
-            hubConnection.On<sample>("HandleNotification", (message) =>
+            hubConnection.On<List<NoskheAtFirst>>("HandleNotification", (message) =>
             {
-                //Debug.WriteLine(".....>>>>> " + message);
-                MessageBox.Show(string.Format("Url0 : {0}\nUrl2 : {1}\n", message.Url1, message.Url2),
-                    "Signal-R", MessageBoxButton.OK, MessageBoxImage.Information);
+                StringBuilder A = new StringBuilder();
+
+                var ResultPicture =
+                    from i in message
+                    select i.Picture_Urls;
+                var ResultNoskhe =
+                    from i in message
+                    select i.WithOutNoskhe_List;
+                
+                foreach (var item in ResultPicture)
+                {
+                    foreach (var index in item)
+                    {
+                        A.Append(string.Format("P :   {0}\n", index));
+                    }
+                }
+                foreach (var item in ResultNoskhe)
+                {
+                    foreach (var index in item)
+                    {
+                        A.Append(string.Format("N :   {0} : {1}\n", index.Number,index.Name));
+                    }
+                }
+                MessageBox.Show(A.ToString(),"Signal-R", MessageBoxButton.OK, MessageBoxImage.Information);
             });
             await hubConnection.StartAsync();
             await hubConnection.InvokeAsync("Initialize", user);
@@ -50,6 +71,15 @@ namespace noskhe_drugstore_app.Controller
         public string Url2 { get; set; }
         public string Url3 { get; set; }
     }
+    public class NoskheAtFirst
+    {
+        public List<string> Picture_Urls { set; get; }
+        public List<WithOutNoskhe> WithOutNoskhe_List { set; get; }
+    }
+    public class WithOutNoskhe
+    {
+        public int Number { get; set; }
+        public string Name { get; set; }
+    }
 
-    
 }
