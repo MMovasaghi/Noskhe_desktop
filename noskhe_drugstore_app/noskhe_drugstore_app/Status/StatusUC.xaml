@@ -55,7 +55,7 @@
                 <Grid Grid.Row="1">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
                         <TextBlock x:Name="CheckTxt" HorizontalAlignment="Center" Visibility="Hidden" Text="Connected" FontSize="40" FontWeight="Bold" Foreground="#FF498232"/>
-                        <TextBlock x:Name="DetailTxt" Width="850" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" FontSize="18" Foreground="Black"/>
+                        <TextBlock x:Name="DetailTxt" Width="850" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" FontSize="14" Foreground="Black"/>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">

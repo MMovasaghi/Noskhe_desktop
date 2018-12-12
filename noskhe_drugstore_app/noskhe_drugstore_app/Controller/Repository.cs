@@ -101,19 +101,20 @@ namespace noskhe_drugstore_app.Controller
         {
             client.BaseAddress = new Uri(ServerURL.Main_Server_url);            
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Add("desktop-api-key", "OWQ21KJED0ASDWQE0POCXM30239J");
+            client.DefaultRequestHeaders.Add(ServerURL.API_KEY_TYPE, ServerURL.API_KEY_VALUE);
+            client.DefaultRequestHeaders.Add(ServerURL.AUTH_TYPE , ServerURL.AUTH_VALUE);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             
         }        
         public async Task<Descriptive> Get_DB_Status()
         {            
-            responseMessage = await client.GetAsync("desktop-api/pharmacy/get-database-status");
+            responseMessage = await client.GetAsync( ServerURL.ROUTE + "/db-state");
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Descriptive>();
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Message == "DATABASE_FAILURE")
+            if (output.Error == "DATABASE_FAILURE")
             {
                 throw new DATABASE_FAILURE();
             }
@@ -121,7 +122,7 @@ namespace noskhe_drugstore_app.Controller
         }
         public async Task<Descriptive> Get_Server_Status()
         {
-            responseMessage = await client.GetAsync("desktop-api/pharmacy/get-server-status");
+            responseMessage = await client.GetAsync( ServerURL.ROUTE + "/server-state");
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Descriptive>();
@@ -136,11 +137,11 @@ namespace noskhe_drugstore_app.Controller
                 return await responseMessage.Content.ReadAsAsync<Models.Minimals.Output.Pharmacy>();
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Message == "NO_PHARMACIES_MATCHED_THE_UPI")
+            if (output.Error == "NO_PHARMACIES_MATCHED_THE_UPI")
             {
                 throw new NO_PHARMACIES_MATCHED_THE_UPI();
             }
-            else if (output.Message == "DATABASE_FAILURE")
+            else if (output.Error == "DATABASE_FAILURE")
             {
                 throw new DATABASE_FAILURE();
             }
@@ -155,11 +156,11 @@ namespace noskhe_drugstore_app.Controller
                 return true;
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Message == "VERIFICATION_FAILED")
+            if (output.Error == "VERIFICATION_FAILED")
             {
                 throw new VERIFICATION_FAILED();
             }
-            else if (output.Message == "DATABASE_FAILURE")
+            else if (output.Error == "DATABASE_FAILURE")
             {
                 throw new DATABASE_FAILURE();
             }
@@ -173,11 +174,11 @@ namespace noskhe_drugstore_app.Controller
                 return await responseMessage.Content.ReadAsAsync<string>();
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Message == "NO_PHARMACIES_MATCHED_THE_EMAIL")
+            if (output.Error == "NO_PHARMACIES_MATCHED_THE_EMAIL")
             {
                 throw new NO_PHARMACIES_MATCHED_THE_UPI();
             }
-            else if (output.Message == "DATABASE_FAILURE")
+            else if (output.Error == "DATABASE_FAILURE")
             {
                 throw new DATABASE_FAILURE();
             }

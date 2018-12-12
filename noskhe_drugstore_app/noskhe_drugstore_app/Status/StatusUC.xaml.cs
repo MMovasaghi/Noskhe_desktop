@@ -35,7 +35,8 @@ namespace noskhe_drugstore_app.Status
             try
             {
                 Repository repo = new Repository();
-                Descriptive result = await repo.Get_DB_Status();
+                Descriptive result = await repo.Get_Server_Status();
+                
                 if (result != null || result.Success == true)
                 {
                     CheckTxt.Text = "Connected";
@@ -53,7 +54,7 @@ namespace noskhe_drugstore_app.Status
             }
             catch (DATABASE_FAILURE ex)
             {
-                CheckTxt.Text = "Disconnect";
+                CheckTxt.Text = "DATABASE_FAILURE";
                 CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
                 DetailTxt.Text = ex.Message;
                 DetailTxt.Visibility = Visibility.Visible;
@@ -62,7 +63,7 @@ namespace noskhe_drugstore_app.Status
             }
             catch (NOT_RESPONDING ex)
             {
-                CheckTxt.Text = "Disconnect";
+                CheckTxt.Text = "NOT_RESPONDING";
                 CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
                 DetailTxt.Text = ex.Message;
                 CheckTxt.Visibility = Visibility.Visible;
@@ -110,7 +111,7 @@ namespace noskhe_drugstore_app.Status
                 Url2 = reciveUser.Text,
                 Url3 = "pashm"
             };
-            await SignalR.SendMessage(sample, reciveUser.Text);
+            await SignalR.SendMessage("salam", reciveUser.Text);
         }
     }
 }

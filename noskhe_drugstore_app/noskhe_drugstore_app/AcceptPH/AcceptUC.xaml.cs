@@ -29,9 +29,7 @@ namespace noskhe_drugstore_app.AcceptPH
         public AcceptUC()
         {
             InitializeComponent();
-            DataContext = timerVM;
-
-            
+            DataContext = timerVM;            
             //button click
             //TimerVM.StartTimer();
             //TimerVM.timerModel.sec = 60;
