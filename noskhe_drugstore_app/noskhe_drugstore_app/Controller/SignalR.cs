@@ -67,8 +67,7 @@ namespace noskhe_drugstore_app.Controller
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
 
             hubConnection.On<string>("HandleNotification", (message) =>
-            {
-                
+            {                
                 MessageBox.Show(message.ToString(), "Signal-R", MessageBoxButton.OK, MessageBoxImage.Information);
             });
             await hubConnection.StartAsync();
