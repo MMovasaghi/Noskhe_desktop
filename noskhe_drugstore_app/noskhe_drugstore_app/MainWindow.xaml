@@ -96,16 +96,13 @@
                         <staruc:StarUC/>
                     </Grid>
                     <Grid x:Name="SettingsGrid" Visibility="Hidden">
-
                     </Grid>
-                    <Grid x:Name="StatusGrid" Visibility="Hidden">
+                    <Grid x:Name="StatusGrid" Visibility="Visible">
                         <statusuc:StatusUC/>
                     </Grid>
                     <Grid x:Name="DoingDetailGrid" Visibility="Hidden">
                         <ScrollViewer>
-                            <Grid  x:Name="XDingdetail" Height="1100">
-
-                            </Grid>
+                            <Grid  x:Name="XDingdetail" Height="1100"/>
                         </ScrollViewer>
                     </Grid>
                     <Grid x:Name="ProfileGrid" Visibility="Hidden"/>
@@ -152,13 +149,6 @@
                         </ListView>
                     </StackPanel>
                 </Grid>
-                <Button Content="Signal-R Login" HorizontalAlignment="Left" Margin="125,135.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="162" Height="74" Click="Button_Click"/>
-                <Button Content="Signal-R SendMessage" HorizontalAlignment="Left" Margin="410,135.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="380" Height="74" Click="Button1_Click"/>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBox x:Name="SendUser" Width="200" Height="30" TextWrapping="Wrap" materialdesign:HintAssist.Hint="SendUser" Foreground="Black"/>
-                    <TextBox  x:Name="reciveUser" Width="200" Height="30" TextWrapping="Wrap" materialdesign:HintAssist.Hint="RecivedUser" Foreground="Black"/>
-                </StackPanel>
-
             </Grid>
 
 

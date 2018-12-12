@@ -78,5 +78,39 @@ namespace noskhe_drugstore_app.Status
             }
             this.Cursor = Cursors.Arrow;
         }
+        private async void LoginSignalR(object sender, RoutedEventArgs e)
+        {
+            //Connecting to Signal-R
+            this.Cursor = Cursors.Wait;
+            try
+            {
+                await SignalR.ConnectingLogin(SendUser.Text);
+            }
+            catch (Exception ex)
+            {
+                CheckTxt.Text = "Disconnect";
+                CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
+                DetailTxt.Text = ex.Message + "\nCheck your Internet connection and Try Again.";
+                CheckTxt.Visibility = Visibility.Visible;
+                DetailTxt.Visibility = Visibility.Visible;
+            }
+            this.Cursor = Cursors.Arrow;
+        }
+        private async void SendMessageSignalR(object sender, RoutedEventArgs e)
+        {
+            //sendmessage
+            NotificationFirstSR nf = new NotificationFirstSR()
+            {
+                Url = new List<string>() { "ali", "hasan" },
+                ListWithOutNoskhe = new List<WithOutNoskheFist>() { new WithOutNoskheFist() { Number = 10, Nlist = "noskhe" } },
+            };
+            sample sample = new sample()
+            {
+                Url1 = SendUser.Text,
+                Url2 = reciveUser.Text,
+                Url3 = "pashm"
+            };
+            await SignalR.SendMessage(sample, reciveUser.Text);
+        }
     }
 }

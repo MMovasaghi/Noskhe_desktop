@@ -126,7 +126,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <GroupBox Header="توضیحات" TextBlock.TextAlignment="Right" FontFamily="IRANSans"  Margin="20 -20 10 10">
-                            <TextBlock Text="من خیلی خرم" Foreground="Black" FontFamily="IRANSans"/>
+                            <TextBlock Text="لطفا سریع تر ارسال کنید ، به شدت عجله داریم" Foreground="Black" FontFamily="IRANSans"/>
                         </GroupBox>
                     </Grid>
                     <Grid Grid.Row="1">

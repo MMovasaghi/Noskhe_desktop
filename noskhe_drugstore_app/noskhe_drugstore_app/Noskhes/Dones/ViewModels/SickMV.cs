@@ -24,7 +24,7 @@ namespace noskhe_drugstore_app.Noskhes.Dones.ViewModels
             SickPerson sp = new SickPerson
             {
                 FirstName = "علی",
-                LastName = "پشمکخانی",
+                LastName = "رضایی",
                 Phone = "0912218934",
                 BirthDate = "1/1/1 - 12:00AM"
             };

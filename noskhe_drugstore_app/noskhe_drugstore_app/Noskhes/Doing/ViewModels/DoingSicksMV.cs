@@ -19,8 +19,8 @@ namespace noskhe_drugstore_app.Noskhes.Doing.ViewModels
             timerModel = new TimerModel();
             SickPerson sp = new SickPerson
             {
-                FirstName = "علی",
-                LastName = "پشمکخانی",
+                FirstName = "رضا",
+                LastName = "احمدی",
                 Phone = "0912218934",
                 BirthDate = "1/1/1 - 12:00AM"
             };

@@ -203,29 +203,6 @@ namespace noskhe_drugstore_app
                 }
             }
         }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //Connecting to Signal-R
-            
-
-            await SignalR.ConnectingLogin(SendUser.Text);
-        }
-        private async void Button1_Click(object sender, RoutedEventArgs e)
-        {
-            //sendmessage
-            NotificationFirstSR nf = new NotificationFirstSR()
-            {
-                Url = new List<string>() { "ali" , "hasan" },
-                ListWithOutNoskhe = new List<WithOutNoskheFist>() { new WithOutNoskheFist() { Number = 10 , Nlist = "noskhe"} },
-            };
-            sample sample = new sample()
-            {
-                Url1 = SendUser.Text,
-                Url2 = reciveUser.Text,
-                Url3 = "pashm"
-            };
-            await SignalR.SendMessage(sample, reciveUser.Text);
-        }
+        
     }
 }

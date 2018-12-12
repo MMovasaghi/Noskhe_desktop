@@ -47,6 +47,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="180*"/>
                     <RowDefinition Height="180*"/>
+                    <RowDefinition Height="180*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Button x:Name="CheckButton" Content="Check" Background="#FF0E6B24" FontSize="30" FontWeight="Bold" Width="160" Height="150" Style="{DynamicResource MaterialDesignFloatingActionButton}" BorderBrush="#FF0E6B24" Click="CheckButton_ClickAsync"/>
@@ -55,6 +56,14 @@
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
                         <TextBlock x:Name="CheckTxt" HorizontalAlignment="Center" Visibility="Hidden" Text="Connected" FontSize="40" FontWeight="Bold" Foreground="#FF498232"/>
                         <TextBlock x:Name="DetailTxt" Width="850" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" FontSize="18" Foreground="Black"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Button Content="Signal-R Login" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15" Width="230" Height="50" Click="LoginSignalR"/>
+                    <Button Content="Signal-R SendMessage" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15" Width="230" Height="50" Click="SendMessageSignalR"/>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBox x:Name="SendUser" Width="200" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="SendUser" Foreground="Black"/>
+                        <TextBox  x:Name="reciveUser" Width="200" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="RecivedUser" Foreground="Black"/>
                     </StackPanel>
                 </Grid>
 

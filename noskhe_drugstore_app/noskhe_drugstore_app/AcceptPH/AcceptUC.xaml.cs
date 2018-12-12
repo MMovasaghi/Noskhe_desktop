@@ -90,8 +90,8 @@ namespace noskhe_drugstore_app.AcceptPH
 
                     SickPerson sp = new SickPerson
                     {
-                        FirstName = "پشمام",
-                        LastName = "پشمک فروش",
+                        FirstName = "رضا",
+                        LastName = "احمدی",
                         Phone = "0912218934",
                         BirthDate = "1/1/1 - 12:00AM"
                     };
