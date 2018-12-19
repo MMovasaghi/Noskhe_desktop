@@ -24,8 +24,9 @@ namespace noskhe_drugstore_app.AcceptPH
     /// Interaction logic for LoginUC.xaml
     /// </summary>
     public partial class AcceptUC : UserControl
-    {
+    {        
         TimerACVM timerVM = new TimerACVM();
+        
         public AcceptUC()
         {
             InitializeComponent();

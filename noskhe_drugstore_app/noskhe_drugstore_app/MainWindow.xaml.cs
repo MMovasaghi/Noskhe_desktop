@@ -21,19 +21,19 @@ using noskhe_drugstore_app.Controller;
 using noskhe_drugstore_app.Models;
 
 
-
 namespace noskhe_drugstore_app
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window , InterfaceNotifi
     {
-        
         public MainWindow()
         {
             InitializeComponent();
+            SignalR.nterfaceNotifi = this;
         }
+        AcceptUC acceptUC = new AcceptUC();
         private void CloseApp_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -131,23 +131,26 @@ namespace noskhe_drugstore_app
 
         private void AcceptShow_Click(object sender, RoutedEventArgs e)
         {
-            GridsShow(ref AcceptForm, "نسخه - داروخانه", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
-            AcceptUC acceptUC = new AcceptUC();
-            AcceptFormGrid.Children.Add(acceptUC);            
+            //GridsShow(ref AcceptForm, "نسخه - داروخانه", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
+            //AcceptUC acceptUC = new AcceptUC();
+            //AcceptFormGrid.Children.Add(acceptUC);
 
-            try
-            {
-                //Timer of Accept Page start
-                TimerACVM.timerModel.sec = 60;
-                TimerACVM.StartTimer();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message,"Error",MessageBoxButton.OK,MessageBoxImage.Error);
-            }       
-            
+            //try
+            //{
+            //    //Timer of Accept Page start
+            //    TimerACVM.timerModel.sec = 60;
+            //    TimerACVM.StartTimer();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+            ShowNofitication();
         }
-
+        [STAThread]
+        public void ShowNofitication()
+        {
+        }
         public void GridsShow(ref Grid GridToShow,string TitleText,bool IcoShow , MaterialDesignThemes.Wpf.PackIconKind packIconKind)
         {
             try
@@ -203,6 +206,7 @@ namespace noskhe_drugstore_app
                 }
             }
         }
+        
         
     }
 }

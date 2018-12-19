@@ -307,6 +307,7 @@
     <Compile Include="AcceptPH\AcceptUC.xaml.cs">
       <DependentUpon>AcceptUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AcceptPH\InterfaceNotifi.cs" />
     <Compile Include="AcceptPH\Models\TimerACModel.cs" />
     <Compile Include="AcceptPH\ViewModels\TimerACVM.cs" />
     <Compile Include="Controller\NotificationFirstSR.cs" />

@@ -62,8 +62,8 @@
                     <Button Content="Signal-R Login" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15" Width="230" Height="50" Click="LoginSignalR"/>
                     <Button Content="Signal-R SendMessage" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15" Width="230" Height="50" Click="SendMessageSignalR"/>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBox x:Name="SendUser" Width="200" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="SendUser" Foreground="Black"/>
-                        <TextBox  x:Name="reciveUser" Width="200" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="RecivedUser" Foreground="Black"/>
+                        <TextBox x:Name="SendUser" Text="Pashm" Width="200" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="SendUser" Foreground="Black"/>
+                        <TextBox  x:Name="reciveUser" Text="Yashm" Width="200" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="RecivedUser" Foreground="Black"/>
                     </StackPanel>
                 </Grid>
 

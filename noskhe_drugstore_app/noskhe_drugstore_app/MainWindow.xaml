@@ -208,7 +208,7 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <!--AcceptForm-->
-                <Grid x:Name="AcceptFormGrid" Grid.Column="1" Grid.Row="1">
+                <Grid x:Name="XAcceptForm" Grid.Column="1" Grid.Row="1">
 
                 </Grid>
             </Grid>

@@ -32,10 +32,12 @@ namespace noskhe_drugstore_app.Status
         private async void CheckButton_ClickAsync(object sender, RoutedEventArgs e)
         {
             this.Cursor = Cursors.Wait;
+            
             try
             {
                 Repository repo = new Repository();
                 Descriptive result = await repo.Get_Server_Status();
+
                 
                 if (result != null || result.Success == true)
                 {
