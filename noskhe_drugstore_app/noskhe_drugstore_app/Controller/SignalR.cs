@@ -37,7 +37,7 @@ namespace noskhe_drugstore_app.Controller
             });
             hubConnection.On<int,string>("RecieveStatus", (status,MyName) =>
             {
-                if(status == 1)
+                if(status == 1 && MyName != "")
                 {
                     MY_NAME = MyName;
                 }
