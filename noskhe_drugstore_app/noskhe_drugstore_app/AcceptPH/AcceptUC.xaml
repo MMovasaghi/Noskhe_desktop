@@ -55,11 +55,9 @@
                         <TextBlock Text="نسخه" FontFamily="IRANSans" Foreground="LightGray" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <Separator Margin="20 0"/>
                     </StackPanel>
-                    <StackPanel Grid.Row="1" Margin="0 5 0 0">
-                        <ScrollViewer>
-                            <Grid x:Name="XWithNoskhePanel" Margin="0 5 0 0"/>
-                        </ScrollViewer>
-                    </StackPanel>
+                    <ScrollViewer Grid.Row="1">
+                        <StackPanel x:Name="XWithNoskhePanel" Margin="10"/>
+                    </ScrollViewer>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">

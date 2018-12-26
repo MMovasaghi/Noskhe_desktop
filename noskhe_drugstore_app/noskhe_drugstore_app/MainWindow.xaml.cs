@@ -26,7 +26,7 @@ namespace noskhe_drugstore_app
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window , InterfaceNotifi
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
@@ -130,25 +130,7 @@ namespace noskhe_drugstore_app
 
         private void AcceptShow_Click(object sender, RoutedEventArgs e)
         {
-            //GridsShow(ref AcceptForm, "نسخه - داروخانه", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
-            //AcceptUC acceptUC = new AcceptUC();
-            //AcceptFormGrid.Children.Add(acceptUC);
-
-            //try
-            //{
-            //    //Timer of Accept Page start
-            //    TimerACVM.timerModel.sec = 60;
-            //    TimerACVM.StartTimer();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-            ShowNofitication();
-        }
-        [STAThread]
-        public void ShowNofitication()
-        {
+            
         }
         public void GridsShow(ref Grid GridToShow,string TitleText,bool IcoShow , MaterialDesignThemes.Wpf.PackIconKind packIconKind)
         {

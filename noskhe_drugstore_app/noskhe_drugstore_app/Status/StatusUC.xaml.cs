@@ -101,12 +101,6 @@ namespace noskhe_drugstore_app.Status
         }
         private async void SendMessageSignalR(object sender, RoutedEventArgs e)
         {
-            //sendmessage
-            NotificationFirstSR nf = new NotificationFirstSR()
-            {
-                Url = new List<string>() { "ali", "hasan" },
-                ListWithOutNoskhe = new List<WithOutNoskheFist>() { new WithOutNoskheFist() { Number = 10, Nlist = "noskhe" } },
-            };
             await SignalR.SendMessage("salam", reciveUser.Text);
         }
     }

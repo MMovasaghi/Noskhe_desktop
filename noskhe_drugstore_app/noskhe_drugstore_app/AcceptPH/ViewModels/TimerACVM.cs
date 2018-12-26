@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,14 @@ namespace noskhe_drugstore_app.AcceptPH.ViewModels
             {
                 dt.Stop();
                 timerModel.TimerAlert = Brushes.White;
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(MainWindow))
+                    {
+                        (window as MainWindow).AcceptForm.Visibility = Visibility.Hidden;
+
+                    }
+                }
             }
 
         }

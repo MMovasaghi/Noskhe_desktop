@@ -18,17 +18,14 @@ namespace noskhe_drugstore_app.Controller
     public class SignalR
     {
         private static HubConnection hubConnection = new HubConnectionBuilder()
-                    .WithUrl(ServerURL.Hub_Server_url, options =>
-                    {
-                        options.AccessTokenProvider = () => Task.FromResult(ServerURL.AUTH_VALUE);
-                    })
+                    .WithUrl(ServerURL.Hub_Server_url)
                     .Build();
 
         private static WindowCollection window = Application.Current.Windows;
 
         public static AcceptUC acceptUC = new AcceptUC();
 
-
+        private static string MY_NAME { get; set; }
 
         public static async Task ConnectingLogin(string user)
         {
@@ -38,8 +35,19 @@ namespace noskhe_drugstore_app.Controller
             {
                 MessageNotification(message);
             });
+            hubConnection.On<int,string>("RecieveStatus", (status,MyName) =>
+            {
+                if(status == 1)
+                {
+                    MY_NAME = MyName;
+                }
+                else
+                {
+                    MY_NAME = "NULL";
+                }                
+            });
             await hubConnection.StartAsync();
-            await hubConnection.InvokeAsync("Initialize", user);
+            await hubConnection.InvokeAsync("Initialize", 1 , ServerURL.AUTH_VALUE);
 
         }
         public static async Task SendMessage(string a, string ToUser)
@@ -64,7 +72,7 @@ namespace noskhe_drugstore_app.Controller
                         try
                         {
                             //Timer of Accept Page start
-                            TimerACVM.timerModel.sec = 60;
+                            TimerACVM.timerModel.sec = 90;
                             TimerACVM.StartTimer();
                         }
                         catch (Exception ex)

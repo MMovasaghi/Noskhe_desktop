@@ -307,10 +307,11 @@
     <Compile Include="AcceptPH\AcceptUC.xaml.cs">
       <DependentUpon>AcceptUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AcceptPH\InterfaceNotifi.cs" />
     <Compile Include="AcceptPH\Models\TimerACModel.cs" />
+    <Compile Include="AcceptPH\ShowImagePanel.xaml.cs">
+      <DependentUpon>ShowImagePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AcceptPH\ViewModels\TimerACVM.cs" />
-    <Compile Include="Controller\NotificationFirstSR.cs" />
     <Compile Include="Controller\Repository.cs" />
     <Compile Include="Controller\ServerURL.cs" />
     <Compile Include="Controller\SignalR.cs" />
@@ -414,6 +415,10 @@
     <Page Include="AcceptPH\AcceptUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AcceptPH\ShowImagePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Finance\RepoOfCashOut\View\CashOutAll.xaml">
       <SubType>Designer</SubType>

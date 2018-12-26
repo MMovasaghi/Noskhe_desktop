@@ -115,11 +115,36 @@ namespace noskhe_drugstore_app.AcceptPH
         public void GetObjectOfNoskhe(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop obj)
         {
             NoskheForFirstNotificationOnDesktop = obj;
-            //foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
-            //{
-            //    XWithNoskhePanel.Children.Add(item);
-            //}
-            
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
+            {
+                ShowOn(item);
+            }
+
+        }
+        public void ShowOn(string url)
+        {
+            try
+            {
+                var image = new Image();
+                var fullFilePath = url;
+
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
+                bitmap.EndInit();
+
+                image.Source = bitmap;
+                
+                ShowImagePanel showImagePanel = new ShowImagePanel();
+                showImagePanel.XShowImage.Children.Add(image);
+                showImagePanel.ImageUrl = url;
+
+                XWithNoskhePanel.Children.Add(showImagePanel);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }
