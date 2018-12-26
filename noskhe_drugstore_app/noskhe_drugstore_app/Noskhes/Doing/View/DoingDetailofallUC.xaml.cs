@@ -26,6 +26,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     {
         public DoingSicksMV doingSicks = new DoingSicksMV();
         public ImageChartMV imageChart = new ImageChartMV();
+        public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
         public DoingDetailofallUC()
         {
             InitializeComponent();
@@ -45,11 +46,39 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+            MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که نسخه پیچیده شده است ؟", "Warrning", MessageBoxButton.YesNo);
+
+        }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        public void ShowOnScreen(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop arg)
+        {
+            NoskheForFirstNotificationOnDesktop = arg;
+            SickFirstName.Text = NoskheForFirstNotificationOnDesktop.Customer.FirstName;
+            SickLastName.Text = NoskheForFirstNotificationOnDesktop.Customer.LastName;
+            SickPhone.Text = NoskheForFirstNotificationOnDesktop.Customer.Phone;
+
+            //add images with out noskhe
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
+            {
+                AddImageData(item);
+            }           
+
+
+            //delivery data
+        }
+        public void AddImageData(string URLIMAGE)
+        {
             a++;
             try
             {
                 var image = new Image();
-                var fullFilePath = @"https://cdn.newsapi.com.au/image/v1/9fdbf585d17c95f7a31ccacdb6466af9";
+                var fullFilePath = URLIMAGE;
 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
@@ -60,22 +89,15 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
                 NoskheChart noskheChart = new NoskheChart();
                 noskheChart.imageMV.ObjIm = new Models.ImageChartModels() { ImageUrl = fullFilePath, Price = 100 };
-                noskheChart.ImageItem.Children.Add(image);                
+                noskheChart.ImageItem.Children.Add(image);
                 noskheChart.RowNumber.Text = a.ToString();
                 Xpanel.Children.Add(noskheChart);
-                
+
             }
             catch (Exception)
             {
 
             }
-            MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که نسخه پیچیده شده است ؟", "Warrning", MessageBoxButton.YesNo);
-
-        }
-
-        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
         }
     }
 }

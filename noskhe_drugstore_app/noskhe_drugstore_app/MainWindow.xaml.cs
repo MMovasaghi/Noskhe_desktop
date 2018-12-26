@@ -31,7 +31,6 @@ namespace noskhe_drugstore_app
         public MainWindow()
         {
             InitializeComponent();
-            SignalR.nterfaceNotifi = this;
         }
         AcceptUC acceptUC = new AcceptUC();
         private void CloseApp_Click(object sender, RoutedEventArgs e)

@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using noskhe_drugstore_app.Noskhes.Dones.ViewModels;
 using noskhe_drugstore_app.Noskhes.Dones.Models;
-using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Models;
 using System.Collections.ObjectModel;
 
 namespace noskhe_drugstore_app.Noskhes.Dones
@@ -39,7 +39,7 @@ namespace noskhe_drugstore_app.Noskhes.Dones
                 FirstName = "علی",
                 LastName = "رضایی",
                 Phone = "0912218934",
-                BirthDate = "1/1/1 - 12:00AM"
+                //BirthDate = "1/1/1 - 12:00AM"
             };
 
             sickMV.sickDetailModel = new ObservableCollection<SickDetailModel>

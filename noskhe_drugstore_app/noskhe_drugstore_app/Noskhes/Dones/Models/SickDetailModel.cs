@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Models;
 
 namespace noskhe_drugstore_app.Noskhes.Dones.Models
 {

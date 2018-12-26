@@ -21,8 +21,8 @@
         </Rectangle>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 30 0">
-                <TextBlock x:Name="SickLastName" Text="{Binding Path=doingSick.sickPerson.LastName}" Margin="0 0 5 0" Foreground="Black" FontSize="15" FontFamily="IRANSans"/>
-                <TextBlock x:Name="SickFirstName" Text="{Binding Path=doingSick.sickPerson.FirstName}" Foreground="Black" FontSize="15" FontFamily="IRANSans"/>
+                <TextBlock x:Name="SickLastName" Margin="0 0 5 0" Foreground="Black" FontSize="15" FontFamily="IRANSans"/>
+                <TextBlock x:Name="SickFirstName" Foreground="Black" FontSize="15" FontFamily="IRANSans"/>
                 <TextBlock Text="  : نام و نام خانوادگی" Foreground="Black" FontSize="15" FontFamily="IRANSans"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30 0 0 0">

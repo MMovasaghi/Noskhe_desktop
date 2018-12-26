@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using noskhe_drugstore_app.Noskhes.Doing;
-using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Models;
 
 namespace noskhe_drugstore_app.Noskhes
 {

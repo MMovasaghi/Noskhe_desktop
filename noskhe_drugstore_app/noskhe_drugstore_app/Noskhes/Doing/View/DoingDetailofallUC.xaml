@@ -146,7 +146,7 @@
 
             </Grid>
         </Grid>
-        <Grid x:Name="DeliveryDetdail" Grid.Row="3" Margin="10">
+        <Grid x:Name="DeliveryDetdail" Grid.Row="3" Margin="10" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80*"/>
                 <RowDefinition Height="300*"/>

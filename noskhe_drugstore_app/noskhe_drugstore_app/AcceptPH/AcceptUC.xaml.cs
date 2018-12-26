@@ -15,9 +15,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using noskhe_drugstore_app.AcceptPH.ViewModels;
 using noskhe_drugstore_app.Noskhes.Doing.View;
-using noskhe_drugstore_app.Persons;
 using noskhe_drugstore_app.Controller;
-
+using noskhe_drugstore_app.Models;
 namespace noskhe_drugstore_app.AcceptPH
 {
     /// <summary>
@@ -26,7 +25,8 @@ namespace noskhe_drugstore_app.AcceptPH
     public partial class AcceptUC : UserControl
     {        
         TimerACVM timerVM = new TimerACVM();
-        
+        public SickPerson sickPersonObj { get; set; }
+        public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
         public AcceptUC()
         {
             InitializeComponent();
@@ -87,19 +87,12 @@ namespace noskhe_drugstore_app.AcceptPH
                     }
                     TimerACVM.timerModel.TimerAlert = Brushes.White;
 
-                    SickPerson sp = new SickPerson
-                    {
-                        FirstName = "رضا",
-                        LastName = "احمدی",
-                        Phone = "0912218934",
-                        BirthDate = "1/1/1 - 12:00AM"
-                    };
                     DoingDetailUC doingObj = new DoingDetailUC();
-                    doingObj.doingSicks.getparam(sp);
-                    doingObj.doingSicks.StartTimer();
+                    //should send a request to server to get all data
+                    doingObj.ShowOnScreen(NoskheForFirstNotificationOnDesktop);
+                    doingObj.doingSicks.InitializeTimer();
+                    doingObj.doingSicks.StartTimer();                    
                     doingObj.Height = 300;
-
-                    doingObj.d = new DoingDetailofallUC();
 
                     foreach (Window window in Application.Current.Windows)
                     {
@@ -118,6 +111,15 @@ namespace noskhe_drugstore_app.AcceptPH
                 }
             }            
 
+        }
+        public void GetObjectOfNoskhe(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop obj)
+        {
+            NoskheForFirstNotificationOnDesktop = obj;
+            //foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
+            //{
+            //    XWithNoskhePanel.Children.Add(item);
+            //}
+            
         }
     }
 }

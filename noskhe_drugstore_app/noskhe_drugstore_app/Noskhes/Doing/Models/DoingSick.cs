@@ -4,7 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Models;
+using noskhe_drugstore_app.Models.Minimals.Output;
 
 namespace noskhe_drugstore_app.Noskhes.Doing.Models
 {
@@ -16,8 +17,8 @@ namespace noskhe_drugstore_app.Noskhes.Doing.Models
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
-        private SickPerson _sickPerson;
-        public SickPerson sickPerson
+        private CustomerOutput _sickPerson;
+        public CustomerOutput sickPerson
         {
             get { return _sickPerson; }
             set

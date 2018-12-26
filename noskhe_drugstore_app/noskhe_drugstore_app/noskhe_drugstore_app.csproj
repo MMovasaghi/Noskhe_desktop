@@ -316,6 +316,8 @@
     <Compile Include="Controller\SignalR.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="Encryption\SHA256_Algorithm.cs" />
+    <Compile Include="Models\BaseClasses\DrugBase.cs" />
+    <Compile Include="Models\BaseClasses\PersonBase.cs" />
     <Compile Include="Models\CustomExceptions\DATA_IS_NOT_AVAILABE.cs" />
     <Compile Include="Models\CustomExceptions\NOT_RESPONDING.cs" />
     <Compile Include="Models\CustomExceptions\NO_PHARMACIES_MATCHED_THE_EMAIL.cs" />
@@ -340,18 +342,21 @@
     <Compile Include="Models\Descriptive.cs" />
     <Compile Include="Models\EnumBrand.cs" />
     <Compile Include="Models\EnumGender.cs" />
+    <Compile Include="Models\GetDataHandler\DeliveryPerson.cs" />
     <Compile Include="Models\Minimals\Credit.cs" />
     <Compile Include="Models\Minimals\Input\Customer.cs" />
     <Compile Include="Models\Minimals\Input\Settle.cs" />
     <Compile Include="Models\Minimals\Input\ShoppingCart.cs" />
-    <Compile Include="Models\Minimals\Output\Cosmetic.cs" />
-    <Compile Include="Models\Minimals\Output\Customer.cs" />
+    <Compile Include="Models\Minimals\Output\CosmeticOutput.cs" />
+    <Compile Include="Models\Minimals\Output\CustomerOutput.cs" />
     <Compile Include="Models\Minimals\Output\Medicine.cs" />
+    <Compile Include="Models\Minimals\Output\NoskheForFirstNotificationOnDesktop.cs" />
     <Compile Include="Models\Minimals\Output\Order.cs" />
     <Compile Include="Models\Minimals\Output\Pharmacy.cs" />
     <Compile Include="Models\Minimals\Output\Score.cs" />
     <Compile Include="Models\Minimals\Output\Settle.cs" />
     <Compile Include="Models\Minimals\Output\ShoppingCart.cs" />
+    <Compile Include="Models\GetDataHandler\SickPerson.cs" />
     <Compile Include="Models\SignalR_Sample.cs" />
     <Compile Include="Noskhes\Doing\Models\DetailsChartNoskhe.cs" />
     <Compile Include="Noskhes\Doing\Models\ImageChartModels.cs" />
@@ -389,7 +394,6 @@
     </Compile>
     <Compile Include="Noskhes\Dones\Models\SickDetailModel.cs" />
     <Compile Include="Noskhes\Dones\ViewModels\SickMV.cs" />
-    <Compile Include="Persons\SickPerson.cs" />
     <Compile Include="Profile\Models\ProfileModel.cs" />
     <Compile Include="Profile\ProfileUC.xaml.cs">
       <DependentUpon>ProfileUC.xaml</DependentUpon>

@@ -1,30 +1,17 @@
 ﻿using noskhe_drugstore_app.Noskhes.Doing.Models;
 using System.Collections.ObjectModel;
-using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Models;
 using System.Windows.Threading;
 using System;
+using noskhe_drugstore_app.Models.Minimals.Output;
 
 namespace noskhe_drugstore_app.Noskhes.Doing.ViewModels
 {
     public class DoingSicksMV
     {
-        public void getparam(SickPerson sp)
+        public void InitializeTimer()
         {
             timerModel = new TimerModel();
-            
-            doingSick = new DoingSick { sickPerson = sp };
-        }
-        public DoingSicksMV()
-        {
-            timerModel = new TimerModel();
-            SickPerson sp = new SickPerson
-            {
-                FirstName = "رضا",
-                LastName = "احمدی",
-                Phone = "0912218934",
-                BirthDate = "1/1/1 - 12:00AM"
-            };
-            doingSick = new DoingSick { sickPerson = sp };
         }
 
         private DoingSick _doingSick;

@@ -24,6 +24,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     {
         public ImageChartMV imageMV = new ImageChartMV();
         NoskheImageDetails noskheImageDetails = new NoskheImageDetails();
+        public string URL_IMAGE { get; set; }
         public NoskheChart()
         {
             InitializeComponent();
@@ -43,11 +44,9 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
         private void ListViewItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             try
-            {                
-
-
+            {
                 var image = new Image();
-                var fullFilePath = @"https://cdn.newsapi.com.au/image/v1/9fdbf585d17c95f7a31ccacdb6466af9";
+                var fullFilePath = imageMV.ObjIm.ImageUrl;
 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
@@ -55,9 +54,6 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 bitmap.EndInit();
 
                 image.Source = bitmap;
-
-                //NoskheChart noskheChart = new NoskheChart();
-                //noskheChart.imageMV.ObjIm = new Models.ImageChartModels() { ImageUrl = fullFilePath, Price = 100 };
                 noskheImageDetails.ImageItem.Children.Add(image);
                 noskheImageDetails.URL = fullFilePath;
                 //to show on window

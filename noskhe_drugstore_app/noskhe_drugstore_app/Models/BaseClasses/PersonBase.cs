@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace noskhe_drugstore_app.Persons
+namespace noskhe_drugstore_app.Models.BaseClasses
 {
-    public class SickPerson
+    public class PersonBase
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public Gender Gender { get; set; }
+        public DateTime Birthday { get; set; }
+        public string Email { get; set; }
         public string Phone { get; set; }
-        public string BirthDate { get; set; }
-        public string Number { get; set; }
-
+        public string ProfilePictureUrl { get; set; }
     }
 }

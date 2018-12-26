@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using noskhe_drugstore_app.Noskhes.Dones.Models;
-using noskhe_drugstore_app.Persons;
+using noskhe_drugstore_app.Models;
 using System.Collections.ObjectModel;
 
 namespace noskhe_drugstore_app.Noskhes.Dones.ViewModels
@@ -26,7 +26,7 @@ namespace noskhe_drugstore_app.Noskhes.Dones.ViewModels
                 FirstName = "علی",
                 LastName = "رضایی",
                 Phone = "0912218934",
-                BirthDate = "1/1/1 - 12:00AM"
+                //BirthDate = "1/1/1 - 12:00AM"
             };
 
             sickDetailModel = new ObservableCollection<SickDetailModel>
