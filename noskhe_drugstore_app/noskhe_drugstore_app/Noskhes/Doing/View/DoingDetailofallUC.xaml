@@ -77,15 +77,40 @@
                 <Grid Grid.Column="1">
                     <GroupBox Margin="2,20,10,20" Header="با نسخه" TextBlock.TextAlignment="Right" FontFamily="IRANSans">
                         <ScrollViewer>
-                            <StackPanel x:Name="Xpanel" Orientation="Vertical" HorizontalAlignment="Right">
-                                <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Right">
+                            <StackPanel x:Name="Xpanel" Orientation="Vertical">
+                                <!--<StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Right">
                                     <TextBlock Text="جزئیات" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" Margin="20 0 10 0" VerticalAlignment="Center"/>
                                     <TextBlock Text="(تومان)" Foreground="Gray" FontWeight="UltraBlack" FontSize="8" Margin="35 0 1 0" VerticalAlignment="Center"/>
                                     <TextBlock Text="قیمت" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" Margin="1 0 10 0" VerticalAlignment="Center"/>
                                     <TextBlock Text="عکس نسخه" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" Margin="50 0 10 0" VerticalAlignment="Center"/>
                                     <TextBlock Text="ردیف" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" Margin="30 0 5 0" VerticalAlignment="Center"/>
-                                </StackPanel>
-                                <Separator/>
+                                </StackPanel>-->
+                                <Grid Grid.Row="1" Margin="10 0 0 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="7*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0">
+                                        <TextBlock Text="جزئیات" Foreground="Gray" FontWeight="UltraBlack" FontSize="11"/>
+                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0">
+                                        <TextBlock Text="(تومان)" Foreground="Gray" FontWeight="UltraBlack" FontSize="8" VerticalAlignment="Center"/>
+                                        <TextBlock Text="قیمت" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0">
+                                        <TextBlock Text="عکس نسخه" Foreground="Gray" FontWeight="UltraBlack" FontSize="11"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="0">
+                                        <TextBlock Text="ردیف" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <Separator Margin="0 5" Grid.ColumnSpan="4" Grid.Row="1"/>
+                                </Grid>
                             </StackPanel>
                         </ScrollViewer>
                     </GroupBox>
