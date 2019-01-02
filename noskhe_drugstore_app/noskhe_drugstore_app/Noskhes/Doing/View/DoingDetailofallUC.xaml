@@ -6,7 +6,7 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes.Doing.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1040" d:DesignWidth="900">
+             d:DesignHeight="1040" d:DesignWidth="900" Loaded="UserControl_Loaded" MouseLeftButtonDown="UserControl_MouseLeftButtonDown">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -119,6 +119,9 @@
             </Grid>
             <Button Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 10" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF3AB73F" BorderBrush="#FF3AB73F" Click="Button_Click">
                 <materialdesign:PackIcon Kind="Check" Width="30" Height="30"/>
+            </Button>
+            <Button Grid.Row="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF3AB73F" BorderBrush="#FF3AB73F" Click="Button_Click_1" Height="40" Width="40" Margin="471,360.4,349,10" >
+                <materialdesign:PackIcon Kind="Check" Width="25" Height="30"/>
             </Button>
             <Button x:Name="CheckWithoutNoskheToggleButton" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 0 0 0" Grid.Row="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FFD64B24" BorderBrush="#FFD64B24" Click="CheckWithoutNoskheToggleButton_Click" Height="40" Width="40">
                 <materialdesign:PackIcon x:Name="CheckWithoutNoskheToggleKind" Kind="Close" Width="25" Height="30"/>

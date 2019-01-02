@@ -26,6 +26,8 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     {
         public DoingSicksMV doingSicks = new DoingSicksMV();
         public ImageChartMV imageChart = new ImageChartMV();
+
+        public TextBlock textbox;
         public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
         public DoingDetailofallUC()
         {
@@ -140,9 +142,33 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
         private void CheckWithoutNoskheToggleButton_Click(object sender, RoutedEventArgs e)
         {
+            CalculateAllMoney();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            loadMoneyOnWithN();
+        }
+        private void loadMoneyOnWithN()
+        {
+            foreach (var item in Xpanel.Children)
+            {
+                if (item.GetType() == typeof(NoskheChart))
+                {
+                    ((NoskheChart)item).Money.Text = ((NoskheChart)item).noskheImageDetails.AllMoney.Text;
+                }
+            }
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            loadMoneyOnWithN();
+        }
+        private void CalculateAllMoney()
+        {
+            loadMoneyOnWithN();
             MessageBoxResult mbox = MessageBox.Show("آیا از مبالغ وارد شده برای دارو ها مطمئن هستید ؟\n.در صورت تایید امکان تغییر قیمت ها به هیچ وجه امکان پذیر نمی باشد", "Warrning", MessageBoxButton.YesNo);
 
-            if(mbox == MessageBoxResult.Yes)
+            if (mbox == MessageBoxResult.Yes)
             {
                 try
                 {
@@ -156,6 +182,14 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                             ((withoutNoskheCU)item).Price.IsEnabled = false;
                         }
                     }
+                    foreach (var item in Xpanel.Children)
+                    {
+                        if (item.GetType() == typeof(NoskheChart))
+                        {
+                            NoskheForFirstNotificationOnDesktop.SumAllPrice += decimal.Parse(((NoskheChart)item).noskheImageDetails.AllMoney.Text);
+                            ((NoskheChart)item).DetailsOfNoskhe.IsEnabled = false;
+                        }
+                    }
                     var bc = new BrushConverter();
                     CheckWithoutNoskheToggleButton.BorderBrush = (Brush)bc.ConvertFrom("#FF27B339");
                     CheckWithoutNoskheToggleButton.Background = (Brush)bc.ConvertFrom("#FF27B339");
@@ -167,11 +201,15 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK,MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                
+
             }
-            
+        }
+
+        private void UserControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            loadMoneyOnWithN();
         }
     }
 }
