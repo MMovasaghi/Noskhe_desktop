@@ -55,6 +55,24 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که نسخه پیچیده شده است ؟", "Warrning", MessageBoxButton.YesNo);
+            if(mbox == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() == typeof(MainWindow))
+                        {
+                            (window as MainWindow).nostest.xpanel.Children.Remove(this);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+                
+            }
         }
         
         public void ShowOnScreen(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheNotificationArg)
