@@ -62,8 +62,9 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             
             this.SickLastName.Text = NoskheNotificationArg.Customer.LastName;
             this.SickFirstName.Text = NoskheNotificationArg.Customer.FirstName;
-
-
+            this.Moneytxt.Text = NoskheNotificationArg.SumAllPrice.ToString();
+            this.WithOutNoskhe.Text = NoskheNotificationArg.NumberOfWithOutNoskhe.ToString();
+            this.WithNoskhe.Text = NoskheNotificationArg.NumberOfNoskhe.ToString();
             //object of Details
             doingDetailofallUC = new DoingDetailofallUC();
             doingDetailofallUC.ShowOnScreen(NoskheNotificationArg);

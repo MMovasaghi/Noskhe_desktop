@@ -63,11 +63,24 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             SickLastName.Text = NoskheForFirstNotificationOnDesktop.Customer.LastName;
             SickPhone.Text = NoskheForFirstNotificationOnDesktop.Customer.Phone;
 
+            PayAll.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
+
             //add images with out noskhe
             foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
             {
                 AddImageData(item);
-            }           
+            }
+            int X = 0;
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Cosmetics)
+            {
+                X++;
+                AddWithoutNoskhe(X, item.Name, item.Number, item.Price);
+            }
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Medicions)
+            {
+                X++;
+                AddWithoutNoskhe(X, item.Name, item.Number, item.Price);
+            }
 
 
             //delivery data
@@ -92,6 +105,27 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 noskheChart.ImageItem.Children.Add(image);
                 noskheChart.RowNumber.Text = a.ToString();
                 Xpanel.Children.Add(noskheChart);
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        public void AddWithoutNoskhe(int Row,string Name,int Number,decimal Price)
+        {
+            a++;
+            try
+            {
+
+                //With-Out-Noskhe-
+                withoutNoskheCU withoutNoskheCU = new withoutNoskheCU();
+                withoutNoskheCU.RowNumber.Text = Row.ToString();
+                withoutNoskheCU.Name.Text = Name;
+                withoutNoskheCU.Number.Text = Number.ToString();
+                withoutNoskheCU.Price.Text = Price.ToString();
+
+                XWithOutNoskhePanel.Children.Add(withoutNoskheCU);
 
             }
             catch (Exception)

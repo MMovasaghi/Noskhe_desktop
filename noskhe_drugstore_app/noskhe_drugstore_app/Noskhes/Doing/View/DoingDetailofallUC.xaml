@@ -39,15 +39,38 @@
                     <ColumnDefinition Width="390*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <GroupBox Margin="20" Header="بدون نسخه" TextBlock.TextAlignment="Right" HorizontalAlignment="Right" FontFamily="IRANSans">
+                    <GroupBox Margin="20" Width="435" Header="بدون نسخه" TextBlock.TextAlignment="Right" HorizontalAlignment="Right" FontFamily="IRANSans">
                         <ScrollViewer>
-                            <DataGrid x:Name="WithOutDetail_DataGrid" Foreground="Gray" ItemsSource="{Binding sample}" FlowDirection="RightToLeft" FontFamily="IRANSans">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="نام دارو" Width="150" Binding="{Binding Path=FirstNameItem}"/>
-                                    <DataGridTextColumn Header="تعداد" Width="150" Binding="{Binding Path=LastNameItem}" />
-                                    <DataGridTextColumn Header="قیمت" Width="150" Binding="{Binding Path=AllSellItem}" />
-                                </DataGrid.Columns>
-                            </DataGrid>
+                            <StackPanel Orientation="Vertical" x:Name="XWithOutNoskhePanel">
+                                <StackPanel>
+                                    <Grid Grid.Row="1" Margin="10 0 20 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="2.5*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">
+                                            <TextBlock Text="ردیف" Margin="10 0" Foreground="Gray" FontWeight="UltraBlack" FontSize="11"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0">
+                                            <TextBlock Text="اسم دارو" Margin="0 0 10 0" Foreground="Gray" FontWeight="UltraBlack" FontSize="11"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0">
+                                            <TextBlock Text="تعداد" Foreground="Gray" FontWeight="UltraBlack" FontSize="11"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="0">
+                                            <TextBlock Text="(تومان)" Foreground="Gray" FontWeight="UltraBlack" FontSize="8" VerticalAlignment="Center"/>
+                                            <TextBlock Text="قیمت" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <Separator Margin="0 5" Grid.ColumnSpan="4" Grid.Row="1"/>
+                                    </Grid>
+                                </StackPanel>                                
+                            </StackPanel>
                         </ScrollViewer>
                     </GroupBox>
                 </Grid>

@@ -99,16 +99,16 @@ namespace noskhe_drugstore_app.Controller
         public HttpResponseMessage responseMessage = new HttpResponseMessage();
         public Repository()
         {
-            client.BaseAddress = new Uri(ServerURL.Main_Server_url);            
+            client.BaseAddress = new Uri(ConnectionUrls.Main_Server_url);            
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Add(ServerURL.API_KEY_TYPE, ServerURL.API_KEY_VALUE);
-            client.DefaultRequestHeaders.Add(ServerURL.AUTH_TYPE , ServerURL.AUTH_VALUE);
+            client.DefaultRequestHeaders.Add(ConnectionUrls.API_KEY_TYPE, ConnectionUrls.API_KEY_VALUE);
+            client.DefaultRequestHeaders.Add(ConnectionUrls.AUTH_TYPE , ConnectionUrls.AUTH_VALUE);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             
         }        
         public async Task<Descriptive> Get_DB_Status()
         {            
-            responseMessage = await client.GetAsync( ServerURL.ROUTE + "/db-state");
+            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + "/db-state");
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Descriptive>();
@@ -122,7 +122,7 @@ namespace noskhe_drugstore_app.Controller
         }
         public async Task<Descriptive> Get_Server_Status()
         {
-            responseMessage = await client.GetAsync( ServerURL.ROUTE + "/server-state");
+            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + "/server-state");
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Descriptive>();

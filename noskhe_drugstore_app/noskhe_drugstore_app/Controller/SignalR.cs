@@ -18,7 +18,7 @@ namespace noskhe_drugstore_app.Controller
     public class SignalR
     {
         private static HubConnection hubConnection = new HubConnectionBuilder()
-                    .WithUrl(ServerURL.Hub_Server_url)
+                    .WithUrl(ConnectionUrls.Hub_Server_url)
                     .Build();
 
         private static WindowCollection window = Application.Current.Windows;
@@ -30,7 +30,7 @@ namespace noskhe_drugstore_app.Controller
         public static async Task ConnectingLogin(string user)
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
-            
+
             hubConnection.On<NoskheForFirstNotificationOnDesktop>("HandleNotification", (message) =>
             {
                 MessageNotification(message);
@@ -47,7 +47,7 @@ namespace noskhe_drugstore_app.Controller
                 }                
             });
             await hubConnection.StartAsync();
-            await hubConnection.InvokeAsync("Initialize", 1 , ServerURL.AUTH_VALUE);
+            await hubConnection.InvokeAsync("Initialize", 1 , ConnectionUrls.AUTH_VALUE);
 
         }
         public static async Task SendMessage(string a, string ToUser)

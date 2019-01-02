@@ -115,10 +115,32 @@ namespace noskhe_drugstore_app.AcceptPH
         public void GetObjectOfNoskhe(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop obj)
         {
             NoskheForFirstNotificationOnDesktop = obj;
+            NoskheForFirstNotificationOnDesktop.SumAllPrice = 0;
+            NoskheForFirstNotificationOnDesktop.NumberOfNoskhe = 0;
+            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = 0;
+
             foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
             {
                 ShowOn(item);
+                NoskheForFirstNotificationOnDesktop.NumberOfNoskhe++;
             }
+            int X = 0;
+            int number = 0;
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Cosmetics)
+            {
+                X++;
+                number += item.Number;
+                ShowWithoutNoskhe(X,item.Name,item.Number);
+                NoskheForFirstNotificationOnDesktop.SumAllPrice += item.Price;
+            }
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Medicions)
+            {
+                X++;
+                number += item.Number;
+                ShowWithoutNoskhe(X, item.Name, item.Number);
+                NoskheForFirstNotificationOnDesktop.SumAllPrice += item.Price;
+            }
+            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
 
         }
         public void ShowOn(string url)
@@ -134,16 +156,37 @@ namespace noskhe_drugstore_app.AcceptPH
                 bitmap.EndInit();
 
                 image.Source = bitmap;
-                
+
+                //With-Noskhe-Picture 
                 ShowImagePanel showImagePanel = new ShowImagePanel();
                 showImagePanel.XShowImage.Children.Add(image);
                 showImagePanel.ImageUrl = url;
 
                 XWithNoskhePanel.Children.Add(showImagePanel);
+
+                
             }
             catch (Exception)
             {
 
+            }
+        }
+        public void ShowWithoutNoskhe(int Row , string Name , int Number)
+        {
+            try
+            {
+                //With-Out-Noskhe-
+                WithoutNoskhePart withoutNoskhePart = new WithoutNoskhePart();
+                withoutNoskhePart.XpanelRow.Text = Row.ToString();
+                withoutNoskhePart.XpanelName.Text = Name;
+                withoutNoskhePart.XpanelNumber.Text = Number.ToString();
+
+                XWithOutNpanel.Children.Add(withoutNoskhePart);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

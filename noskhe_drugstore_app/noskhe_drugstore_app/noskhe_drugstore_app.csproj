@@ -312,8 +312,11 @@
       <DependentUpon>ShowImagePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="AcceptPH\ViewModels\TimerACVM.cs" />
+    <Compile Include="AcceptPH\WithoutNoskhePart.xaml.cs">
+      <DependentUpon>WithoutNoskhePart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\Repository.cs" />
-    <Compile Include="Controller\ServerURL.cs" />
+    <Compile Include="Controller\ConnectionUrls.cs" />
     <Compile Include="Controller\SignalR.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="Encryption\SHA256_Algorithm.cs" />
@@ -387,6 +390,9 @@
     <Compile Include="Noskhes\Doing\View\NoskheImageDetails.xaml.cs">
       <DependentUpon>NoskheImageDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Noskhes\Doing\View\withoutNoskheCU.xaml.cs">
+      <DependentUpon>withoutNoskheCU.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Noskhes\Dones\DonesUC.xaml.cs">
       <DependentUpon>DonesUC.xaml</DependentUpon>
     </Compile>
@@ -417,6 +423,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AcceptPH\ShowImagePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AcceptPH\WithoutNoskhePart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -479,6 +489,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Noskhes\Doing\View\NoskheImageDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Noskhes\Doing\View\withoutNoskheCU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
