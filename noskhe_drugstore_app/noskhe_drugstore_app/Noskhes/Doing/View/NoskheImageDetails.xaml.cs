@@ -25,8 +25,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     public partial class NoskheImageDetails : UserControl 
     {
         public string URL;
-        public DetailsChartNoskheVM detailsChart = new DetailsChartNoskheVM();        
-
+        public DetailsChartNoskheVM detailsChart = new DetailsChartNoskheVM();
         public NoskheImageDetails()
         {
             InitializeComponent();
@@ -62,6 +61,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                         {
                             (window as MainWindow).DrugDetailForm.Visibility = Visibility.Hidden;
                             (window as MainWindow).XDrugDetailForm.Children.Clear();
+                            
                         }
                     }
                 }

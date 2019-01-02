@@ -131,14 +131,14 @@ namespace noskhe_drugstore_app.AcceptPH
                 X++;
                 number += item.Number;
                 ShowWithoutNoskhe(X,item.Name,item.Number);
-                NoskheForFirstNotificationOnDesktop.SumAllPrice += item.Price;
+                NoskheForFirstNotificationOnDesktop.SumAllPrice += (item.Price * item.Number);
             }
             foreach (var item in NoskheForFirstNotificationOnDesktop.Medicions)
             {
                 X++;
                 number += item.Number;
                 ShowWithoutNoskhe(X, item.Name, item.Number);
-                NoskheForFirstNotificationOnDesktop.SumAllPrice += item.Price;
+                NoskheForFirstNotificationOnDesktop.SumAllPrice += (item.Price * item.Number);
             }
             NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
 

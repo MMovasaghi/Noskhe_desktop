@@ -23,7 +23,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     public partial class NoskheChart : UserControl
     {
         public ImageChartMV imageMV = new ImageChartMV();
-        NoskheImageDetails noskheImageDetails = new NoskheImageDetails();
+        public NoskheImageDetails noskheImageDetails = new NoskheImageDetails();
         public string URL_IMAGE { get; set; }
         public NoskheChart()
         {
@@ -40,7 +40,6 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             
             
         }
-
         private void ListViewItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             try

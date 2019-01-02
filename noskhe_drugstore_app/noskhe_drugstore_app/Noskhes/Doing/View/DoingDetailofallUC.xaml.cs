@@ -26,8 +26,6 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     {
         public DoingSicksMV doingSicks = new DoingSicksMV();
         public ImageChartMV imageChart = new ImageChartMV();
-
-        public TextBlock textbox;
         public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
         public DoingDetailofallUC()
         {
@@ -154,7 +152,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                     {
                         if (item.GetType() == typeof(withoutNoskheCU))
                         {
-                            NoskheForFirstNotificationOnDesktop.SumAllPrice += ((withoutNoskheCU)item).money;
+                            NoskheForFirstNotificationOnDesktop.SumAllPrice += (((withoutNoskheCU)item).money * decimal.Parse(((withoutNoskheCU)item).Number.Text));
                             ((withoutNoskheCU)item).Price.IsEnabled = false;
                         }
                     }
