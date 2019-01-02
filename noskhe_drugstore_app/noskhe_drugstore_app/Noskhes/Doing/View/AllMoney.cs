@@ -8,6 +8,6 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 {
     public interface AllMoney
     {
-        void ChangeAllMoney(decimal change, decimal before);
+        void ChangeAllMoney(string price);
     }
 }

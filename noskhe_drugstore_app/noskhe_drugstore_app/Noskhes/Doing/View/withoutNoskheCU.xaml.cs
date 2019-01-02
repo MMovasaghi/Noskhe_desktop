@@ -32,10 +32,9 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 decimal pricenumber = decimal.Parse(Price.Text);
                 money = pricenumber;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Price.Text = "";
-                MessageBox.Show(ex.Message);
             }
         }
     }

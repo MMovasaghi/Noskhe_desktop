@@ -26,6 +26,8 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     {
         public DoingSicksMV doingSicks = new DoingSicksMV();
         public ImageChartMV imageChart = new ImageChartMV();
+
+        public TextBlock textbox;
         public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
         public DoingDetailofallUC()
         {
@@ -56,8 +58,10 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             
         }
 
-        public void ShowOnScreen(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop arg)
+        public void ShowOnScreen(noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop arg , ref TextBlock df)
         {
+            textbox = df;
+
             NoskheForFirstNotificationOnDesktop = arg;
             SickFirstName.Text = NoskheForFirstNotificationOnDesktop.Customer.FirstName;
             SickLastName.Text = NoskheForFirstNotificationOnDesktop.Customer.LastName;
@@ -142,24 +146,32 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
             if(mbox == MessageBoxResult.Yes)
             {
-                NoskheForFirstNotificationOnDesktop.SumAllPrice = 0;
-
-                foreach (var item in XWithOutNoskhePanel.Children)
+                try
                 {
-                    if (item.GetType() == typeof(withoutNoskheCU))
+                    NoskheForFirstNotificationOnDesktop.SumAllPrice = 0;
+
+                    foreach (var item in XWithOutNoskhePanel.Children)
                     {
-                        NoskheForFirstNotificationOnDesktop.SumAllPrice += ((withoutNoskheCU)item).money;
-                        ((withoutNoskheCU)item).Price.IsEnabled = false;
+                        if (item.GetType() == typeof(withoutNoskheCU))
+                        {
+                            NoskheForFirstNotificationOnDesktop.SumAllPrice += ((withoutNoskheCU)item).money;
+                            ((withoutNoskheCU)item).Price.IsEnabled = false;
+                        }
                     }
+                    var bc = new BrushConverter();
+                    CheckWithoutNoskheToggleButton.BorderBrush = (Brush)bc.ConvertFrom("#FF27B339");
+                    CheckWithoutNoskheToggleButton.Background = (Brush)bc.ConvertFrom("#FF27B339");
+                    CheckWithoutNoskheToggleKind.Kind = MaterialDesignThemes.Wpf.PackIconKind.Check;
+                    PayAll.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
+                    CheckWithoutNoskheToggleButton.IsEnabled = false;
 
+                    textbox.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
                 }
-
-                var bc = new BrushConverter();
-                CheckWithoutNoskheToggleButton.BorderBrush = (Brush)bc.ConvertFrom("#FF27B339");
-                CheckWithoutNoskheToggleButton.Background = (Brush)bc.ConvertFrom("#FF27B339");
-                CheckWithoutNoskheToggleKind.Kind = MaterialDesignThemes.Wpf.PackIconKind.Check;
-                PayAll.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
-                CheckWithoutNoskheToggleButton.IsEnabled = false;
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK,MessageBoxImage.Error);
+                }
+                
             }
             
         }
