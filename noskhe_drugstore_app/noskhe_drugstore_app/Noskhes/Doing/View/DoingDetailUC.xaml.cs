@@ -9,7 +9,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     /// <summary>
     /// Interaction logic for FinanceDetailUC.xaml
     /// </summary>
-    public partial class DoingDetailUC : UserControl
+    public partial class DoingDetailUC : UserControl ,AllMoney
     {
         public DoingDetailofallUC doingDetailofallUC { get; set; }
 
@@ -68,6 +68,12 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             //object of Details
             doingDetailofallUC = new DoingDetailofallUC();
             doingDetailofallUC.ShowOnScreen(NoskheNotificationArg);
+        }
+        public void ChangeAllMoney(decimal change, decimal before)
+        {
+            NoskheForFirstNotificationOnDesktop.SumAllPrice -= before;
+            NoskheForFirstNotificationOnDesktop.SumAllPrice -= change;
+            Moneytxt.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
         }
     }
 }

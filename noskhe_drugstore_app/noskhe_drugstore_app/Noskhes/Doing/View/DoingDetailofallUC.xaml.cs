@@ -123,7 +123,9 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 withoutNoskheCU.RowNumber.Text = Row.ToString();
                 withoutNoskheCU.Name.Text = Name;
                 withoutNoskheCU.Number.Text = Number.ToString();
+                withoutNoskheCU.money = Price;
                 withoutNoskheCU.Price.Text = Price.ToString();
+                
 
                 XWithOutNoskhePanel.Children.Add(withoutNoskheCU);
 
@@ -132,6 +134,34 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             {
 
             }
+        }
+
+        private void CheckWithoutNoskheToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbox = MessageBox.Show("آیا از مبالغ وارد شده برای دارو ها مطمئن هستید ؟\n.در صورت تایید امکان تغییر قیمت ها به هیچ وجه امکان پذیر نمی باشد", "Warrning", MessageBoxButton.YesNo);
+
+            if(mbox == MessageBoxResult.Yes)
+            {
+                NoskheForFirstNotificationOnDesktop.SumAllPrice = 0;
+
+                foreach (var item in XWithOutNoskhePanel.Children)
+                {
+                    if (item.GetType() == typeof(withoutNoskheCU))
+                    {
+                        NoskheForFirstNotificationOnDesktop.SumAllPrice += ((withoutNoskheCU)item).money;
+                        ((withoutNoskheCU)item).Price.IsEnabled = false;
+                    }
+
+                }
+
+                var bc = new BrushConverter();
+                CheckWithoutNoskheToggleButton.BorderBrush = (Brush)bc.ConvertFrom("#FF27B339");
+                CheckWithoutNoskheToggleButton.Background = (Brush)bc.ConvertFrom("#FF27B339");
+                CheckWithoutNoskheToggleKind.Kind = MaterialDesignThemes.Wpf.PackIconKind.Check;
+                PayAll.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
+                CheckWithoutNoskheToggleButton.IsEnabled = false;
+            }
+            
         }
     }
 }

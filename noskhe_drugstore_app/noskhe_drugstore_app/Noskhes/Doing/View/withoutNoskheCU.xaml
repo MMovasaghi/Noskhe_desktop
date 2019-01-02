@@ -27,7 +27,7 @@
             <TextBlock x:Name="Number" Foreground="Gray" FontWeight="UltraBlack" FontSize="11"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="0">
-            <TextBox x:Name="Price" TextAlignment="Center" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" TextChanged="Price_TextChanged"/>
+            <TextBox x:Name="Price" MaxLength="7" TextAlignment="Center" Foreground="Gray" FontWeight="UltraBlack" FontSize="11" TextChanged="Price_TextChanged"/>
         </StackPanel>
         <Separator Margin="0 5" Grid.ColumnSpan="4" Grid.Row="1"/>
     </Grid>

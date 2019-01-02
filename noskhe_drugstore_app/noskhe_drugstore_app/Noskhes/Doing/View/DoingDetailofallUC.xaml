@@ -39,7 +39,7 @@
                     <ColumnDefinition Width="390*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <GroupBox Margin="20" Width="435" Header="بدون نسخه" TextBlock.TextAlignment="Right" HorizontalAlignment="Right" FontFamily="IRANSans">
+                    <GroupBox Margin="20,20,20,20" Header="بدون نسخه" TextBlock.TextAlignment="Right" FontFamily="IRANSans">
                         <ScrollViewer>
                             <StackPanel Orientation="Vertical" x:Name="XWithOutNoskhePanel">
                                 <StackPanel>
@@ -69,13 +69,13 @@
                                         </StackPanel>
                                         <Separator Margin="0 5" Grid.ColumnSpan="4" Grid.Row="1"/>
                                     </Grid>
-                                </StackPanel>                                
+                                </StackPanel>
                             </StackPanel>
                         </ScrollViewer>
                     </GroupBox>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <GroupBox Margin="0 20 10 20" Header="با نسخه" TextBlock.TextAlignment="Right" HorizontalAlignment="Right" FontFamily="IRANSans">
+                    <GroupBox Margin="2,20,10,20" Header="با نسخه" TextBlock.TextAlignment="Right" FontFamily="IRANSans">
                         <ScrollViewer>
                             <StackPanel x:Name="Xpanel" Orientation="Vertical" HorizontalAlignment="Right">
                                 <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Right">
@@ -94,6 +94,9 @@
             </Grid>
             <Button Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 10" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF3AB73F" BorderBrush="#FF3AB73F" Click="Button_Click">
                 <materialdesign:PackIcon Kind="Check" Width="30" Height="30"/>
+            </Button>
+            <Button x:Name="CheckWithoutNoskheToggleButton" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 0 0 0" Grid.Row="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FFD64B24" BorderBrush="#FFD64B24" Click="CheckWithoutNoskheToggleButton_Click" Height="40" Width="40">
+                <materialdesign:PackIcon x:Name="CheckWithoutNoskheToggleKind" Kind="Close" Width="25" Height="30"/>
             </Button>
             <Grid Grid.Row="3">
                 <StackPanel Orientation="Vertical">

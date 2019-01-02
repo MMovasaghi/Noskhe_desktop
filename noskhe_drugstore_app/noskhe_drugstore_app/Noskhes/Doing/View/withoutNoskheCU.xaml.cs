@@ -20,22 +20,22 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
     /// </summary>
     public partial class withoutNoskheCU : UserControl
     {
+        public decimal money { set; get; }
         public withoutNoskheCU()
         {
-            InitializeComponent();
-        }
-
+            InitializeComponent();            
+        }        
         private void Price_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                decimal.Parse(Price.Text);
-                if (Price.Text.Length > 7)
-                    throw new Exception();
+                decimal pricenumber = decimal.Parse(Price.Text);
+                money = pricenumber;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Price.Text = "";
+                MessageBox.Show(ex.Message);
             }
         }
     }
