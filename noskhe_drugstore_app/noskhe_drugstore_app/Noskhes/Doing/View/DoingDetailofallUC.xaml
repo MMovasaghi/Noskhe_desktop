@@ -6,7 +6,7 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes.Doing.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1040" d:DesignWidth="900" Loaded="UserControl_Loaded">
+             d:DesignHeight="1040" d:DesignWidth="900">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
