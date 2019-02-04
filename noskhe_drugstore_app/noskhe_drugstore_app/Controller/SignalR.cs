@@ -17,6 +17,7 @@ namespace noskhe_drugstore_app.Controller
 {
     public class SignalR
     {
+
         private static HubConnection hubConnection = new HubConnectionBuilder()
                     .WithUrl(ConnectionUrls.Hub_Server_url)
                     .Build();
@@ -55,7 +56,8 @@ namespace noskhe_drugstore_app.Controller
             await hubConnection.InvokeAsync("SendMessage", ToUser, a);
         }
         public static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
-        {
+        {            
+            //Sending in Application notification ----------------------------------------------------
             Application.Current.Dispatcher.Invoke(new Action(
                     delegate {
                         AcceptUC acceptUC = new AcceptUC();
@@ -80,6 +82,7 @@ namespace noskhe_drugstore_app.Controller
                             MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }));
+            //--------------------------------------------------------------------------------------
         }
 
     }
