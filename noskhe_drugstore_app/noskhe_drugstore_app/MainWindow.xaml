@@ -153,7 +153,7 @@
 
 
             <!--Login Window-->
-            <Grid x:Name="LoginGrid" Grid.Column="2" Grid.RowSpan="2" Visibility="Hidden">
+            <Grid x:Name="LoginGrid" Grid.Column="2" Grid.RowSpan="2" Visibility="Visible">
                 <Grid.Background>
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Grid.Background>

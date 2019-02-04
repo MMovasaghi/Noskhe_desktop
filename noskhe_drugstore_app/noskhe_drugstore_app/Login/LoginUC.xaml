@@ -6,7 +6,7 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.Login"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="400">
 
 
     <Grid Grid.Row="1"  KeyDown="Password_box_KeyDown">
@@ -17,6 +17,7 @@
                 <RowDefinition Height="60*"/>
                 <RowDefinition Height="60*"/>
                 <RowDefinition Height="50*"/>
+                <RowDefinition Height="36*"/>
                 <RowDefinition Height="36*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
@@ -46,8 +47,12 @@
                     <TextBlock Text="Sign In" FontWeight="Bold" FontSize="16" FontFamily="IRANsans" Foreground="LightGray"/>
                 </Button>
             </Grid>
-            <!--forgetpass & sign up-->
+            <!--Save Pass-->
             <Grid Grid.Row="4">
+                <CheckBox x:Name="CheckBox_save" Foreground="White" IsChecked="True" Content="Save my Username , Password" TabIndex="2" Height="35" Width="190" Background="#FF9C672F" BorderBrush="#FF9C672F"/>
+            </Grid>
+            <!--forgetpass & sign up-->
+            <Grid Grid.Row="5">
                 <TextBlock x:Name="forgetpass" Text="Forget Password OR Username" FontFamily="IRANSans" Foreground="LightGray" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5 0 0" Height="20" Cursor="Hand"/>
                 <TextBlock x:Name="createaccount" FontWeight="Bold" Text="Sign Up" FontFamily="IRANSans" Foreground="LightGray" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 5 0 5" Height="20" Cursor="Hand"/>
             </Grid>

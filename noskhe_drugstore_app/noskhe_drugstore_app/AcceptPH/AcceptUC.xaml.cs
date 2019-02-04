@@ -17,24 +17,30 @@ using noskhe_drugstore_app.AcceptPH.ViewModels;
 using noskhe_drugstore_app.Noskhes.Doing.View;
 using noskhe_drugstore_app.Controller;
 using noskhe_drugstore_app.Models;
+using Notifications.Wpf;
+
 namespace noskhe_drugstore_app.AcceptPH
 {
     /// <summary>
     /// Interaction logic for LoginUC.xaml
     /// </summary>
     public partial class AcceptUC : UserControl
-    {        
+    {
+        private NotificationManager notificationManager;
+
         TimerACVM timerVM = new TimerACVM();
         public SickPerson sickPersonObj { get; set; }
         public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
         public AcceptUC()
         {
             InitializeComponent();
-            DataContext = timerVM;            
+            DataContext = timerVM;
             //button click
             //TimerVM.StartTimer();
             //TimerVM.timerModel.sec = 60;
-        } 
+
+            
+        }
         private void RefuseButton_Click(object sender, RoutedEventArgs e)
         {           
 
@@ -117,7 +123,7 @@ namespace noskhe_drugstore_app.AcceptPH
             NoskheForFirstNotificationOnDesktop = obj;
             NoskheForFirstNotificationOnDesktop.SumAllPrice = 0;
             NoskheForFirstNotificationOnDesktop.NumberOfNoskhe = 0;
-            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = 0;
+            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = 0;            
 
             foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
             {
@@ -142,11 +148,25 @@ namespace noskhe_drugstore_app.AcceptPH
             }
             NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
 
+
+            //Sending Out notification on the screen -----------------------------------------------------
+            notificationManager = new NotificationManager();
+            notificationManager.Show(new NotificationContent
+            {
+                Title = "Noskhe (Pharmacy App.)",
+                Message = "With Noskhe : " + NoskheForFirstNotificationOnDesktop.NumberOfNoskhe.ToString() + "\nWith Out Noskhe : " + NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe.ToString(),
+                Type = NotificationType.Success
+
+            });
+            //--------------------------------------------------------------------------------------------
+
         }
         public void ShowOn(string url)
         {
             try
-            {
+            {               
+
+                //Show Image On the screen--------------------------------------------------------------------
                 var image = new Image();
                 var fullFilePath = url;
 

@@ -21,7 +21,7 @@ namespace noskhe_drugstore_app
             }
             catch (Exception)
             {
-                throw;
+                
             }
         }
 

@@ -14,7 +14,7 @@ namespace noskhe_drugstore_app.Controller
         public static string API_KEY_TYPE = "desktop-api-key";
         public static string API_KEY_VALUE = "k3bKN^u9o(sW;qH8zKXp^:.=P[}`gQ'V!wJ*8CK_da%?KB~w!?V{[YxnaY*6!rs";
         public static string AUTH_TYPE = "Authorization";
-        public static string AUTH_VALUE = "Bearer " + @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1NDY0MDU4ODcsImV4cCI6MTU0NjQ5MjI4NywiaWF0IjoxNTQ2NDA1ODg3fQ.E3pmKO5bCcaiZsp4GQZWqSaI0p7ZllHQEBHNX49gBNc";
+        public static string AUTH_VALUE = "Bearer " + @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1NDkxMTE0NDIsImV4cCI6MTU0OTE5Nzg0MiwiaWF0IjoxNTQ5MTExNDQyfQ.8-Kq1sueGMJDHdkvhEGloPpxmAmqMDU824BmxG-3I7c";
         public static string API_VALUE = "k3bKN^u9o(sW;qH8zKXp^:.=P[}`gQ'V!wJ*8CK_da%?KB~w!?V{[YxnaY*6!rs";
     }
 }

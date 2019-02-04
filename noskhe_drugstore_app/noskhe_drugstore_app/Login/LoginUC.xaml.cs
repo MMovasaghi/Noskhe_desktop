@@ -21,9 +21,19 @@ namespace noskhe_drugstore_app.Login
     /// </summary>
     public partial class LoginUC : UserControl
     {
+        string user;
+        string pass;
         public LoginUC()
         {
             InitializeComponent();
+
+            AppData appData = new AppData();
+            if (!appData.IsNOtExist())
+            {
+                string[] res = appData.ReadData();
+                Username_box.Text = res[0];
+                Password_box.Password = res[1];
+            }
         }
 
         private void loginbut_Click(object sender, RoutedEventArgs e)
@@ -56,15 +66,25 @@ namespace noskhe_drugstore_app.Login
         }
         private async void CheckLogin()
         {
+            user = Username_box.Text;
+            pass = Password_box.Password;
             try
-            {
+            {               
+
                 Repository repo = new Repository();
-                string[] Login = { Username_box.Text, Password_box.Password };
-                bool result = await repo.Check_Login(Login);
+                string[] Login = { user, pass };
+
+                bool result = /*await repo.Check_Login(Login);*/ true;
                 if (result)
                 {
                     //Connecting to Signal-R
-                    //await SignalR.ConnectingLogin("ali");
+                    //await SignalR.ConnectingLogin("ali"); 
+
+                    //save on the file
+                    if (CheckBox_save.IsChecked == true)
+                    {
+                        save();
+                    }
 
                     CurrentUser currentUser = new CurrentUser();
                     currentUser.SetDATAasync(Username_box.Text);
@@ -84,13 +104,12 @@ namespace noskhe_drugstore_app.Login
                 }
                 else
                 {
-                    Username_box.Text = "";
-                    Password_box.Password = "";
                     WarningText.Text = "Password or Username is incorrect !";
                     WarningGrid.Visibility = Visibility.Visible;
                     LoginGrid.Visibility = Visibility.Hidden;
 
-                }
+                }                
+                
             }
             catch (Exception ex)
             {
@@ -98,6 +117,16 @@ namespace noskhe_drugstore_app.Login
             }
             
 
+        }
+        private bool save()
+        {
+            AppData appData = new AppData();
+            if (appData.IsNOtExist())
+            {
+                //save data in the appdata
+                return appData.SaveData(Username_box.Text , Password_box.Password);
+            }
+            return false;
         }
     }
 }
