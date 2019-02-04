@@ -7,6 +7,12 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using noskhe_drugstore_app.Models.CustomExceptions;
+using noskhe_drugstore_app.Login;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace noskhe_drugstore_app.Controller
 {
@@ -131,7 +137,7 @@ namespace noskhe_drugstore_app.Controller
         }
         public async Task<Models.Minimals.Output.Pharmacy> Get_Pharmacy_Info(string UPI)
         {
-            responseMessage = await client.GetAsync($"desktop-api/pharmacy/get-details?upi={UPI}");
+            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + "/profile?upi={UPI}");
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Models.Minimals.Output.Pharmacy>();
@@ -150,10 +156,16 @@ namespace noskhe_drugstore_app.Controller
         }
         public async Task<bool> Check_Login(string[] login)
         {
-            responseMessage = await client.PostAsJsonAsync($"desktop-api/pharmacy/authenticate", login);
-
+            responseMessage = await client.PostAsJsonAsync(ConnectionUrls.ROUTE + "/Login", login);
+            
             if (responseMessage.IsSuccessStatusCode)
-                return true;
+            {
+                LoginToken response = await responseMessage.Content.ReadAsAsync<LoginToken>();
+                ConnectionUrls.AUTH_VALUE = "Bearer " + response.token;
+                AppData appData = new AppData();
+                bool res = appData.SaveConnectionUrls(login[0], login[1]);
+                return res;
+            }
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
             if (output.Error == "VERIFICATION_FAILED")
@@ -169,7 +181,7 @@ namespace noskhe_drugstore_app.Controller
         }
         public async Task<string> GetUPI(string Email)
         {
-            responseMessage = await client.GetAsync($"desktop-api/pharmacy/get-upi?email={Email}");
+            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + $"/get-upi?email={Email}");
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<string>();
 

@@ -36,7 +36,7 @@ namespace noskhe_drugstore_app.Status
             try
             {
                 Repository repo = new Repository();
-                Descriptive result = await repo.Get_Server_Status();
+                Descriptive result = await repo.Get_DB_Status();
 
                 
                 if (result != null || result.Success == true)

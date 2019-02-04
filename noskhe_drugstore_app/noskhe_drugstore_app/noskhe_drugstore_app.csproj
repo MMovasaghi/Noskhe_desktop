@@ -351,6 +351,7 @@
     <Compile Include="Models\EnumBrand.cs" />
     <Compile Include="Models\EnumGender.cs" />
     <Compile Include="Models\GetDataHandler\DeliveryPerson.cs" />
+    <Compile Include="Models\LoginToken.cs" />
     <Compile Include="Models\Minimals\Credit.cs" />
     <Compile Include="Models\Minimals\Input\Customer.cs" />
     <Compile Include="Models\Minimals\Input\Settle.cs" />

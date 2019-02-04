@@ -74,7 +74,7 @@ namespace noskhe_drugstore_app.Login
                 Repository repo = new Repository();
                 string[] Login = { user, pass };
 
-                bool result = /*await repo.Check_Login(Login);*/ true;
+                bool result = await repo.Check_Login(Login);
                 if (result)
                 {
                     //Connecting to Signal-R
@@ -88,18 +88,19 @@ namespace noskhe_drugstore_app.Login
 
                     CurrentUser currentUser = new CurrentUser();
                     currentUser.SetDATAasync(Username_box.Text);
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    foreach (Window window in Application.Current.Windows)
-                    {
-                        if (window.GetType() == typeof(MainWindow))
-                        {
-                            (window as MainWindow).LoginGrid.Visibility = Visibility.Hidden;
-                        }
-                    }
+                    
+                    Application.Current.Dispatcher.Invoke(new Action(
+                        delegate {
 
-                    var myWindow = Window.GetWindow(this);
-                    myWindow.Close();
+                            foreach (Window window in Application.Current.Windows)
+                            {
+                                if (window.GetType() == typeof(MainWindow))
+                                {
+                                    (window as MainWindow).LoginGrid.Visibility = Visibility.Hidden;
+                                }
+                            }
+                        }
+                    ));
 
                 }
                 else
@@ -113,7 +114,7 @@ namespace noskhe_drugstore_app.Login
             }
             catch (Exception ex)
             {
-                MessageBoxResult mbox1 = MessageBox.Show("Your Password or Username is incorrect !" + ex.Message, "Warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBoxResult mbox1 = MessageBox.Show("Your Password or Username is incorrect !\n" + ex.Message, "Warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             
 
