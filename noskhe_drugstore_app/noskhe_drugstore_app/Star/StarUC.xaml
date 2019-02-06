@@ -69,17 +69,16 @@
                 </Grid>
                 <Grid Grid.Column="1" Margin="0 0 20 0">
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
-                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 10">
-                            <TextBlock Text="{Binding starModel.Value}" Margin="0 2 0 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
-                            <TextBlock Text="%" Margin="10 2 20 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 10">                            
+                            <TextBlock x:Name="CustomerSatisfaction" Text="%" Margin="10 2 20 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
                             <TextBlock Text=" : میزان رضایت مشتری" FontSize="20" FontWeight="Bold" Foreground="Gray" FontFamily="IRANSans"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 10">
-                            <TextBlock Text="3" Margin="0 2 30 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                            <TextBlock x:Name="Rank" Margin="0 2 30 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
                             <TextBlock Text=" : رتبه بین داروخانه ها" FontSize="20" FontWeight="Bold" Foreground="Gray" FontFamily="IRANSans"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 10">
-                            <TextBlock Text="00:00:00" Margin="0 2 20 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                            <TextBlock x:Name="AverageTime" Margin="0 2 20 0" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
                             <TextBlock Text=" : میانگین زمان بسته بندی نسخه ها" FontSize="20" FontWeight="Bold" Foreground="Gray" FontFamily="IRANSans"/>
                         </StackPanel>
 

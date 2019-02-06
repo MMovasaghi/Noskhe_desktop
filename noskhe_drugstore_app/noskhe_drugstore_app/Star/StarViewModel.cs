@@ -8,6 +8,8 @@ namespace noskhe_drugstore_app.Star
 {
     internal class StarViewModel
     {
+        public Models.Minimals.Output.Score score { set; get; }
+
         private StarModel _starModel;
         public StarModel starModel
         {
@@ -16,11 +18,28 @@ namespace noskhe_drugstore_app.Star
         }
         public StarViewModel()
         {
-            starModel = new StarModel
+            GetScoreFromServer();
+        }
+        public async void GetScoreFromServer()
+        {
+            try
             {
-                Value = new Random().Next(0, 100),
-            };
+                Controller.Repository repository = new Controller.Repository();
+                Models.Minimals.Output.Score score = await repository.Get_Score();
 
+                starModel = new StarModel
+                {
+                    Value = score.CustomerSatisfaction,
+                };
+            }
+            catch (Exception)
+            {
+                starModel = new StarModel
+                {
+                    Value = 0,
+                };                
+            }
+            
         }
     }
 }

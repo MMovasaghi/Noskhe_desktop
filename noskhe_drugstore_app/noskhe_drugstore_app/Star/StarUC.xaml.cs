@@ -25,6 +25,20 @@ namespace noskhe_drugstore_app.Star
         {
             InitializeComponent();
             DataContext = starView;
+
+            if(starView.score != null)
+            {
+                Rank.Text = starView.score.RankAmongPharmacies.ToString();
+                CustomerSatisfaction.Text = starView.score.CustomerSatisfaction.ToString() + " %";
+                AverageTime.Text = starView.score.PackingAverageTimeInSeconds.ToString() + "\'";
+            }
+            else
+            {
+                Rank.Text = (0).ToString();
+                CustomerSatisfaction.Text = 0 + " %";
+                AverageTime.Text = 0 + "\'";
+            }
+            
         }
     }
 }

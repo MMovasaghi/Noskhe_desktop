@@ -99,9 +99,8 @@
                     <Grid x:Name="FinanceGrid" Visibility="Hidden">
                         <financeuc:FinanceUC/>
                     </Grid>
-                    <Grid x:Name="StarGrid" Visibility="Hidden">
-                        <staruc:StarUC/>
-                    </Grid>
+                    <Grid x:Name="StarGrid" Visibility="Hidden"/>
+
                     <Grid x:Name="SettingsGrid" Visibility="Hidden"/>
 
                     <Grid x:Name="StatusGrid" Visibility="Visible"/>

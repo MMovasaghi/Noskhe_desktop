@@ -78,6 +78,8 @@ namespace noskhe_drugstore_app
 
         private void StarItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Star.StarUC starUC = new Star.StarUC();
+            StarGrid.Children.Add(starUC);
             GridsShow(ref StarGrid, "رتبه بندی", true, MaterialDesignThemes.Wpf.PackIconKind.Star);
         }
 

@@ -196,6 +196,23 @@ namespace noskhe_drugstore_app.Controller
             throw new NOT_RESPONDING();
 
         }
+        public async Task<Models.Minimals.Output.Score> Get_Score()
+        {
+            responseMessage = await client.GetAsync(ConnectionUrls.ROUTE + "/score");
 
+            if (responseMessage.IsSuccessStatusCode)
+                return await responseMessage.Content.ReadAsAsync<Models.Minimals.Output.Score>();
+
+            var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
+            if (output.error == "PEC0")
+            {
+                throw new TOKEN_EXPIRATION();
+            }
+            else if (output.error == "PEC1")
+            {
+                throw new API_FAILURE();
+            }
+            throw new NOT_RESPONDING();
+        }
     }
 }
