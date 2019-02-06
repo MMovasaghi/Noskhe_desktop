@@ -120,9 +120,13 @@ namespace noskhe_drugstore_app.Controller
                 return await responseMessage.Content.ReadAsAsync<Descriptive>();
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Error == "DATABASE_FAILURE")
+            if (output.error == "PEC0")
             {
-                throw new DATABASE_FAILURE();
+                throw new TOKEN_EXPIRATION();
+            }
+            else if (output.error == "PEC1")
+            {
+                throw new API_FAILURE();
             }
             throw new NOT_RESPONDING();
         }
@@ -132,27 +136,36 @@ namespace noskhe_drugstore_app.Controller
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Descriptive>();
-            
+
+            var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
+            if (output.error == "PEC0")
+            {
+                throw new TOKEN_EXPIRATION();
+            }
+            else if (output.error == "PEC1")
+            {
+                throw new API_FAILURE();
+            }
             throw new NOT_RESPONDING();
         }
-        public async Task<Models.Minimals.Output.Pharmacy> Get_Pharmacy_Info(string UPI)
+        public async Task<Models.Minimals.Output.Pharmacy> Get_Pharmacy_Info()
         {
-            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + "/profile?upi={UPI}");
+            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + "/profile");
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<Models.Minimals.Output.Pharmacy>();
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Error == "NO_PHARMACIES_MATCHED_THE_UPI")
+            if (output.error == "PEC0")
             {
-                throw new NO_PHARMACIES_MATCHED_THE_UPI();
+                throw new TOKEN_EXPIRATION();
             }
-            else if (output.Error == "DATABASE_FAILURE")
+            else if (output.error == "PEC1")
             {
-                throw new DATABASE_FAILURE();
+                throw new API_FAILURE();
             }
             throw new NOT_RESPONDING();
-            
+
         }
         public async Task<bool> Check_Login(string[] login)
         {
@@ -168,33 +181,20 @@ namespace noskhe_drugstore_app.Controller
             }
 
             var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Error == "VERIFICATION_FAILED")
+            if (output.error == "PEC4")
             {
                 throw new VERIFICATION_FAILED();
             }
-            else if (output.Error == "DATABASE_FAILURE")
+            else if (output.error == "PEC2")
             {
                 throw new DATABASE_FAILURE();
             }
-            throw new NOT_RESPONDING();
-
-        }
-        public async Task<string> GetUPI(string Email)
-        {
-            responseMessage = await client.GetAsync( ConnectionUrls.ROUTE + $"/get-upi?email={Email}");
-            if (responseMessage.IsSuccessStatusCode)
-                return await responseMessage.Content.ReadAsAsync<string>();
-
-            var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
-            if (output.Error == "NO_PHARMACIES_MATCHED_THE_EMAIL")
+            else if (output.error == "PEC1")
             {
-                throw new NO_PHARMACIES_MATCHED_THE_UPI();
-            }
-            else if (output.Error == "DATABASE_FAILURE")
-            {
-                throw new DATABASE_FAILURE();
+                throw new API_FAILURE();
             }
             throw new NOT_RESPONDING();
+
         }
 
     }

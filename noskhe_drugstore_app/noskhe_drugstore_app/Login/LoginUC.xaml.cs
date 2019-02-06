@@ -86,9 +86,8 @@ namespace noskhe_drugstore_app.Login
                         save();
                     }
 
-                    CurrentUser currentUser = new CurrentUser();
-                    currentUser.SetDATAasync(Username_box.Text);
-                    
+                    //var p = await repo.Get_Pharmacy_Info();
+
                     Application.Current.Dispatcher.Invoke(new Action(
                         delegate {
 
@@ -96,6 +95,7 @@ namespace noskhe_drugstore_app.Login
                             {
                                 if (window.GetType() == typeof(MainWindow))
                                 {
+                                    //(window as MainWindow).PharmacyName_MainPage.Text = p.Name;
                                     (window as MainWindow).LoginGrid.Visibility = Visibility.Hidden;
                                 }
                             }

@@ -326,14 +326,15 @@
     <Compile Include="Login\AppData.cs" />
     <Compile Include="Models\BaseClasses\DrugBase.cs" />
     <Compile Include="Models\BaseClasses\PersonBase.cs" />
+    <Compile Include="Models\CustomExceptions\DATABASE_FAILURE.cs" />
     <Compile Include="Models\CustomExceptions\DATA_IS_NOT_AVAILABE.cs" />
     <Compile Include="Models\CustomExceptions\NOT_RESPONDING.cs" />
     <Compile Include="Models\CustomExceptions\NO_PHARMACIES_MATCHED_THE_EMAIL.cs" />
     <Compile Include="Models\CustomExceptions\VERIFICATION_FAILED.cs" />
     <Compile Include="Models\CustomExceptions\NO_SETTLES_MATCHED_THE_UPI.cs" />
     <Compile Include="Models\CustomExceptions\NO_SCORES_MATCHED_THE_UPI.cs" />
-    <Compile Include="Models\CustomExceptions\DATABASE_FAILURE.cs" />
-    <Compile Include="Models\CustomExceptions\NO_PHARMACIES_MATCHED_THE_UPI.cs" />
+    <Compile Include="Models\CustomExceptions\API_FAILURE.cs" />
+    <Compile Include="Models\CustomExceptions\TOKEN_EXPIRATION.cs" />
     <Compile Include="Models\CustomExceptions\BAD_START_TIME_FORMAT.cs" />
     <Compile Include="Models\CustomExceptions\BAD_END_TIME_FORMAT.cs" />
     <Compile Include="Models\CustomExceptions\START_TIME_IS_GREATER_THAN_END_TIME.cs" />
@@ -407,11 +408,9 @@
     </Compile>
     <Compile Include="Noskhes\Dones\Models\SickDetailModel.cs" />
     <Compile Include="Noskhes\Dones\ViewModels\SickMV.cs" />
-    <Compile Include="Profile\Models\ProfileModel.cs" />
     <Compile Include="Profile\ProfileUC.xaml.cs">
       <DependentUpon>ProfileUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profile\ViewModels\ProfileVM.cs" />
     <Compile Include="Star\StarModel.cs" />
     <Compile Include="Star\StarUC.xaml.cs">
       <DependentUpon>StarUC.xaml</DependentUpon>

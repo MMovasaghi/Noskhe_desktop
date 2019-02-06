@@ -88,6 +88,8 @@ namespace noskhe_drugstore_app
 
         private void ServerStatusButton_Click(object sender, RoutedEventArgs e)
         {
+            Status.StatusUC statusUC = new Status.StatusUC();
+            StatusGrid.Children.Add(statusUC);
             GridsShow(ref StatusGrid, "Status", true, MaterialDesignThemes.Wpf.PackIconKind.LanConnect);
         }
 
@@ -106,11 +108,13 @@ namespace noskhe_drugstore_app
             try
             {
                 ProfileUC profileuc = new ProfileUC();
+                profileuc.Load_User();
                 ProfileGrid.Children.Add(profileuc);
                 GridsShow(ref ProfileGrid, "Profile", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
             
         }
@@ -192,7 +196,7 @@ namespace noskhe_drugstore_app
         {
             try
             {
-                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, LoginGrid , ProfileGrid , DrugDetailForm };
+                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, DefaultPage , FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, LoginGrid , ProfileGrid , DrugDetailForm };
                 GridToShow.Visibility = Visibility.Visible;
                 foreach (var item in ListOfGrids)
                 {

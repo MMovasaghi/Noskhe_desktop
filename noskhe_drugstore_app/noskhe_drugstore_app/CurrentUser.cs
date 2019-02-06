@@ -10,20 +10,7 @@ namespace noskhe_drugstore_app
     public class CurrentUser
     {
         public static string UPI { get; set; }
-        public static string Email { get; set; }
-        public async void SetDATAasync(string email)
-        {
-            try
-            {
-                Email = email;
-                Repository repo = new Repository();
-                UPI = await repo.GetUPI(Email);
-            }
-            catch (Exception)
-            {
-                
-            }
-        }
+        public static string Email { get; set; }        
 
     }
 }

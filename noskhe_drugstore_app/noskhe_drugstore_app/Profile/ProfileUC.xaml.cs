@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using noskhe_drugstore_app.Profile.ViewModels;
 using noskhe_drugstore_app.Models.Minimals.Output;
+using noskhe_drugstore_app.Controller;
 
 namespace noskhe_drugstore_app.Profile
 {
@@ -22,18 +22,37 @@ namespace noskhe_drugstore_app.Profile
     /// </summary>
     public partial class ProfileUC : UserControl
     {
-        public ProfileVM objVM = new ProfileVM();
+        private string ProfilePictureUrl;
         public ProfileUC()
         {
-            InitializeComponent();
-            DataContext = objVM;
+            InitializeComponent();            
         }
 
         private void Reload_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Cursor = Cursors.Wait;
-            objVM.ReloadDataAsync(CurrentUser.UPI);
+            Load_User();
             this.Cursor = Cursors.Arrow;
+        }
+        public async void Load_User()
+        {
+            try
+            {
+                Repository repo = new Repository();
+                var p = await repo.Get_Pharmacy_Info();
+
+                PHname.Text = p.Name;
+                PHnum.Text = p.Phone;
+                PHemail.Text = p.Email;
+                PHcredit.Text = p.Credit.ToString();
+                PHaddress.Text = p.Address;
+                PHmanager.Text = p.ManagerName;
+                ProfilePictureUrl = p.ProfilePictureUrl;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

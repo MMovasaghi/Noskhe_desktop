@@ -37,6 +37,9 @@
                     <materialdesign:PackIcon Kind="Close"/>
                 </Button>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Noskhe - Pharmacy" Margin="13 0 0 0" Foreground="LightGray"/>
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <!--Main Window-->
@@ -77,8 +80,9 @@
                                 <BitmapImage UriSource="Images\noskheapp.png" />
                             </Image.Source>
                         </Image>
+                        <TextBlock x:Name="PharmacyName_MainPage" FontSize="20" Foreground="White"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="200 0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="200 0">                        
                         <Button x:Name="AcceptShow" Click="AcceptShow_Click"/>
                     </StackPanel>
                 </Grid>
@@ -86,6 +90,9 @@
                 <!--Menu Windows-->
                 <Grid x:Name="MenuWidows" Grid.Row="1" Grid.RowSpan="2" >
                     <!--MainMenu window-->
+                    <Grid x:Name="DefaultPage" Visibility="Visible">
+                        <TextBlock Text="Noskhe Group®" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="Gray" />
+                    </Grid>
                     <Grid x:Name="NoskhesGrid" Visibility="Hidden">
                         <noskheuc:NoskhesUC x:Name="nostest"/>
                     </Grid>
@@ -95,11 +102,10 @@
                     <Grid x:Name="StarGrid" Visibility="Hidden">
                         <staruc:StarUC/>
                     </Grid>
-                    <Grid x:Name="SettingsGrid" Visibility="Hidden">
-                    </Grid>
-                    <Grid x:Name="StatusGrid" Visibility="Visible">
-                        <statusuc:StatusUC/>
-                    </Grid>
+                    <Grid x:Name="SettingsGrid" Visibility="Hidden"/>
+
+                    <Grid x:Name="StatusGrid" Visibility="Visible"/>
+
                     <Grid x:Name="DoingDetailGrid" Visibility="Hidden">
                         <ScrollViewer>
                             <Grid  x:Name="XDingdetail" Height="1100"/>

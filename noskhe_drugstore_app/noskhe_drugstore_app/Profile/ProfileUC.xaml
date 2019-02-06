@@ -64,12 +64,12 @@
                 <TextBlock Margin="10" Grid.Column="0" Grid.Row="3" Text="Email : " HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="Black"/>                
                 <TextBlock Margin="10" Grid.Column="2" Grid.Row="0" Text="Manager Name : " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Foreground="Black"/>
                 <TextBlock Margin="10" Grid.Column="2" Grid.Row="2" Text="Address : " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Foreground="Black"/>
-                <TextBox Grid.Column="1" Grid.Row="0" IsReadOnly="True" TextAlignment="Center" Text="{Binding Path=profModel.pharmacy.Name}" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="IRANSans"/>
-                <TextBox Grid.Column="1" Grid.Row="1" IsReadOnly="True" TextAlignment="Center" Text="{Binding Path=profModel.pharmacy.Phone}" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1" Grid.Row="2" IsReadOnly="True" TextAlignment="Center" Text="{Binding Path=profModel.pharmacy.Credit}" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1" Grid.Row="3" IsReadOnly="True" TextAlignment="Center" Text="{Binding Path=profModel.pharmacy.Email}" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="3" Grid.Row="0" IsReadOnly="True" TextAlignment="Center" Text="{Binding Path=profModel.pharmacy.ManagerName}" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="IRANSans"/>
-                <TextBox Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" IsReadOnly="True" TextAlignment="Center" Text="{Binding Path=profModel.pharmacy.Address}" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="IRANSans"/>                
+                <TextBox x:Name="PHname" Grid.Column="1" Grid.Row="0" IsReadOnly="True" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="IRANSans"/>
+                <TextBox x:Name="PHnum" Grid.Column="1" Grid.Row="1" IsReadOnly="True" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="PHcredit" Grid.Column="1" Grid.Row="2" IsReadOnly="True" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="PHemail" Grid.Column="1" Grid.Row="3" IsReadOnly="True" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="PHmanager" Grid.Column="3" Grid.Row="0" IsReadOnly="True" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="IRANSans"/>
+                <TextBox x:Name="PHaddress" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" IsReadOnly="True" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="IRANSans"/>                
             </Grid>
             
 
