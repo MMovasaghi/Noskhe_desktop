@@ -63,6 +63,12 @@ namespace noskhe_drugstore_app.Login
                 LoginGrid.Visibility = Visibility.Visible;
                 ErrorText.Text = "Error text";
             }
+            else if (button.Name == "FSGoBack")
+            {
+                FSGrid.Visibility = Visibility.Hidden;
+                LoginGrid.Visibility = Visibility.Visible;
+                FSText.Text = "FS text";
+            }
         }
         private async void CheckLogin()
         {
@@ -128,6 +134,13 @@ namespace noskhe_drugstore_app.Login
                 return appData.SaveData(Username_box.Text , Password_box.Password);
             }
             return false;
+        }
+
+        private void FS_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            FSText.Text = "Please Call To Noskhe Tec Team.\n\nPhone : 09122184357";
+            FSGrid.Visibility = Visibility.Visible;
+            LoginGrid.Visibility = Visibility.Hidden;
         }
     }
 }

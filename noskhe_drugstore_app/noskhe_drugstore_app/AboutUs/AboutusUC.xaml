@@ -51,11 +51,12 @@
 
             </Grid>
             <Grid Grid.Row="2">
-                <StackPanel Margin="0 0 15 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <StackPanel Margin="0 0 15 0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="130" Width="335">
                     <TextBlock Text=": ارتباط با ما" HorizontalAlignment="Right" Margin="0 0 0 5" FontWeight="Bold" FontSize="20" Foreground="White" FontFamily="IRANSans"/>
-                    <TextBlock Text="WPF application - C# language" Foreground="White"/>
-                    <TextBlock Text="MVP 2018.26.8" FontSize="15" Foreground="White"/>
-                    <TextBlock Text="version 132" FontSize="13" Foreground="White"/>
+                    <TextBlock Text="Work :     021 - 22964245" Foreground="White"/>
+                    <TextBlock Text="Phone :    021 - 22964245" Foreground="White"/>
+                    <TextBlock Text="Address :   تهران - ایران - دولت - اونور - اینور" Foreground="White"/>
+                    
                 </StackPanel>
             </Grid>
         </Grid>

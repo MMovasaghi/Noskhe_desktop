@@ -53,8 +53,8 @@
             </Grid>
             <!--forgetpass & sign up-->
             <Grid Grid.Row="5">
-                <TextBlock x:Name="forgetpass" Text="Forget Password OR Username" FontFamily="IRANSans" Foreground="LightGray" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5 0 0" Height="20" Cursor="Hand"/>
-                <TextBlock x:Name="createaccount" FontWeight="Bold" Text="Sign Up" FontFamily="IRANSans" Foreground="LightGray" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 5 0 5" Height="20" Cursor="Hand"/>
+                <TextBlock x:Name="forgetpass" Text="Forget Password OR Username" FontFamily="IRANSans" Foreground="LightGray" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5 0 0" Height="20" Cursor="Hand" MouseLeftButtonDown="FS_MouseLeftButtonDown"/>
+                <TextBlock x:Name="createaccount" FontWeight="Bold" Text="Sign Up" FontFamily="IRANSans" Foreground="LightGray" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 5 0 5" Height="20" Cursor="Hand" MouseLeftButtonDown="FS_MouseLeftButtonDown"/>
             </Grid>
         </Grid>
         <!--Warning Grid-->
@@ -87,9 +87,39 @@
                 <Button x:Name="WarningGoBack" Width="90" Height="30" Background="{x:Null}" Foreground="White" BorderBrush="White" Click="GoBack_Click">
                     <materialdesign:PackIcon Kind="Backburger" Width="25" Height="25"/>
                 </Button>
+            </Grid>            
+        </Grid>
+        <!--FSGrid-->
+        <Grid x:Name="FSGrid" Visibility="Hidden" Margin="20 30 20 25" Background="{x:Null}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="110*"/>
+
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{ Binding ElementName=BorderG4 }"/>
+            </Grid.OpacityMask>
+            <Border x:Name="BorderG4" CornerRadius="20"  Grid.RowSpan="6" Background="#FF3BA0BC"/>
+            <Grid>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="350">
+                    <TextBlock Text="FS" FontFamily="IRANSans" FontSize="40" FontWeight="Bold" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Separator Height="5" Foreground="LightGray" Margin="25 0 25 0"/>
+                </StackPanel>
             </Grid>
-            
-            
+            <Grid Grid.Row="1">
+                <Viewbox Margin="30,0,30,0">
+                    <StackPanel Orientation="Vertical" Width="400">
+                        <TextBlock x:Name="FSText" FontSize="15" TextWrapping="Wrap" Foreground="White" Text="Warning text" />
+                    </StackPanel>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button x:Name="FSGoBack" Width="90" Height="30" Background="{x:Null}" Foreground="White" BorderBrush="White" Click="GoBack_Click">
+                    <materialdesign:PackIcon Kind="Backburger" Width="25" Height="25"/>
+                </Button>
+            </Grid>
         </Grid>
         <!--Error Grid-->
         <Grid x:Name="ErrorGrid" Visibility="Hidden" Margin="20 30 20 25" Background="{x:Null}">
