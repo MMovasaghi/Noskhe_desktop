@@ -11,5 +11,6 @@ namespace noskhe_drugstore_app.Models.Minimals.Output
         public decimal SumAllPrice { get; set; }
         public long NumberOfWithOutNoskhe { get; set; }
         public int NumberOfNoskhe { get; set; }
+        public Notation Notation { get; set; }
     }
 }

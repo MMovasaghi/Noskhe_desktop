@@ -38,7 +38,7 @@
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBlock Text="Noskhe - Pharmacy" Margin="13 0 0 0" Foreground="LightGray"/>
+                <TextBlock Text="Noskhe" Margin="13 0 0 0" Foreground="LightGray"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">

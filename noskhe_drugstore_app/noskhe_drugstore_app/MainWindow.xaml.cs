@@ -192,6 +192,7 @@ namespace noskhe_drugstore_app
                     ProfilePictureUrl = "https://static.evand.net/images/description/original/26bab6a266285f35db954f9485b0443c.jpg?x-oss-process=image/resize,h_200,w_200"
                 },
             };
+            
             SignalR.MessageNotification(noskheForFirstNotificationOnDesktop);
         }
         public void GridsShow(ref Grid GridToShow,string TitleText,bool IcoShow , MaterialDesignThemes.Wpf.PackIconKind packIconKind)
