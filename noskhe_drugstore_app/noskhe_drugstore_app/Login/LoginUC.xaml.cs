@@ -120,7 +120,9 @@ namespace noskhe_drugstore_app.Login
             }
             catch (Exception ex)
             {
-                MessageBoxResult mbox1 = MessageBox.Show("Your Password or Username is incorrect !\n" + ex.Message, "Warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                WarningText.Text = "Password or Username is incorrect !\n \" Call To Noskhe Tec Team \"";
+                WarningGrid.Visibility = Visibility.Visible;
+                LoginGrid.Visibility = Visibility.Hidden;
             }
             
 

@@ -103,6 +103,7 @@ namespace noskhe_drugstore_app.Controller
 
         public HttpClient client = new HttpClient();
         public HttpResponseMessage responseMessage = new HttpResponseMessage();
+        static bool LoginSignalR = true;
         public Repository()
         {
             client.BaseAddress = new Uri(ConnectionUrls.Main_Server_url);            
@@ -174,9 +175,17 @@ namespace noskhe_drugstore_app.Controller
             if (responseMessage.IsSuccessStatusCode)
             {
                 LoginToken response = await responseMessage.Content.ReadAsAsync<LoginToken>();
-                ConnectionUrls.AUTH_VALUE = "Bearer " + response.token;
+                Token.Value = response.token;
+                ConnectionUrls.AUTH_VALUE = "Bearer " + Token.Value;
                 AppData appData = new AppData();
                 bool res = appData.SaveConnectionUrls(login[0], login[1]);
+
+                if (LoginSignalR)
+                {
+                    await SignalR.ConnectingLogin();
+                    LoginSignalR = false;
+                }                 
+
                 return res;
             }
 

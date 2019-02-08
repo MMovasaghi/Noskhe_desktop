@@ -19,7 +19,7 @@ namespace noskhe_drugstore_app.Controller
     {
 
         private static HubConnection hubConnection = new HubConnectionBuilder()
-                    .WithUrl(ConnectionUrls.Hub_Server_url)
+                    .WithUrl(ConnectionUrls.Hub_Server_url,option => { option.Headers.Add("Authorization", Token.Value); })
                     .Build();
 
         private static WindowCollection window = Application.Current.Windows;
@@ -28,11 +28,11 @@ namespace noskhe_drugstore_app.Controller
 
         private static string MY_NAME { get; set; }
 
-        public static async Task ConnectingLogin(string user)
+        public static async Task ConnectingLogin()
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
 
-            hubConnection.On<NoskheForFirstNotificationOnDesktop>("HandleNotification", (message) =>
+            hubConnection.On<NoskheForFirstNotificationOnDesktop>("PharmacyReception", (message) =>
             {
                 MessageNotification(message);
             });
@@ -47,22 +47,26 @@ namespace noskhe_drugstore_app.Controller
                     MY_NAME = "NULL";
                 }                
             });
+            hubConnection.On<bool>("test", (message) =>
+            {
+                MessageBox.Show(message.ToString());
+            });
+            //call server signal r start
             await hubConnection.StartAsync();
-            await hubConnection.InvokeAsync("Initialize", 1 , ConnectionUrls.AUTH_VALUE);
-
         }
         public static async Task SendMessage(string a, string ToUser)
         {
-            await hubConnection.InvokeAsync("SendMessage", ToUser, a);
+            await hubConnection.InvokeAsync("P_PharmacyReception", 1, a);
         }
         public static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
-        {            
+        {
             //Sending in Application notification ----------------------------------------------------
             Application.Current.Dispatcher.Invoke(new Action(
-                    delegate {
+                    delegate
+                    {
                         AcceptUC acceptUC = new AcceptUC();
                         acceptUC.GetObjectOfNoskhe(message);
-                        
+
                         foreach (Window window in Application.Current.Windows)
                         {
                             if (window.GetType() == typeof(MainWindow))
