@@ -367,6 +367,7 @@
     <Compile Include="Models\Minimals\Output\Settle.cs" />
     <Compile Include="Models\Minimals\Output\ShoppingCart.cs" />
     <Compile Include="Models\GetDataHandler\SickPerson.cs" />
+    <Compile Include="Models\Notation.cs" />
     <Compile Include="Models\SignalR_Sample.cs" />
     <Compile Include="Noskhes\Doing\Models\DetailsChartNoskhe.cs" />
     <Compile Include="Noskhes\Doing\Models\ImageChartModels.cs" />
