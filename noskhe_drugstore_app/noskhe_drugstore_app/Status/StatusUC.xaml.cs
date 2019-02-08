@@ -41,43 +41,55 @@ namespace noskhe_drugstore_app.Status
                 
                 if (result != null || result.Success == true)
                 {
-                    CheckTxt.Text = "Connected";
-                    CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF498232"));
-                    CheckTxt.Visibility = Visibility.Visible;
-                    DetailTxt.Visibility = Visibility.Hidden;
+                    DBCheckTxt.Text = "Connected";
+                    DBCheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF498232"));
+                    DBCheckTxt.Visibility = Visibility.Visible;
+                    DBDetailTxt.Visibility = Visibility.Hidden;
                 }
                 else
                 {
-                    CheckTxt.Text = "Disconnect";
-                    CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
-                    CheckTxt.Visibility = Visibility.Visible;
-                    DetailTxt.Visibility = Visibility.Hidden;
+                    DBCheckTxt.Text = "Disconnect";
+                    DBCheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
+                    DBCheckTxt.Visibility = Visibility.Visible;
+                    DBDetailTxt.Visibility = Visibility.Hidden;
                 }
-            }
-            catch (DATABASE_FAILURE ex)
-            {
-                CheckTxt.Text = "DATABASE_FAILURE";
-                CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
-                DetailTxt.Text = ex.Message;
-                DetailTxt.Visibility = Visibility.Visible;
-                CheckTxt.Visibility = Visibility.Visible;
-
-            }
-            catch (NOT_RESPONDING ex)
-            {
-                CheckTxt.Text = "NOT_RESPONDING";
-                CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
-                DetailTxt.Text = ex.Message;
-                CheckTxt.Visibility = Visibility.Visible;
-                DetailTxt.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
             {
-                CheckTxt.Text = "Disconnect";
-                CheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
-                DetailTxt.Text = ex.Message + "\nCheck your Internet connection and Try Again.";
-                CheckTxt.Visibility = Visibility.Visible;
-                DetailTxt.Visibility = Visibility.Visible;
+                DBCheckTxt.Text = "Disconnect";
+                DBCheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
+                DBDetailTxt.Text = ex.Message + "\nCheck your Internet connection and Try Again.";
+                DBCheckTxt.Visibility = Visibility.Visible;
+                DBDetailTxt.Visibility = Visibility.Visible;
+            }
+            try
+            {
+                Repository repo = new Repository();
+                Descriptive result = await repo.Get_Server_Status();
+
+
+                if (result != null || result.Success == true)
+                {
+                    SERVERCheckTxt.Text = "Connected";
+                    SERVERCheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF498232"));
+                    SERVERCheckTxt.Visibility = Visibility.Visible;
+                    SERVERDetailTxt.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    SERVERCheckTxt.Text = "Disconnect";
+                    SERVERCheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
+                    SERVERCheckTxt.Visibility = Visibility.Visible;
+                    SERVERDetailTxt.Visibility = Visibility.Hidden;
+                }
+            }
+            catch (Exception ex)
+            {
+                SERVERCheckTxt.Text = "Disconnect";
+                SERVERCheckTxt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF772412"));
+                SERVERDetailTxt.Text = ex.Message + "\nCheck your Internet connection and Try Again.";
+                SERVERCheckTxt.Visibility = Visibility.Visible;
+                SERVERDetailTxt.Visibility = Visibility.Visible;
             }
             this.Cursor = Cursors.Arrow;
         }

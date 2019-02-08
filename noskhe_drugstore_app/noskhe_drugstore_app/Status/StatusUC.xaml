@@ -45,17 +45,29 @@
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="180*"/>
+                    <RowDefinition Height="140*"/>
                     <RowDefinition Height="180*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Button x:Name="CheckButton" Content="Check" Background="#FF0E6B24" FontSize="30" FontWeight="Bold" Width="160" Height="150" Style="{DynamicResource MaterialDesignFloatingActionButton}" BorderBrush="#FF0E6B24" Click="CheckButton_ClickAsync"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
-                        <TextBlock x:Name="CheckTxt" HorizontalAlignment="Center" Visibility="Hidden" Text="Connected" FontSize="40" FontWeight="Bold" Foreground="#FF498232"/>
-                        <TextBlock x:Name="DetailTxt" Width="850" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" FontSize="14" Foreground="Black"/>
-                    </StackPanel>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Margin="50 10 50 10" Header="SERVER RESPONSE">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                            <TextBlock x:Name="SERVERCheckTxt" HorizontalAlignment="Center" Visibility="Hidden" Text="Connected" FontSize="40" FontWeight="Bold" Foreground="#FF498232"/>
+                            <TextBlock x:Name="SERVERDetailTxt" Width="850" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" FontSize="14" Foreground="Black"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Margin="50 10 50 10" Grid.Column="1" Header="DATABASE RESPONSE" >
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <TextBlock x:Name="DBCheckTxt" HorizontalAlignment="Center" Visibility="Hidden" Text="Connected" FontSize="40" FontWeight="Bold" Foreground="#FF498232"/>
+                            <TextBlock x:Name="DBDetailTxt" Width="850" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" FontSize="14" Foreground="Black"/>
+                        </StackPanel>
+                    </GroupBox>
                 </Grid>
 
             </Grid>
