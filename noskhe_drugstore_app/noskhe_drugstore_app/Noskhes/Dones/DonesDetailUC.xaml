@@ -6,7 +6,7 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes.Dones"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="850" Loaded="UserControl_Loaded">
+             d:DesignHeight="500" d:DesignWidth="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
@@ -20,17 +20,17 @@
 
         <Grid Grid.Row="1">
             <ScrollViewer>
-                <DataGrid x:Name="DonesDetail_DataGrid" AutoGenerateColumns="False"  Foreground="Gray" ItemsSource="{Binding Path=SickMV.sickDetailModel}" FlowDirection="RightToLeft" FontFamily="IRANSans">
+                <DataGrid x:Name="DonesDetail_DataGrid" AutoGenerateColumns="False"  Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="نام" Width="100" Binding="{Binding Path=sickPerson.FirstName}"/>
-                        <DataGridTextColumn Header="نام خانوادگی" Width="120" Binding="{Binding Path=sickPerson.LastName}" />
-                        <DataGridTextColumn Header="کل هزینه" Width="120" Binding="{Binding Path=sickPerson.FirstName}" />
-                        <DataGridTextColumn Header="تاریخ و ساعت" Width="120" Binding="{Binding Path=sickPerson.BirthDate}" />
-                        <DataGridTextColumn Header="ساعت اتمام" Width="120" Binding="{Binding Path=sickPerson.FirstName}" />
-                        <DataGridTextColumn Header="کد سفارش" Width="100" Binding="{Binding Path=sickPerson.FirstName}" />
-                        <DataGridTextColumn Header="با نسخه" Width="100" Binding="{Binding Path=sickPerson.FirstName}" />
-                        <DataGridTextColumn Header="بدون نسخه" Width="100" Binding="{Binding Path=sickPerson.FirstName}" />
-                        <DataGridTextColumn Header="توضیحات" Width="150" Binding="{Binding Path=sickPerson.FirstName}" />
+                        <DataGridTextColumn Header="نام" Width="100" x:Name="FirstName"/>
+                        <DataGridTextColumn Header="نام خانوادگی" Width="120" x:Name="LastName"/>
+                        <DataGridTextColumn Header="کل هزینه" Width="120" x:Name="AllValue" />
+                        <DataGridTextColumn Header="تاریخ و ساعت" Width="120" x:Name="Date" />
+                        <DataGridTextColumn Header="مدت زمان" Width="120" x:Name="Delay" />
+                        <DataGridTextColumn Header="کد سفارش" Width="100" x:Name="Code" />
+                        <DataGridTextColumn Header="با نسخه" Width="100" x:Name="WithNoskhe" />
+                        <DataGridTextColumn Header="بدون نسخه" Width="100" x:Name="WithOutNoskhe" />
+                        <DataGridTextColumn Header="توضیحات" Width="150" x:Name="Discription" />
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>            

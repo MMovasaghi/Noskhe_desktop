@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using noskhe_drugstore_app.Noskhes.Doing;
 using noskhe_drugstore_app.Models;
+using noskhe_drugstore_app.Noskhes.Dones;
 
 namespace noskhe_drugstore_app.Noskhes
 {
@@ -29,6 +30,10 @@ namespace noskhe_drugstore_app.Noskhes
 
         private void DonesItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            DonesUC donesUC = new DonesUC();
+            donesUC.ShowDetail();
+            DonesGrid.Children.Add(donesUC);
+
             DonesGrid.Visibility = Visibility.Visible;
             DoingGrid.Visibility = Visibility.Hidden;
         }

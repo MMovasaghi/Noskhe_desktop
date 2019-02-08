@@ -407,8 +407,6 @@
     <Compile Include="Noskhes\Dones\DonesDetailUC.xaml.cs">
       <DependentUpon>DonesDetailUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Noskhes\Dones\Models\SickDetailModel.cs" />
-    <Compile Include="Noskhes\Dones\ViewModels\SickMV.cs" />
     <Compile Include="Profile\ProfileUC.xaml.cs">
       <DependentUpon>ProfileUC.xaml</DependentUpon>
     </Compile>

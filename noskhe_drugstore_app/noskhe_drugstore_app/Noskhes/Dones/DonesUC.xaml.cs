@@ -24,5 +24,11 @@ namespace noskhe_drugstore_app.Noskhes.Dones
         {
             InitializeComponent();
         }
+        public void ShowDetail()
+        {
+            DonesDetailUC donesDetailUC = new DonesDetailUC();
+            donesDetailUC.ShowOnGrid();
+            XPanel.Children.Add(donesDetailUC);
+        }
     }
 }

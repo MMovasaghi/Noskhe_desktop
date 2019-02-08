@@ -42,9 +42,8 @@
                 <!--Title Finance-->
                 <TextBlock Text="انجام شده ها" FontFamily="IRANSans" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="70,15" Foreground="Gray" FontSize="30"/>
             </Grid>
-            <Grid Margin="15" Grid.Row="0" Grid.RowSpan="2">
-                <local:DonesDetailUC/>
-            </Grid>
+            <Grid Margin="15" Grid.Row="0" Grid.RowSpan="2" x:Name="XPanel"/>
+
         </Grid>
     </Grid>
 </UserControl>

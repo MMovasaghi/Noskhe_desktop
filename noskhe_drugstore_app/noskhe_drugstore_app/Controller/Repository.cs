@@ -223,5 +223,23 @@ namespace noskhe_drugstore_app.Controller
             }
             throw new NOT_RESPONDING();
         }
+        public async Task<List<Models.Minimals.Output.Order>> Get_AllOrders()
+        {
+            responseMessage = await client.GetAsync(ConnectionUrls.ROUTE + "/orders");
+
+            if (responseMessage.IsSuccessStatusCode)
+                return await responseMessage.Content.ReadAsAsync<List<Models.Minimals.Output.Order>>();
+
+            var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
+            if (output.error == "PEC0")
+            {
+                throw new TOKEN_EXPIRATION();
+            }
+            else if (output.error == "PEC1")
+            {
+                throw new API_FAILURE();
+            }
+            throw new NOT_RESPONDING();
+        }
     }
 }
