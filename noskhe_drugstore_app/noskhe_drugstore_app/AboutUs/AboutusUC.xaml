@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.AboutUs"
-             mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="450">
 
 
     <Grid Grid.Row="1">
@@ -51,12 +51,11 @@
 
             </Grid>
             <Grid Grid.Row="2">
-                <StackPanel Margin="0 0 15 0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="130" Width="335">
+                <StackPanel Margin="15,0,15,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="185" Width="380">
                     <TextBlock Text=": ارتباط با ما" HorizontalAlignment="Right" Margin="0 0 0 5" FontWeight="Bold" FontSize="20" Foreground="White" FontFamily="IRANSans"/>
-                    <TextBlock Text="Work :     021 - 22964245" Foreground="White"/>
-                    <TextBlock Text="Phone :    021 - 22964245" Foreground="White"/>
-                    <TextBlock Text="Address :   تهران - ایران - دولت - اونور - اینور" Foreground="White"/>
-                    
+                    <TextBlock Text="Work :     021 - 22964245" Margin="0 0 0 5" Foreground="White"/>
+                    <TextBlock Text="Phone :    021 - 22964245" Margin="0 0 0 5" Foreground="White"/>
+                    <TextBlock Text="Address :   تهران - قیطریه - خیابان پیام - خونه ی محسنی" Margin="0 0 0 5" Foreground="White"/>
                 </StackPanel>
             </Grid>
         </Grid>
