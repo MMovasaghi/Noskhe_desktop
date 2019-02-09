@@ -1,4 +1,4 @@
-﻿namespace noskhe_drugstore_app.Models
+namespace noskhe_drugstore_app.Models
 {
     public enum Gender
     {

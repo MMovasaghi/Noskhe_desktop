@@ -144,9 +144,9 @@ namespace noskhe_drugstore_app
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSGDusBHcHurXuTpvVG2PMu44PjcGAMDjN0QsybEkwwg4Eo1CR",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNn35JV-qkvadDzEBizt0v1jYNxbapM6evnbKPUjzlhrGCcq2_",
                 },
-                Cosmetics = new List<CosmeticOutput>()
+                Cosmetics = new List<Models.Minimals.Output.Cosmetic>()
                 {
-                    new CosmeticOutput()
+                    new Models.Minimals.Output.Cosmetic()
                     {
                         Name = "Lipstick",
                         Number = 3,
@@ -154,7 +154,7 @@ namespace noskhe_drugstore_app
                         CosmeticId = 74,
                         ProductPictureUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFevN_-QwofXToQIEvhGXZ595uE1D23T_jDe3s_s92nP9fg6y",
                     },
-                    new CosmeticOutput()
+                    new Models.Minimals.Output.Cosmetic()
                     {
                         Name = "Remel",
                         Number = 3,
@@ -164,9 +164,9 @@ namespace noskhe_drugstore_app
                     }
 
                 },
-                Medicions = new List<MedicineOutput>()
+                Medicions = new List<Models.Minimals.Output.Medicine>()
                 {
-                    new MedicineOutput()
+                    new Models.Minimals.Output.Medicine()
                     {
                         Name = "Asetaminofen",
                         Number = 10,
@@ -174,7 +174,7 @@ namespace noskhe_drugstore_app
                         MedicineId = 186,
                         ProductPictureUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg6DW40E6_NSu4FAj0gh8JPKAl-81fiOKQHcbR6QjSuSeH_9zV",
                     },
-                    new MedicineOutput()
+                    new Models.Minimals.Output.Medicine()
                     {
                         Name = "Aspirin",
                         Number = 7,
@@ -183,7 +183,7 @@ namespace noskhe_drugstore_app
                         ProductPictureUrl = "https://cdn1.medicalnewstoday.com/content/images/articles/301/301766/bottle-of-aspirin.jpg",
                     },
                 },
-                Customer = new CustomerOutput()
+                Customer = new Models.Minimals.Output.Customer()
                 {
                     FirstName = "محمدحسین",
                     LastName = "موثقی نیا",

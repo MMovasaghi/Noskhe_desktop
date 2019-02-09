@@ -4,7 +4,6 @@ namespace noskhe_drugstore_app.Models.Minimals.Input
 {
     public class ShoppingCart
     {
-        public string Email { get; set; }
         public BrandType BrandPreference  { get; set; }
         public bool HasPregnancy { get; set; }
         public bool HasOtherDiseases { get; set; }

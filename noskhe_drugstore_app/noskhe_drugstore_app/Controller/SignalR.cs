@@ -47,10 +47,6 @@ namespace noskhe_drugstore_app.Controller
                     MY_NAME = "NULL";
                 }                
             });
-            hubConnection.On<bool>("test", (message) =>
-            {
-                MessageBox.Show(message.ToString());
-            });
             //call server signal r start
             await hubConnection.StartAsync();
         }
@@ -60,6 +56,7 @@ namespace noskhe_drugstore_app.Controller
         }
         public static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
         {
+            MessageBox.Show("Hello","SIGNAL-R",MessageBoxButton.OK);
             //Sending in Application notification ----------------------------------------------------
             Application.Current.Dispatcher.Invoke(new Action(
                     delegate
@@ -88,7 +85,11 @@ namespace noskhe_drugstore_app.Controller
                     }));
             //--------------------------------------------------------------------------------------
         }
-
+        public class Descriptiveg
+        {
+            public bool Success { get; set; }
+            public string Error { get; set; }
+        }
     }
 
 }
