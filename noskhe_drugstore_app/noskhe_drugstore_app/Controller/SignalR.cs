@@ -87,7 +87,7 @@ namespace noskhe_drugstore_app.Controller
             }
             catch (Exception)
             {
-                //send to server that the proccess was killed & Refuse the Prescription
+                //send to server that the Process was killed & Refuse the Prescription
                 Repository repository = new Repository();
                 await repository.AcceptanceOfNoskhe(message.Notation.ShoppingCartId, false, 0);
             }            
