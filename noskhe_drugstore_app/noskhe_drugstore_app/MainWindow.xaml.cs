@@ -164,7 +164,7 @@ namespace noskhe_drugstore_app
                     }
 
                 },
-                Medicions = new List<Models.Minimals.Output.Medicine>()
+                Medicines = new List<Models.Minimals.Output.Medicine>()
                 {
                     new Models.Minimals.Output.Medicine()
                     {

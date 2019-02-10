@@ -91,7 +91,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                 X++;
                 AddWithoutNoskhe(X, item.Name, item.Number, item.Price);
             }
-            foreach (var item in NoskheForFirstNotificationOnDesktop.Medicions)
+            foreach (var item in NoskheForFirstNotificationOnDesktop.Medicines)
             {
                 X++;
                 AddWithoutNoskhe(X, item.Name, item.Number, item.Price);

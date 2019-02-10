@@ -56,7 +56,6 @@ namespace noskhe_drugstore_app.Controller
         }
         public static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
         {
-            MessageBox.Show("Hello","SIGNAL-R",MessageBoxButton.OK);
             //Sending in Application notification ----------------------------------------------------
             Application.Current.Dispatcher.Invoke(new Action(
                     delegate

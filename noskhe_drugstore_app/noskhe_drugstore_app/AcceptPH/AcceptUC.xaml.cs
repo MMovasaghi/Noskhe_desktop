@@ -123,32 +123,36 @@ namespace noskhe_drugstore_app.AcceptPH
             NoskheForFirstNotificationOnDesktop = obj;
             NoskheForFirstNotificationOnDesktop.SumAllPrice = 0;
             NoskheForFirstNotificationOnDesktop.NumberOfNoskhe = 0;
-            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = 0;            
-
-            foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
+            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = 0;
+            try
             {
-                ShowOn(item);
-                NoskheForFirstNotificationOnDesktop.NumberOfNoskhe++;
+                foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
+                {
+                    ShowOn(item);
+                    NoskheForFirstNotificationOnDesktop.NumberOfNoskhe++;
+                }
+                int X = 0;
+                int number = 0;
+                foreach (var item in NoskheForFirstNotificationOnDesktop.Cosmetics)
+                {
+                    X++;
+                    number += item.Number;
+                    ShowWithoutNoskhe(X, item.Name, item.Number);
+                    NoskheForFirstNotificationOnDesktop.SumAllPrice += (item.Price * item.Number);
+                }
+                foreach (var item in NoskheForFirstNotificationOnDesktop.Medicines)
+                {
+                    X++;
+                    number += item.Number;
+                    ShowWithoutNoskhe(X, item.Name, item.Number);
+                    NoskheForFirstNotificationOnDesktop.SumAllPrice += (item.Price * item.Number);
+                }
+                NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
             }
-            int X = 0;
-            int number = 0;
-            foreach (var item in NoskheForFirstNotificationOnDesktop.Cosmetics)
+            catch (Exception)
             {
-                X++;
-                number += item.Number;
-                ShowWithoutNoskhe(X,item.Name,item.Number);
-                NoskheForFirstNotificationOnDesktop.SumAllPrice += (item.Price * item.Number);
+                
             }
-            foreach (var item in NoskheForFirstNotificationOnDesktop.Medicions)
-            {
-                X++;
-                number += item.Number;
-                ShowWithoutNoskhe(X, item.Name, item.Number);
-                NoskheForFirstNotificationOnDesktop.SumAllPrice += (item.Price * item.Number);
-            }
-            NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
-
-
             //Sending Out notification on the screen -----------------------------------------------------
             notificationManager = new NotificationManager();
             notificationManager.Show(new NotificationContent
