@@ -161,9 +161,9 @@ namespace noskhe_drugstore_app.Controller
         }
         public async Task<ResonTemplate> AcceptanceOfNoskhe(int shoppingCartId, bool accepted, Models.PharmacyCancellationReason reason)
         {
-            string result = "&" + shoppingCartId + "&" + accepted + "&" + reason;
+            string result = "shoppingCartId=" + shoppingCartId + "&accepted=" + accepted + "&reason=" + reason;
 
-            responseMessage = await client.PostAsJsonAsync(ConnectionUrls.ROUTE + "/service-response", result);
+            responseMessage = await client.PostAsJsonAsync(ConnectionUrls.ROUTE + "/service-response?", result);
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<ResonTemplate>();

@@ -54,10 +54,12 @@ namespace noskhe_drugstore_app.Controller
         {
             await hubConnection.InvokeAsync("P_PharmacyReception", 1, a);
         }
-        public static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
+        public async static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
         {
             //Sending in Application notification ----------------------------------------------------
-            Application.Current.Dispatcher.Invoke(new Action(
+            try
+            {
+                Application.Current.Dispatcher.Invoke(new Action(
                     delegate
                     {
                         AcceptUC acceptUC = new AcceptUC();
@@ -74,7 +76,7 @@ namespace noskhe_drugstore_app.Controller
                         try
                         {
                             //Timer of Accept Page start
-                            TimerACVM.timerModel.sec = 90;
+                            TimerACVM.timerModel.sec = 120;
                             TimerACVM.StartTimer();
                         }
                         catch (Exception ex)
@@ -82,6 +84,13 @@ namespace noskhe_drugstore_app.Controller
                             MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }));
+            }
+            catch (Exception)
+            {
+                //send to server that the proccess was killed & Refuse the Prescription
+                Repository repository = new Repository();
+                await repository.AcceptanceOfNoskhe(message.Notation.ShoppingCartId, false, 0);
+            }            
             //--------------------------------------------------------------------------------------
         }
         public class Descriptiveg

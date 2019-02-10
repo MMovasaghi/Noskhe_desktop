@@ -354,6 +354,7 @@
     <Compile Include="Finance\RepoOfCashOut\View\CashOutitemUC.xaml.cs">
       <DependentUpon>CashOutitemUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResonTemplate.cs" />
     <Compile Include="Models\Descriptive.cs" />
     <Compile Include="Models\Enums\EnumBrand.cs" />
     <Compile Include="Models\GetDataHandler\DeliveryPerson.cs" />

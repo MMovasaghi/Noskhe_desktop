@@ -147,18 +147,25 @@ namespace noskhe_drugstore_app.AcceptPH
             }
             catch (Exception)
             {
-                
             }
             //Sending Out notification on the screen -----------------------------------------------------
-            notificationManager = new NotificationManager();
-            notificationManager.Show(new NotificationContent
-            {
-                Title = "Noskhe (Pharmacy App.)",
-                Message = "With Noskhe : " + NoskheForFirstNotificationOnDesktop.NumberOfNoskhe.ToString() + "\nWith Out Noskhe : " + NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe.ToString(),
-                Type = NotificationType.Success
+            try
+            {                
+                notificationManager = new NotificationManager();
+                notificationManager.Show(new NotificationContent
+                {
+                    Title = "Noskhe (Pharmacy App.)",
+                    Message = "With Noskhe : " + NoskheForFirstNotificationOnDesktop.NumberOfNoskhe.ToString() 
+                            + "\nWith Out Noskhe : " + NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe.ToString(),
+                    Type = NotificationType.Success
 
-            });
+                });                
+            }
+            catch (Exception)
+            {
+            }
             //--------------------------------------------------------------------------------------------
+
 
         }
         public void ShowOn(string url)
