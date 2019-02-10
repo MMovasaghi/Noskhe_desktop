@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using noskhe_drugstore_app.Controller;
+using System.Threading;
 
 namespace noskhe_drugstore_app.Login
 {
@@ -34,11 +35,14 @@ namespace noskhe_drugstore_app.Login
                 Username_box.Text = res[0];
                 Password_box.Password = res[1];
             }
+            
         }
 
         private void loginbut_Click(object sender, RoutedEventArgs e)
         {
-             CheckLogin();
+            CheckLogin();
+            DefaultSignInButton.Visibility = Visibility.Hidden;
+            ProgressButton.Visibility = Visibility.Visible;
         }
 
         private void Password_box_KeyDown(object sender, KeyEventArgs e)
@@ -69,6 +73,9 @@ namespace noskhe_drugstore_app.Login
                 LoginGrid.Visibility = Visibility.Visible;
                 FSText.Text = "FS text";
             }
+
+            DefaultSignInButton.Visibility = Visibility.Visible;
+            ProgressButton.Visibility = Visibility.Hidden;
         }
         private async void CheckLogin()
         {
@@ -115,10 +122,13 @@ namespace noskhe_drugstore_app.Login
                     WarningGrid.Visibility = Visibility.Visible;
                     LoginGrid.Visibility = Visibility.Hidden;
 
+                    DefaultSignInButton.Visibility = Visibility.Visible;
+                    ProgressButton.Visibility = Visibility.Hidden;
+
                 }                
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 WarningText.Text = "Password or Username is incorrect !\n \" Call To Noskhe Tec Team \"";
                 WarningGrid.Visibility = Visibility.Visible;

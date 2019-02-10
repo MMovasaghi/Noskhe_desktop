@@ -91,7 +91,7 @@
                 <Grid x:Name="MenuWidows" Grid.Row="1" Grid.RowSpan="2" >
                     <!--MainMenu window-->
                     <Grid x:Name="DefaultPage" Visibility="Visible">
-                        <TextBlock Text="Noskhe Group®" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="Gray" />
+                        <TextBlock Text="Noskhe Group®" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="Gray" />                        
                     </Grid>
                     <Grid x:Name="NoskhesGrid" Visibility="Hidden">
                         <noskheuc:NoskhesUC x:Name="nostest"/>
