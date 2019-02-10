@@ -34,21 +34,16 @@ namespace noskhe_drugstore_app.AcceptPH
         public AcceptUC()
         {
             InitializeComponent();
-            DataContext = timerVM;
-            //button click
-            //TimerVM.StartTimer();
-            //TimerVM.timerModel.sec = 60;
-
-            
+            DataContext = timerVM;           
         }
         private void RefuseButton_Click(object sender, RoutedEventArgs e)
-        {           
-
+        {
             MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که می خوهید نسخه را نبپذیرید ؟", "Refusing", MessageBoxButton.YesNo);
             if (mbox == MessageBoxResult.Yes)
             {
                 try
                 {
+                    Acceptace(NoskheForFirstNotificationOnDesktop.Notation.ShoppingCartId, false, 0);
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(MainWindow))
@@ -78,6 +73,7 @@ namespace noskhe_drugstore_app.AcceptPH
             {
                 try
                 {
+                    Acceptace(NoskheForFirstNotificationOnDesktop.Notation.ShoppingCartId, true, 0);
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(MainWindow))
@@ -212,6 +208,12 @@ namespace noskhe_drugstore_app.AcceptPH
 
                 throw;
             }
+        }
+
+        private async void Acceptace(int shoppingCartId, bool accepted, PharmacyCancellationReason reason)
+        {
+            Repository repository = new Repository();
+            await repository.AcceptanceOfNoskhe(shoppingCartId, accepted, reason);
         }
     }
 }
