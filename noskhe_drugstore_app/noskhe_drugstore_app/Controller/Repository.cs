@@ -163,7 +163,7 @@ namespace noskhe_drugstore_app.Controller
         {
             string result = "shoppingCartId=" + shoppingCartId + "&accepted=" + accepted + "&reason=" + reason;
 
-            responseMessage = await client.PostAsJsonAsync(ConnectionUrls.ROUTE + "/service-response?", result);
+            responseMessage = await client.GetAsync(ConnectionUrls.ROUTE + "/service-response?"+ result);
 
             if (responseMessage.IsSuccessStatusCode)
                 return await responseMessage.Content.ReadAsAsync<ResonTemplate>();
