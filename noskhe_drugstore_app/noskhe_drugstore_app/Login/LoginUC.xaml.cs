@@ -39,10 +39,10 @@ namespace noskhe_drugstore_app.Login
         }
 
         private void loginbut_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             CheckLogin();
             DefaultSignInButton.Visibility = Visibility.Hidden;
-            ProgressButton.Visibility = Visibility.Visible;
+            ProgressButton.Visibility = Visibility.Visible;            
         }
 
         private void Password_box_KeyDown(object sender, KeyEventArgs e)
@@ -110,6 +110,7 @@ namespace noskhe_drugstore_app.Login
                                 {
                                     //(window as MainWindow).PharmacyName_MainPage.Text = p.Name;
                                     (window as MainWindow).LoginGrid.Visibility = Visibility.Hidden;
+                                    //(window as MainWindow).GridsShow(ref (window as MainWindow).DefaultPage, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
                                 }
                             }
                         }
@@ -124,7 +125,6 @@ namespace noskhe_drugstore_app.Login
 
                     DefaultSignInButton.Visibility = Visibility.Visible;
                     ProgressButton.Visibility = Visibility.Hidden;
-
                 }                
                 
             }

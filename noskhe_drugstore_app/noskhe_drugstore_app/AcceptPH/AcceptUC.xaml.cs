@@ -109,7 +109,7 @@ namespace noskhe_drugstore_app.AcceptPH
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }            
 
@@ -145,8 +145,9 @@ namespace noskhe_drugstore_app.AcceptPH
                 }
                 NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //Sending Out notification on the screen -----------------------------------------------------
             try
@@ -161,8 +162,9 @@ namespace noskhe_drugstore_app.AcceptPH
 
                 });                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //--------------------------------------------------------------------------------------------
 
@@ -193,9 +195,9 @@ namespace noskhe_drugstore_app.AcceptPH
 
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         public void ShowWithoutNoskhe(int Row , string Name , int Number)
@@ -210,17 +212,24 @@ namespace noskhe_drugstore_app.AcceptPH
 
                 XWithOutNpanel.Children.Add(withoutNoskhePart);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private async void Acceptace(int shoppingCartId, bool accepted, PharmacyCancellationReason reason)
         {
-            Repository repository = new Repository();
-            await repository.AcceptanceOfNoskhe(shoppingCartId, accepted, reason);
+            try
+            {
+                Repository repository = new Repository();
+                await repository.AcceptanceOfNoskhe(shoppingCartId, accepted, reason);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
     }
 }

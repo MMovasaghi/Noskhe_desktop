@@ -33,7 +33,6 @@ namespace noskhe_drugstore_app
         {
             InitializeComponent();
         }
-        AcceptUC acceptUC = new AcceptUC();
         private void CloseApp_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -65,7 +64,10 @@ namespace noskhe_drugstore_app
         }
         private void ButtonPopuplogout_Click(object sender, RoutedEventArgs e)
         {
-            GridsShow(ref LoginGrid, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+            GridsShow(ref LoginGrid, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);            
+            XLogin.Children.Clear();
+            Login.LoginUC loginUC = new Login.LoginUC();
+            XLogin.Children.Add(loginUC);
         }
         private void NoskhesItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -134,73 +136,11 @@ namespace noskhe_drugstore_app
             WindowTitle.Text = "نسخه-داروخانه";
             TitleIco.Visibility = Visibility.Hidden;
         }
-
-        private void AcceptShow_Click(object sender, RoutedEventArgs e)
-        {
-            NoskheForFirstNotificationOnDesktop noskheForFirstNotificationOnDesktop = new NoskheForFirstNotificationOnDesktop()
-            {
-                Picture_Urls = new List<string>()
-                {
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgKWaWvMfgSmQjJBETlectexGQ4qM_Yf4eiP44iWKUqBASfGvUA",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSGDusBHcHurXuTpvVG2PMu44PjcGAMDjN0QsybEkwwg4Eo1CR",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNn35JV-qkvadDzEBizt0v1jYNxbapM6evnbKPUjzlhrGCcq2_",
-                },
-                Cosmetics = new List<Models.Minimals.Output.Cosmetic>()
-                {
-                    new Models.Minimals.Output.Cosmetic()
-                    {
-                        Name = "Lipstick",
-                        Number = 3,
-                        Price = 100000,
-                        CosmeticId = 74,
-                        ProductPictureUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFevN_-QwofXToQIEvhGXZ595uE1D23T_jDe3s_s92nP9fg6y",
-                    },
-                    new Models.Minimals.Output.Cosmetic()
-                    {
-                        Name = "Remel",
-                        Number = 3,
-                        Price = 200000,
-                        CosmeticId = 89,
-                        ProductPictureUrl = "https://assets.fishersci.com/TFS-Assets/MBD/product-images/F103904~p.eps-650.jpg",
-                    }
-
-                },
-                Medicines = new List<Models.Minimals.Output.Medicine>()
-                {
-                    new Models.Minimals.Output.Medicine()
-                    {
-                        Name = "Asetaminofen",
-                        Number = 10,
-                        Price = 200000,
-                        MedicineId = 186,
-                        ProductPictureUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg6DW40E6_NSu4FAj0gh8JPKAl-81fiOKQHcbR6QjSuSeH_9zV",
-                    },
-                    new Models.Minimals.Output.Medicine()
-                    {
-                        Name = "Aspirin",
-                        Number = 7,
-                        Price = 600000,
-                        MedicineId = 78,
-                        ProductPictureUrl = "https://cdn1.medicalnewstoday.com/content/images/articles/301/301766/bottle-of-aspirin.jpg",
-                    },
-                },
-                Customer = new Models.Minimals.Output.Customer()
-                {
-                    FirstName = "محمدحسین",
-                    LastName = "موثقی نیا",
-                    Gender = Models.Gender.Male,
-                    Phone = "09122184357",
-                    ProfilePictureUrl = "https://static.evand.net/images/description/original/26bab6a266285f35db954f9485b0443c.jpg?x-oss-process=image/resize,h_200,w_200"
-                },
-            };
-            
-            SignalR.MessageNotification(noskheForFirstNotificationOnDesktop);
-        }
-        public void GridsShow(ref Grid GridToShow,string TitleText,bool IcoShow , MaterialDesignThemes.Wpf.PackIconKind packIconKind)
+        public void GridsShow(ref Grid GridToShow, string TitleText,bool IcoShow , MaterialDesignThemes.Wpf.PackIconKind packIconKind)
         {
             try
             {
-                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid, DefaultPage , FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, LoginGrid , ProfileGrid , DrugDetailForm };
+                List<Grid> ListOfGrids = new List<Grid>() { NoskhesGrid , FinanceGrid, StarGrid, SettingsGrid, StatusGrid, DoingDetailGrid, AboutGrid, LoginGrid , ProfileGrid , DrugDetailForm };
                 GridToShow.Visibility = Visibility.Visible;
                 foreach (var item in ListOfGrids)
                 {

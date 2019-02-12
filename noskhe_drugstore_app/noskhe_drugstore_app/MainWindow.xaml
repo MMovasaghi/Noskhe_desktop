@@ -82,9 +82,6 @@
                         </Image>
                         <TextBlock x:Name="PharmacyName_MainPage" FontSize="20" Foreground="White"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="200 0">                        
-                        <Button x:Name="AcceptShow" Click="AcceptShow_Click"/>
-                    </StackPanel>
                 </Grid>
 
                 <!--Menu Windows-->
@@ -173,7 +170,7 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <!--login form-->
-                <Grid Grid.Column="1" Grid.Row="1">
+                <Grid Grid.Column="1" Grid.Row="1" x:Name="XLogin">
                     <loginuc:LoginUC/>
                 </Grid>
             </Grid>
