@@ -332,6 +332,7 @@
     <Compile Include="Models\Courier.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerToken.cs" />
+    <Compile Include="Models\CustomExceptions\PICTURE_FAILURE.cs" />
     <Compile Include="Models\CustomExceptions\DATABASE_FAILURE.cs" />
     <Compile Include="Models\CustomExceptions\DATA_IS_NOT_AVAILABE.cs" />
     <Compile Include="Models\CustomExceptions\NOT_RESPONDING.cs" />
@@ -434,6 +435,8 @@
     <Compile Include="Noskhes\Dones\DonesDetailUC.xaml.cs">
       <DependentUpon>DonesDetailUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Noskhes\Dones\Model.cs" />
+    <Compile Include="Noskhes\Dones\ViewModel.cs" />
     <Compile Include="Profile\ProfileUC.xaml.cs">
       <DependentUpon>ProfileUC.xaml</DependentUpon>
     </Compile>

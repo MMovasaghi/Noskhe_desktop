@@ -25,7 +25,8 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
             //TimerVM.timerModel.Min = 0;
             //TimerVM.StartTimer();
 
-            DateTimetxt.Text = DateTime.Now.ToString();            
+            DateTimetxt.Text = DateTime.Now.ToString();   
+            
         }
 
         private void MainGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -63,7 +64,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                     {
                         if (window.GetType() == typeof(MainWindow))
                         {
-                            (window as MainWindow).nostest.xpanel.Children.Remove(this);
+                            (window as MainWindow).noskhesUC.xpanel.Children.Remove(this);
                         }
                     }
                 }

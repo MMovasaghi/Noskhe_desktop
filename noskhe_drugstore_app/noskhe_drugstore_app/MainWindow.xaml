@@ -90,18 +90,11 @@
                     <Grid x:Name="DefaultPage" Visibility="Visible">
                         <TextBlock Text="Noskhe Group®" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="Gray" />                        
                     </Grid>
-                    <Grid x:Name="NoskhesGrid" Visibility="Hidden">
-                        <noskheuc:NoskhesUC x:Name="nostest"/>
-                    </Grid>
-                    <Grid x:Name="FinanceGrid" Visibility="Hidden">
-                        <financeuc:FinanceUC/>
-                    </Grid>
+                    <Grid x:Name="NoskhesGrid" Visibility="Hidden"/>
+                    <Grid x:Name="FinanceGrid" Visibility="Hidden"/>
                     <Grid x:Name="StarGrid" Visibility="Hidden"/>
-
                     <Grid x:Name="SettingsGrid" Visibility="Hidden"/>
-
                     <Grid x:Name="StatusGrid" Visibility="Visible"/>
-
                     <Grid x:Name="DoingDetailGrid" Visibility="Hidden">
                         <ScrollViewer>
                             <Grid  x:Name="XDingdetail" Height="1100"/>

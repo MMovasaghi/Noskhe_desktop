@@ -29,6 +29,12 @@ namespace noskhe_drugstore_app
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Noskhes.NoskhesUC noskhesUC { get; set; }
+        public Finance.FinanceUC financeUC { get; set; }
+        public Star.StarUC starUC { get; set; }
+        public Status.StatusUC statusUC { get; set; }
+        public Login.LoginUC loginUC { get; set; }
+        public ProfileUC profileuc { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -66,22 +72,29 @@ namespace noskhe_drugstore_app
         {
             GridsShow(ref LoginGrid, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);            
             XLogin.Children.Clear();
-            Login.LoginUC loginUC = new Login.LoginUC();
+            loginUC = new Login.LoginUC();
             XLogin.Children.Add(loginUC);
         }
         private void NoskhesItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridsShow(ref NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+            NoskhesGrid.Children.Clear();
+            noskhesUC = new Noskhes.NoskhesUC();
+            NoskhesGrid.Children.Add(noskhesUC);
         }
 
         private void FinanceItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridsShow(ref FinanceGrid, "کیف پول", true, MaterialDesignThemes.Wpf.PackIconKind.Wallet);
+            FinanceGrid.Children.Clear();
+            financeUC = new Finance.FinanceUC();
+            FinanceGrid.Children.Add(financeUC);
         }
 
         private void StarItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Star.StarUC starUC = new Star.StarUC();
+            StarGrid.Children.Clear();
+            starUC = new Star.StarUC();
             StarGrid.Children.Add(starUC);
             GridsShow(ref StarGrid, "رتبه بندی", true, MaterialDesignThemes.Wpf.PackIconKind.Star);
         }
@@ -93,7 +106,8 @@ namespace noskhe_drugstore_app
 
         private void ServerStatusButton_Click(object sender, RoutedEventArgs e)
         {
-            Status.StatusUC statusUC = new Status.StatusUC();
+            StatusGrid.Children.Clear();
+            statusUC = new Status.StatusUC();
             StatusGrid.Children.Add(statusUC);
             GridsShow(ref StatusGrid, "Status", true, MaterialDesignThemes.Wpf.PackIconKind.LanConnect);
         }
@@ -112,7 +126,8 @@ namespace noskhe_drugstore_app
         {
             try
             {
-                ProfileUC profileuc = new ProfileUC();
+                ProfileGrid.Children.Clear();
+                profileuc = new ProfileUC();
                 profileuc.Load_User();
                 ProfileGrid.Children.Add(profileuc);
                 GridsShow(ref ProfileGrid, "Profile", true, MaterialDesignThemes.Wpf.PackIconKind.Account);
