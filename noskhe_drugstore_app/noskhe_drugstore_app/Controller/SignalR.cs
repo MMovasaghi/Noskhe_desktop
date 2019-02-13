@@ -35,24 +35,10 @@ namespace noskhe_drugstore_app.Controller
             hubConnection.On<NoskheForFirstNotificationOnDesktop>("PharmacyReception", (message) =>
             {
                 MessageNotification(message);
-            });
-            hubConnection.On<int,string>("RecieveStatus", (status,MyName) =>
-            {
-                if(status == 1 && MyName != "")
-                {
-                    MY_NAME = MyName;
-                }
-                else
-                {
-                    MY_NAME = "NULL";
-                }                
+
             });
             //call server signal r start
             await hubConnection.StartAsync();
-        }
-        public static async Task SendMessage(string a, string ToUser)
-        {
-            await hubConnection.InvokeAsync("P_PharmacyReception", 1, a);
         }
         public async static void MessageNotification(NoskheForFirstNotificationOnDesktop message)
         {
