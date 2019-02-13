@@ -20,19 +20,33 @@
 
         <Grid Grid.Row="1">
             <ScrollViewer>
-                <DataGrid x:Name="DonesDetail_DataGrid" AutoGenerateColumns="False"  Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
+                <!--<DataGrid x:Name="DonesDetail_DataGrid" IsEnabled="False" AutoGenerateColumns="False"  Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="نام" Width="100" x:Name="FirstName"/>
-                        <DataGridTextColumn Header="نام خانوادگی" Width="120" x:Name="LastName"/>
-                        <DataGridTextColumn Header="کل هزینه" Width="120" x:Name="AllValue" />
-                        <DataGridTextColumn Header="تاریخ و ساعت" Width="120" x:Name="Date" />
-                        <DataGridTextColumn Header="مدت زمان" Width="120" x:Name="Delay" />
-                        <DataGridTextColumn Header="کد سفارش" Width="100" x:Name="Code" />
-                        <DataGridTextColumn Header="با نسخه" Width="100" x:Name="WithNoskhe" />
-                        <DataGridTextColumn Header="بدون نسخه" Width="100" x:Name="WithOutNoskhe" />
-                        <DataGridTextColumn Header="توضیحات" Width="150" x:Name="Discription" />
+                        <DataGridTextColumn Header="نام داروخانه" Width="120" x:Name="PharmacyName" Foreground="Gray"/>
+                        <DataGridTextColumn Header="قیمت" Width="100" x:Name="TotalPrice" Foreground="Gray"/>
+                        <DataGridTextColumn Header="زمان پیچیدن" Width="120" x:Name="TimeOfPacking" Foreground="Gray"/>
+                        <DataGridTextColumn Header="تاریخ و ساعت" Width="120" x:Name="Date" Foreground="Gray"/>
+                        <DataGridTextColumn Header="کد سفارش" Width="120" x:Name="Code" Foreground="Gray"/>
+                        <DataGridTextColumn Header="نسخه ها" Width="100" x:Name="WithNoskhe" Foreground="Gray"/>
+                        <DataGridTextColumn Header="دارو ها" Width="100" x:Name="Medic" Foreground="Gray"/>
+                        <DataGridTextColumn Header="آرایشی و بهداشتی" Width="100" x:Name="Cosm" Foreground="Gray"/>
+                        <DataGridTextColumn Header="توضیحات" Width="150" x:Name="Description" Foreground="Gray"/>
                     </DataGrid.Columns>
-                </DataGrid>
+                </DataGrid>-->
+                <ListView ItemsSource="{Binding Items1}" Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding PharmacyName}" Header="نام داروخانه" />
+                            <GridViewColumn DisplayMemberBinding="{Binding TotalPrice}" Header="قیمت" />
+                            <GridViewColumn DisplayMemberBinding="{Binding TimeOfPacking}" Header="زمان پیچیدن" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Date}" Header="تاریخ و ساعت" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Code}" Header="کد سفارش" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Mediciens}" Header="دارو ها" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Cosmetics}" Header="آرایشی و بهداشتی" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="توضیحات" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </ScrollViewer>            
         </Grid>
         

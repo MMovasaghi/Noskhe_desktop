@@ -10,41 +10,20 @@ namespace noskhe_drugstore_app.Noskhes.Dones
     /// </summary>
     public partial class DonesDetailUC : UserControl
     {
-        public List<Models.Minimals.Output.Order> order { set; get; }
+        private ViewModel viewModel = new ViewModel();
         public DonesDetailUC()
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
 
         private void ReloadButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ShowOnGrid();
         }
-        public async void ShowOnGrid()
+        public void ShowOnGrid()
         {
-            try
-            {
-                Controller.Repository repo = new Controller.Repository();
-                order = await repo.Get_AllOrders();
-
-                foreach (var item in order)
-                {
-
-                    DonesDetail_DataGrid.Items.Add(new
-                    {
-                        FirstName = "ali",
-                        LastName = "hasan",
-
-
-                    });
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-            
-            
+            viewModel.GetData();
         }
     }
 }
