@@ -23,6 +23,7 @@ namespace noskhe_drugstore_app.Noskhes
     /// </summary>
     public partial class NoskhesUC : UserControl
     {
+        public DonesUC donesUC { get; set; }
         public NoskhesUC()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace noskhe_drugstore_app.Noskhes
 
         private void DonesItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DonesUC donesUC = new DonesUC();
+            donesUC = new DonesUC();
             donesUC.ShowDetail();
             DonesGrid.Children.Add(donesUC);
 

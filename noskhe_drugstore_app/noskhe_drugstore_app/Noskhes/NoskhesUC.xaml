@@ -58,11 +58,8 @@
             <Grid x:Name="DonesGrid" Visibility="Visible" Grid.Row="1"/>
             <Grid Margin="0 0 -20 0" x:Name="DoingGrid" Visibility="Hidden" Grid.Row="1">
                 <ScrollViewer>
-                    <StackPanel x:Name="xpanel" Margin="10">                      
-                        
-                    </StackPanel>
-                </ScrollViewer>
-                
+                    <StackPanel x:Name="xpanel" Margin="10"/>
+                </ScrollViewer>                
             </Grid>
         </Grid>
 

@@ -18,39 +18,42 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
         public DoingDetailUC()
         {
             InitializeComponent();
-
             DataContext = doingSicks;
-
-            //TimerVM.timerModel.Sec = 0;
-            //TimerVM.timerModel.Min = 0;
-            //TimerVM.StartTimer();
-
-            DateTimetxt.Text = DateTime.Now.ToString();   
-            
+            DateTimetxt.Text = DateTime.Now.ToString();               
         }
 
         private void MainGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(MainWindow))
-                {
-                    (window as MainWindow).XDingdetail.Children.Clear();
-                }
-            }
+            Application.Current.Dispatcher.Invoke(new Action(
+                        delegate {
+
+                            foreach (Window window in Application.Current.Windows)
+                            {
+                                if (window.GetType() == typeof(MainWindow))
+                                {
+                                    (window as MainWindow).noskhesUC.xpanel.Children.Remove(this);
+                                    (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+                                }
+                            }
+                        }
+                    ));
 
             doingDetailofallUC.doingSicks.InitializeTimer();
 
+            Application.Current.Dispatcher.Invoke(new Action(
+                        delegate {
 
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(MainWindow))
-                {
-                    (window as MainWindow).XDingdetail.Children.Add(doingDetailofallUC);
-                    //(window as MainWindow).XDingdetail.Children.Clear();
-                    (window as MainWindow).GridsShow(ref (window as MainWindow).DoingDetailGrid, "جزئیات نسخه", true, MaterialDesignThemes.Wpf.PackIconKind.ContentDuplicate);
-                }
-            }
+                            foreach (Window window in Application.Current.Windows)
+                            {
+                                if (window.GetType() == typeof(MainWindow))
+                                {
+                                    (window as MainWindow).XDingdetail.Children.Add(doingDetailofallUC);
+                                    //(window as MainWindow).XDingdetail.Children.Clear();
+                                    (window as MainWindow).GridsShow(ref (window as MainWindow).DoingDetailGrid, "جزئیات نسخه", true, MaterialDesignThemes.Wpf.PackIconKind.ContentDuplicate);
+                                }
+                            }
+                        }
+                    ));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -20,19 +20,6 @@
 
         <Grid Grid.Row="1">
             <ScrollViewer>
-                <!--<DataGrid x:Name="DonesDetail_DataGrid" IsEnabled="False" AutoGenerateColumns="False"  Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="نام داروخانه" Width="120" x:Name="PharmacyName" Foreground="Gray"/>
-                        <DataGridTextColumn Header="قیمت" Width="100" x:Name="TotalPrice" Foreground="Gray"/>
-                        <DataGridTextColumn Header="زمان پیچیدن" Width="120" x:Name="TimeOfPacking" Foreground="Gray"/>
-                        <DataGridTextColumn Header="تاریخ و ساعت" Width="120" x:Name="Date" Foreground="Gray"/>
-                        <DataGridTextColumn Header="کد سفارش" Width="120" x:Name="Code" Foreground="Gray"/>
-                        <DataGridTextColumn Header="نسخه ها" Width="100" x:Name="WithNoskhe" Foreground="Gray"/>
-                        <DataGridTextColumn Header="دارو ها" Width="100" x:Name="Medic" Foreground="Gray"/>
-                        <DataGridTextColumn Header="آرایشی و بهداشتی" Width="100" x:Name="Cosm" Foreground="Gray"/>
-                        <DataGridTextColumn Header="توضیحات" Width="150" x:Name="Description" Foreground="Gray"/>
-                    </DataGrid.Columns>
-                </DataGrid>-->
                 <ListView ItemsSource="{Binding Items1}" Foreground="Gray" FlowDirection="RightToLeft" FontFamily="IRANSans">
                     <ListView.View>
                         <GridView>

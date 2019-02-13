@@ -47,20 +47,24 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
         }
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {            
             MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که نسخه پیچیده شده است ؟", "Warrning", MessageBoxButton.YesNo);
             if (mbox == MessageBoxResult.Yes)
             {
                 CalculateAllMoney();
-                foreach (Window window in Application.Current.Windows)
-                {
-                    if (window.GetType() == typeof(MainWindow))
-                    {
-                        (window as MainWindow).XDingdetail.Children.Remove(this);
-                        (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
-                    }
-                }
+                Application.Current.Dispatcher.Invoke(new Action(
+                        delegate {
+
+                            foreach (Window window in Application.Current.Windows)
+                            {
+                                if (window.GetType() == typeof(MainWindow))
+                                {
+                                    (window as MainWindow).noskhesUC.xpanel.Children.Remove(this);
+                                    (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+                                }
+                            }
+                        }
+                    ));
             }
         }
 
