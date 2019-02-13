@@ -18,6 +18,7 @@ using noskhe_drugstore_app.Noskhes.Doing.View;
 using noskhe_drugstore_app.Controller;
 using noskhe_drugstore_app.Models;
 using Notifications.Wpf;
+using noskhe_drugstore_app.Models.CustomExceptions;
 
 namespace noskhe_drugstore_app.AcceptPH
 {
@@ -101,9 +102,9 @@ namespace noskhe_drugstore_app.AcceptPH
                         if (window.GetType() == typeof(MainWindow))
                         {
                             (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
-                            (window as MainWindow).nostest.DonesGrid.Visibility = Visibility.Hidden;
-                            (window as MainWindow).nostest.DoingGrid.Visibility = Visibility.Visible;
-                            (window as MainWindow).nostest.xpanel.Children.Add(doingObj);
+                            (window as MainWindow).noskhesUC.DonesGrid.Visibility = Visibility.Hidden;
+                            (window as MainWindow).noskhesUC.DoingGrid.Visibility = Visibility.Visible;
+                            (window as MainWindow).noskhesUC.xpanel.Children.Add(doingObj);
                         }
                     }
                 }
@@ -145,6 +146,11 @@ namespace noskhe_drugstore_app.AcceptPH
                 }
                 NoskheForFirstNotificationOnDesktop.NumberOfWithOutNoskhe = X;
             }
+            catch (PICTURE_FAILURE)
+            {
+                //MessageBox.Show("PICTURE_FAILURE", "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new PICTURE_FAILURE();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -167,13 +173,11 @@ namespace noskhe_drugstore_app.AcceptPH
                 MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //--------------------------------------------------------------------------------------------
-
-
         }
         public void ShowOn(string url)
         {
             try
-            {               
+            {  
 
                 //Show Image On the screen--------------------------------------------------------------------
                 var image = new Image();
@@ -195,9 +199,9 @@ namespace noskhe_drugstore_app.AcceptPH
 
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new PICTURE_FAILURE();
             }
         }
         public void ShowWithoutNoskhe(int Row , string Name , int Number)
