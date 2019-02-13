@@ -44,13 +44,11 @@
         <Grid Grid.Row="1">
             <!--Main Window-->
             <Grid Background="LightGray" Grid.RowSpan="2">
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60*"/>
                     <RowDefinition Height="500*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-
                 <!--top bar {UserMode}-->
                 <Grid x:Name="TopUserModeBar" Grid.Row="0" Height="60" VerticalAlignment="Top" Background="#FF1F6129">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -58,7 +56,7 @@
                         <materialdesign:PackIcon x:Name="TitleIco" Visibility="Hidden" Width="25" Height="25" Margin="10"/>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0" Orientation="Horizontal">
-                        <Button x:Name="ONOFFButton" Content="Enable" Width="100" Foreground="White" Background="#FF1BD188" BorderBrush="#FF1BD188" Click="ONOFFButton_Click"/>
+                        <ToggleButton x:Name="ONOFFButton" Content="OFF" Width="50" Height="50" Style="{StaticResource MaterialDesignActionToggleButton}" ToolTip="شدن ، از دسترس خارج می شوید OFF در صورت" Foreground="White" Background="#FF7C3A3A" materialdesign:ShadowAssist.ShadowDepth="Depth3" IsChecked="True" Checked="ONOFFButton_Checked" Unchecked="ONOFFButton_Unchecked"/>                        
                     </StackPanel>
                     <!--About Menu-->
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">

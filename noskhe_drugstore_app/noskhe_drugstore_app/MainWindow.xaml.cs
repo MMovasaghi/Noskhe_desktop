@@ -29,6 +29,7 @@ namespace noskhe_drugstore_app
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool firstNoskheOpenPage = true;
         public Noskhes.NoskhesUC noskhesUC { get; set; }
         public Finance.FinanceUC financeUC { get; set; }
         public Star.StarUC starUC { get; set; }
@@ -64,23 +65,31 @@ namespace noskhe_drugstore_app
         {
             this.DragMove();
         }
-        private void ONOFFcatchButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
         private void ButtonPopuplogout_Click(object sender, RoutedEventArgs e)
         {
+            Repository.LoginSignalR = true;
+            firstNoskheOpenPage = true;
+            Logout();
+
             GridsShow(ref LoginGrid, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);            
             XLogin.Children.Clear();
             loginUC = new Login.LoginUC();
             XLogin.Children.Add(loginUC);
         }
+        private async void Logout()
+        {
+            await SignalR.ConnectingLogout();
+        }
         private void NoskhesItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridsShow(ref NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
-            NoskhesGrid.Children.Clear();
-            noskhesUC = new Noskhes.NoskhesUC();
-            NoskhesGrid.Children.Add(noskhesUC);
+            if(firstNoskheOpenPage)
+            {
+                NoskhesGrid.Children.Clear();
+                noskhesUC = new Noskhes.NoskhesUC();
+                NoskhesGrid.Children.Add(noskhesUC);
+                firstNoskheOpenPage = false;
+            }            
         }
 
         private void FinanceItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -180,33 +189,18 @@ namespace noskhe_drugstore_app
             
         }
 
-        private void ONOFFButton_Click(object sender, RoutedEventArgs e)
-        {           
-
-            if (ONOFFButton.Content.ToString() == "Enable")
-            {
-                MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که می خواهید وضعیت داروخانه را به حالت خاموش تغییر دهید؟", "Disabling", MessageBoxButton.YesNo);
-                if (mbox == MessageBoxResult.Yes)
-                {
-                    ONOFFButton.Content = "Disable";
-                    var bc = new BrushConverter();                   
-                    ONOFFButton.Background = (Brush)bc.ConvertFrom("#FFD1501B");
-                    ONOFFButton.BorderBrush = (Brush)bc.ConvertFrom("#FFD1501B");
-                }
-            }
-            else if (ONOFFButton.Content.ToString() == "Disable")
-            {
-                MessageBoxResult mbox = MessageBox.Show("آیا مطمئن هستید که می خواهید وضعیت داروخانه را به حالت روشن تغییر دهید؟", "Enabling", MessageBoxButton.YesNo);
-                if (mbox == MessageBoxResult.Yes)
-                {
-                    ONOFFButton.Content = "Enable";
-                    var bc = new BrushConverter();
-                    ONOFFButton.Background = (Brush)bc.ConvertFrom("#FF1BD188");
-                    ONOFFButton.BorderBrush = (Brush)bc.ConvertFrom("#FF1BD188");
-                }
-            }
+        private void ONOFFButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var bc = new BrushConverter();
+            ONOFFButton.Background = (Brush)bc.ConvertFrom("#FF1BD188");
+            ONOFFButton.ToolTip = "شدن ، از دسترس خارج می شوید OFF در صورت";
         }
-        
-        
+
+        private void ONOFFButton_Unchecked(object sender, RoutedEventArgs e)
+        {           
+            var bc = new BrushConverter();
+            ONOFFButton.Background = (Brush)bc.ConvertFrom("#FFD1501B");
+            ONOFFButton.ToolTip = "شدن ، در دسترس قرار می گیرید ON در صورت";
+        }
     }
 }

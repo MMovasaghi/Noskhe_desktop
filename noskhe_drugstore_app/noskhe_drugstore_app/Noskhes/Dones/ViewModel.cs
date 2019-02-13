@@ -13,11 +13,11 @@ namespace noskhe_drugstore_app.Noskhes.Dones
             
         }
         public async void GetData()
-        {
-            Controller.Repository repo = new Controller.Repository();
-            order = await repo.Get_AllOrders();
+        {            
             try
             {
+                Controller.Repository repo = new Controller.Repository();
+                order = await repo.Get_AllOrders();
                 foreach (var item in order)
                 {
                     Items1 = new ObservableCollection<Model>()

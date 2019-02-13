@@ -102,7 +102,8 @@ namespace noskhe_drugstore_app.AcceptPH
                         if (window.GetType() == typeof(MainWindow))
                         {
                             (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
-                            (window as MainWindow).noskhesUC.DonesGrid.Visibility = Visibility.Hidden;
+                            (window as MainWindow).noskhesUC = new Noskhes.NoskhesUC();
+                            (window as MainWindow).NoskhesGrid.Children.Add((window as MainWindow).noskhesUC);
                             (window as MainWindow).noskhesUC.DoingGrid.Visibility = Visibility.Visible;
                             (window as MainWindow).noskhesUC.xpanel.Children.Add(doingObj);
                         }
@@ -148,7 +149,7 @@ namespace noskhe_drugstore_app.AcceptPH
             }
             catch (PICTURE_FAILURE)
             {
-                //MessageBox.Show("PICTURE_FAILURE", "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("PICTURE_FAILURE", "EXCEPTION", MessageBoxButton.OK, MessageBoxImage.Error);
                 throw new PICTURE_FAILURE();
             }
             catch (Exception ex)

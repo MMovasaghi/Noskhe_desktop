@@ -14,6 +14,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using noskhe_drugstore_app.Models.GetDataHandler;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace noskhe_drugstore_app.Controller
 {
@@ -21,7 +22,7 @@ namespace noskhe_drugstore_app.Controller
     {
         public HttpClient client = new HttpClient();
         public HttpResponseMessage responseMessage = new HttpResponseMessage();
-        static bool LoginSignalR = true;
+        public static bool LoginSignalR = true;
         public Repository()
         {
             client.BaseAddress = new Uri(ConnectionUrls.Main_Server_url);            
@@ -100,6 +101,9 @@ namespace noskhe_drugstore_app.Controller
 
                 if (LoginSignalR)
                 {
+                    SignalR.hubConnection = new HubConnectionBuilder()
+                        .WithUrl(ConnectionUrls.Hub_Server_url, option => { option.Headers.Add("Authorization", Token.Value); })
+                        .Build();
                     await SignalR.ConnectingLogin();
                     LoginSignalR = false;
                 }                 
