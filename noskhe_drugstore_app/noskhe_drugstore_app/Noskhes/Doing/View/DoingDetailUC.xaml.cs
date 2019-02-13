@@ -31,7 +31,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                             {
                                 if (window.GetType() == typeof(MainWindow))
                                 {
-                                    (window as MainWindow).noskhesUC.xpanel.Children.Remove(this);
+                                    (window as MainWindow).NoskheFirstPage.xpanel.Children.Remove(this);
                                     (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
                                 }
                             }
@@ -48,7 +48,6 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                                 if (window.GetType() == typeof(MainWindow))
                                 {
                                     (window as MainWindow).XDingdetail.Children.Add(doingDetailofallUC);
-                                    //(window as MainWindow).XDingdetail.Children.Clear();
                                     (window as MainWindow).GridsShow(ref (window as MainWindow).DoingDetailGrid, "جزئیات نسخه", true, MaterialDesignThemes.Wpf.PackIconKind.ContentDuplicate);
                                 }
                             }
@@ -67,7 +66,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                     {
                         if (window.GetType() == typeof(MainWindow))
                         {
-                            (window as MainWindow).noskhesUC.xpanel.Children.Remove(this);
+                            (window as MainWindow).NoskheFirstPage.xpanel.Children.Remove(this);
                         }
                     }
                 }

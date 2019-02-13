@@ -59,7 +59,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                             {
                                 if (window.GetType() == typeof(MainWindow))
                                 {
-                                    (window as MainWindow).noskhesUC.xpanel.Children.Remove(this);
+                                    (window as MainWindow).NoskheFirstPage.xpanel.Children.Remove(this);
                                     (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
                                 }
                             }

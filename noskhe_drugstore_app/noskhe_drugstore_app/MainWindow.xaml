@@ -79,16 +79,18 @@
                             </Image.Source>
                         </Image>
                         <TextBlock x:Name="PharmacyName_MainPage" FontSize="20" Foreground="White"/>
-                    </StackPanel>
+                    </StackPanel>                    
                 </Grid>
 
                 <!--Menu Windows-->
                 <Grid x:Name="MenuWidows" Grid.Row="1" Grid.RowSpan="2" >
                     <!--MainMenu window-->
                     <Grid x:Name="DefaultPage" Visibility="Visible">
-                        <TextBlock Text="Noskhe Group®" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="Gray" />                        
+                        <TextBlock Text="Noskhe Group®" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="Gray" />
                     </Grid>
-                    <Grid x:Name="NoskhesGrid" Visibility="Hidden"/>
+                    <Grid x:Name="NoskhesGrid" Visibility="Hidden">
+                        <noskheuc:NoskhesUC x:Name="NoskheFirstPage"/>
+                    </Grid>
                     <Grid x:Name="FinanceGrid" Visibility="Hidden"/>
                     <Grid x:Name="StarGrid" Visibility="Hidden"/>
                     <Grid x:Name="SettingsGrid" Visibility="Hidden"/>
@@ -132,18 +134,10 @@
                                     <TextBlock Text="رتبه بندی" FontFamily="IRANSans" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
                                 </StackPanel>
                             </ListViewItem>
-                            <!--Settings Button-->
-                            <!--<ListViewItem x:Name="SettingsItem" Height="60" MouseLeftButtonUp="SettingsItem_MouseLeftButtonUp">
-                                <StackPanel Orientation="Horizontal">
-                                    <materialdesign:PackIcon Kind="Settings" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                                    <TextBlock Text="تنظیمات" FontFamily="IRANSans" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
-                                </StackPanel>
-                            </ListViewItem>-->
                         </ListView>
                     </StackPanel>
                 </Grid>
             </Grid>
-
 
             <!--Login Window-->
             <Grid x:Name="LoginGrid" Grid.Column="2" Grid.RowSpan="2" Visibility="Visible">

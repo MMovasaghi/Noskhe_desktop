@@ -29,8 +29,6 @@ namespace noskhe_drugstore_app
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool firstNoskheOpenPage = true;
-        public Noskhes.NoskhesUC noskhesUC { get; set; }
         public Finance.FinanceUC financeUC { get; set; }
         public Star.StarUC starUC { get; set; }
         public Status.StatusUC statusUC { get; set; }
@@ -68,7 +66,6 @@ namespace noskhe_drugstore_app
         private void ButtonPopuplogout_Click(object sender, RoutedEventArgs e)
         {
             Repository.LoginSignalR = true;
-            firstNoskheOpenPage = true;
             Logout();
 
             GridsShow(ref LoginGrid, "نسخه-داروخانه", false, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);            
@@ -82,14 +79,7 @@ namespace noskhe_drugstore_app
         }
         private void NoskhesItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            GridsShow(ref NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
-            if(firstNoskheOpenPage)
-            {
-                NoskhesGrid.Children.Clear();
-                noskhesUC = new Noskhes.NoskhesUC();
-                NoskhesGrid.Children.Add(noskhesUC);
-                firstNoskheOpenPage = false;
-            }            
+            GridsShow(ref NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);            
         }
 
         private void FinanceItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
