@@ -171,6 +171,9 @@ namespace noskhe_drugstore_app
                 {
                     TitleIco.Visibility = Visibility.Hidden;
                 }
+                //for close all objects that children of the XDingdetail To send an object from the caller again
+                if (GridToShow.Name == DoingDetailGrid.Name)
+                    XDingdetail.Children.Clear();
             }
             catch (Exception ex)
             {

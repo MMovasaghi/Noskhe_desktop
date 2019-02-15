@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Windows.Threading;
 using noskhe_drugstore_app.Noskhes.Doing.ViewModels;
-using noskhe_drugstore_app.Noskhes.Doing.Models;
 
 namespace noskhe_drugstore_app.Noskhes.Doing.View
 {
@@ -37,13 +26,22 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
         int a = 0;
         private void BackButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            foreach (Window window in Application.Current.Windows)
+            try
             {
-                if (window.GetType() == typeof(MainWindow))
+                foreach (Window window in Application.Current.Windows)
                 {
-                    (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+                    if (window.GetType() == typeof(MainWindow))
+                    {
+                        (window as MainWindow).XDingdetail.Children.Remove(this);
+                        (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)

@@ -15,44 +15,38 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
         public DoingSicksMV doingSicks = new DoingSicksMV();
         public noskhe_drugstore_app.Models.Minimals.Output.NoskheForFirstNotificationOnDesktop NoskheForFirstNotificationOnDesktop { get; set; }
+        public bool IsObjectCreated = false;
         public DoingDetailUC()
         {
             InitializeComponent();
             DataContext = doingSicks;
             DateTimetxt.Text = DateTime.Now.ToString();               
-        }
-
+        }        
         private void MainGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Application.Current.Dispatcher.Invoke(new Action(
-                        delegate {
+            try
+            {
+                doingDetailofallUC.doingSicks.InitializeTimer();
 
-                            foreach (Window window in Application.Current.Windows)
-                            {
-                                if (window.GetType() == typeof(MainWindow))
+                Application.Current.Dispatcher.Invoke(new Action(
+                            delegate {
+
+                                foreach (Window window in Application.Current.Windows)
                                 {
-                                    (window as MainWindow).NoskheFirstPage.xpanel.Children.Remove(this);
-                                    (window as MainWindow).GridsShow(ref (window as MainWindow).NoskhesGrid, "نسخه ها", true, MaterialDesignThemes.Wpf.PackIconKind.ContentPaste);
+                                    if (window.GetType() == typeof(MainWindow))
+                                    {
+                                        (window as MainWindow).GridsShow(ref (window as MainWindow).DoingDetailGrid, "جزئیات نسخه", true, MaterialDesignThemes.Wpf.PackIconKind.ContentDuplicate);
+                                        (window as MainWindow).XDingdetail.Children.Add(doingDetailofallUC);
+                                    }
                                 }
                             }
-                        }
-                    ));
+                        ));
+            }
+            catch (Exception)
+            {
 
-            doingDetailofallUC.doingSicks.InitializeTimer();
-
-            Application.Current.Dispatcher.Invoke(new Action(
-                        delegate {
-
-                            foreach (Window window in Application.Current.Windows)
-                            {
-                                if (window.GetType() == typeof(MainWindow))
-                                {
-                                    (window as MainWindow).XDingdetail.Children.Add(doingDetailofallUC);
-                                    (window as MainWindow).GridsShow(ref (window as MainWindow).DoingDetailGrid, "جزئیات نسخه", true, MaterialDesignThemes.Wpf.PackIconKind.ContentDuplicate);
-                                }
-                            }
-                        }
-                    ));
+            }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,7 +60,7 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
                     {
                         if (window.GetType() == typeof(MainWindow))
                         {
-                            (window as MainWindow).NoskheFirstPage.xpanel.Children.Remove(this);
+                            (window as MainWindow).NoskheFirstPage.xpanel.Children.Remove(this);                            
                         }
                     }
                 }

@@ -6,7 +6,7 @@
              xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:noskhe_drugstore_app.Noskhes"
              xmlns:donsfo="clr-namespace:noskhe_drugstore_app.Noskhes.Dones"
-             xmlns:doingfo="clr-namespace:noskhe_drugstore_app.Noskhes.Doing"
+             xmlns:doingfo="clr-namespace:noskhe_drugstore_app.Noskhes"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1020">
 
