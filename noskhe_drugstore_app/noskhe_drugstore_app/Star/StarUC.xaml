@@ -54,7 +54,7 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <lvc:AngularGauge Grid.Row="1" Value="{Binding starModel.Value}" FromValue="0" ToValue="100" 
+                    <lvc:AngularGauge x:Name="RateMap" Grid.Row="1" FromValue="0" ToValue="100" 
                           LabelsStep="50" TicksStep="25" Wedge="300"
                           TicksForeground="White" Foreground="Gray" 
                           FontWeight="Bold" FontSize="16"

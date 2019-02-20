@@ -20,25 +20,29 @@ namespace noskhe_drugstore_app.Star
     /// </summary>
     public partial class StarUC : UserControl
     {
-        StarViewModel starView = new StarViewModel();
         public StarUC()
         {
             InitializeComponent();
-            DataContext = starView;
-
-            if(starView.score != null)
+        }
+        public async void ShowOn()
+        {
+            try
             {
-                Rank.Text = starView.score.RankAmongPharmacies.ToString();
-                CustomerSatisfaction.Text = starView.score.CustomerSatisfaction.ToString() + " %";
-                AverageTime.Text = starView.score.PackingAverageTimeInSeconds.ToString() + "\'";
+                Controller.Repository repository = new Controller.Repository();
+                Models.Minimals.Output.Score score = await repository.Get_Score();
+
+                Rank.Text = score.RankAmongPharmacies.ToString();
+                CustomerSatisfaction.Text = score.CustomerSatisfaction.ToString() + " %";
+                AverageTime.Text = score.PackingAverageTimeInSeconds.ToString() + "\'";
+                RateMap.Value = score.CustomerSatisfaction;
             }
-            else
+            catch (Exception)
             {
                 Rank.Text = (0).ToString();
                 CustomerSatisfaction.Text = 0 + " %";
                 AverageTime.Text = 0 + "\'";
+                RateMap.Value = 0;
             }
-            
         }
     }
 }
