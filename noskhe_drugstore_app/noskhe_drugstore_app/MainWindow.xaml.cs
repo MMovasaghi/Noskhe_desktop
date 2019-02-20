@@ -87,6 +87,7 @@ namespace noskhe_drugstore_app
             GridsShow(ref FinanceGrid, "کیف پول", true, MaterialDesignThemes.Wpf.PackIconKind.Wallet);
             FinanceGrid.Children.Clear();
             financeUC = new Finance.FinanceUC();
+            financeUC.ShowOn();
             FinanceGrid.Children.Add(financeUC);
         }
 
@@ -95,6 +96,7 @@ namespace noskhe_drugstore_app
             StarGrid.Children.Clear();
             starUC = new Star.StarUC();
             StarGrid.Children.Add(starUC);
+            starUC.ShowOn();
             GridsShow(ref StarGrid, "رتبه بندی", true, MaterialDesignThemes.Wpf.PackIconKind.Star);
         }
 
@@ -182,18 +184,43 @@ namespace noskhe_drugstore_app
             
         }
 
-        private void ONOFFButton_Checked(object sender, RoutedEventArgs e)
+        private async void ONOFFButton_Checked(object sender, RoutedEventArgs e)
         {
-            var bc = new BrushConverter();
-            ONOFFButton.Background = (Brush)bc.ConvertFrom("#FF1BD188");
-            ONOFFButton.ToolTip = "شدن ، از دسترس خارج می شوید OFF در صورت";
+            try
+            {
+                Repository repo = new Repository();
+                bool res = await repo.ToggleONOFF(true);
+                if(res)
+                {
+                    var bc = new BrushConverter();
+                    ONOFFButton.Background = (Brush)bc.ConvertFrom("#FF1BD188");
+                    ONOFFButton.ToolTip = "شدن ، از دسترس خارج می شوید OFF در صورت";
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void ONOFFButton_Unchecked(object sender, RoutedEventArgs e)
-        {           
-            var bc = new BrushConverter();
-            ONOFFButton.Background = (Brush)bc.ConvertFrom("#FFD1501B");
-            ONOFFButton.ToolTip = "شدن ، در دسترس قرار می گیرید ON در صورت";
+        private async void ONOFFButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Repository repo = new Repository();
+                bool res = await repo.ToggleONOFF(false);
+                if(!res)
+                {
+                    var bc = new BrushConverter();
+                    ONOFFButton.Background = (Brush)bc.ConvertFrom("#FFD1501B");
+                    ONOFFButton.ToolTip = "شدن ، در دسترس قرار می گیرید ON در صورت";
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

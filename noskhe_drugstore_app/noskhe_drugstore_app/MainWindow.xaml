@@ -55,8 +55,8 @@
                         <TextBlock x:Name="WindowTitle" Text="نسخه - داروخانه" VerticalAlignment="Center" Margin="30 0 0 0" FontSize="22" FontWeight="Bold" FontFamily="IRANSans"/>
                         <materialdesign:PackIcon x:Name="TitleIco" Visibility="Hidden" Width="25" Height="25" Margin="10"/>
                     </StackPanel>
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0" Orientation="Horizontal">
-                        <ToggleButton x:Name="ONOFFButton" Content="OFF" Width="50" Height="50" Style="{StaticResource MaterialDesignActionToggleButton}" ToolTip="شدن ، از دسترس خارج می شوید OFF در صورت" Foreground="White" Background="#FF7C3A3A" materialdesign:ShadowAssist.ShadowDepth="Depth3" IsChecked="True" Checked="ONOFFButton_Checked" Unchecked="ONOFFButton_Unchecked"/>                        
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 60 0" Orientation="Horizontal">
+                        <ToggleButton x:Name="ONOFFButton" Content="OFF" Width="50" Height="50" Style="{StaticResource MaterialDesignActionToggleButton}" ToolTip="شدن ، از دسترس خارج می شوید OFF در صورت" Foreground="White" Background="#FF1BD188" materialdesign:ShadowAssist.ShadowDepth="Depth3" IsChecked="True" Checked="ONOFFButton_Checked" Unchecked="ONOFFButton_Unchecked"/>                        
                     </StackPanel>
                     <!--About Menu-->
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">

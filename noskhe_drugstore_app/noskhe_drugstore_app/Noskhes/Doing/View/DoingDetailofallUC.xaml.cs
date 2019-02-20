@@ -82,6 +82,27 @@ namespace noskhe_drugstore_app.Noskhes.Doing.View
 
             PayAll.Text = NoskheForFirstNotificationOnDesktop.SumAllPrice.ToString();
 
+
+            //the notations
+            var bc = new BrushConverter();
+            Description.Text = NoskheForFirstNotificationOnDesktop.Notation.Description;
+            if (NoskheForFirstNotificationOnDesktop.Notation.BrandPreference == noskhe_drugstore_app.Models.BrandType.Local)
+            {
+                Brand.Background = (Brush)bc.ConvertFrom("#FFB3214C");
+                Brand.BorderBrush = (Brush)bc.ConvertFrom("#FFB3214C");
+            }
+            if (NoskheForFirstNotificationOnDesktop.Notation.HasPregnancy)
+            {
+                Pregnant.Background = (Brush)bc.ConvertFrom("#FFB3214C");
+                Pregnant.BorderBrush = (Brush)bc.ConvertFrom("#FFB3214C");
+            }
+            if (NoskheForFirstNotificationOnDesktop.Notation.HasOtherDiseases)
+            {
+                Handsup.Background = (Brush)bc.ConvertFrom("#FFB3214C");
+                Handsup.BorderBrush = (Brush)bc.ConvertFrom("#FFB3214C");
+            }
+
+
             //add images with out noskhe
             foreach (var item in NoskheForFirstNotificationOnDesktop.Picture_Urls)
             {

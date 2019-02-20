@@ -123,7 +123,7 @@
             <Button Grid.Row="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF3AB73F" BorderBrush="#FF3AB73F" Click="Button_Click_1" Height="40" Width="40" Margin="471,360.4,349,10" >
                 <materialdesign:PackIcon Kind="Check" Width="25" Height="30"/>
             </Button>
-            <Button x:Name="CheckWithoutNoskheToggleButton" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 0 0 0" Grid.Row="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FFD64B24" BorderBrush="#FFD64B24" Click="CheckWithoutNoskheToggleButton_Click" Height="40" Width="40">
+            <Button x:Name="CheckWithoutNoskheToggleButton" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5,360.4,349,10" Grid.Row="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FFD64B24" BorderBrush="#FFD64B24" Click="CheckWithoutNoskheToggleButton_Click" Height="40" Width="40">
                 <materialdesign:PackIcon x:Name="CheckWithoutNoskheToggleKind" Kind="Close" Width="25" Height="30"/>
             </Button>
             <Grid Grid.Row="3">
@@ -180,18 +180,18 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <GroupBox Header="توضیحات" TextBlock.TextAlignment="Right" FontFamily="IRANSans"  Margin="20 -20 10 10">
-                            <TextBlock Text="لطفا سریع تر ارسال کنید ، به شدت عجله داریم" Foreground="Black" FontFamily="IRANSans"/>
+                            <TextBlock x:Name="Description" Foreground="Black" FontFamily="IRANSans"/>
                         </GroupBox>
                     </Grid>
                     <Grid Grid.Row="1">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button Margin="15" Width="60" Height="60" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF1B6B1F" BorderBrush="#FF1B6B1F">
+                            <Button x:Name="Handsup" Margin="15" Width="60" Height="60" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF1B6B1F" BorderBrush="#FF1B6B1F">
                                 <materialdesign:PackIcon Kind="HumanHandsup" Width="35" Height="35"/>
                             </Button>
-                            <Button Margin="15" Width="60" Height="60" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF1B6B1F" BorderBrush="#FF1B6B1F">
+                            <Button x:Name="Pregnant" Margin="15" Width="60" Height="60" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF1B6B1F" BorderBrush="#FF1B6B1F">
                                 <materialdesign:PackIcon Kind="HumanPregnant" Width="35" Height="35"/>
                             </Button>
-                            <Button Content="ایرانی" FontSize="15" FontFamily="IRANSans" Margin="15" Width="60" Height="60" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF1B6B1F" BorderBrush="#FF1B6B1F"/>
+                            <Button x:Name="Brand" Content="ایرانی" FontSize="15" FontFamily="IRANSans" Margin="15" Width="60" Height="60" Style="{DynamicResource MaterialDesignFloatingActionButton}" Background="#FF1B6B1F" BorderBrush="#FF1B6B1F"/>
                         </StackPanel>
                     </Grid>
 
