@@ -64,7 +64,7 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="1" Width="400" Height="60" Background="White">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Foreground="Black" Margin="0 1 5 0" FontWeight="Bold" Text="3000000" FontSize="20" FontFamily="IRANSans"/>
+                        <TextBlock x:Name="Credittext" Foreground="Black" Margin="0 1 5 0" FontWeight="Bold" Text="3000000" FontSize="20" FontFamily="IRANSans"/>
                         <TextBlock Foreground="Black" FontWeight="Bold" Text=" : موجودی حساب" FontSize="20" FontFamily="IRANSans"/>
                     </StackPanel>
                 </Grid>
@@ -103,35 +103,10 @@
                         </Grid>
                         <Chart:TimeChart Margin="20 40 10 30" Foreground="Black"/>
                     </Grid>
-                </Grid>                
-
-                <!--<Grid x:Name="ChartDetaile" Margin="10" Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="480*"/>
-                        <RowDefinition Height="15*"/>
-                    </Grid.RowDefinitions>
-                    <Rectangle Fill="White" RadiusX="10" RadiusY="10" Grid.Row="0" Grid.RowSpan="3">
-                        <Rectangle.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFC9C5C5" ShadowDepth="1"/>
-                        </Rectangle.Effect>
-                    </Rectangle>
-                    <Grid Width="35" Height="60" Background="#FFC36E00" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20.2,0">
-                        <Grid.Effect>
-                            <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Opacity="0.5" Color="#FFCBCBCB" ShadowDepth="1"/>
-                        </Grid.Effect>
-                        <materialdesign:PackIcon Kind="Coin" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="25" Height="25"/>
-                    </Grid>
-                    <TextBlock Text="جزئیات فروش ها" FontFamily="IRANSans" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="70,20" Foreground="Gray" FontSize="25"/>
-                    <Grid Margin="40 10 40 30" Grid.Row="0" Grid.RowSpan="2">
-                        <local:SellDetailUC/>
-                    </Grid>
-                </Grid>-->
+                </Grid>
             </Grid>
 
-            <Grid x:Name="CachOutRepo" Grid.Row="0" Grid.RowSpan="3" Visibility="Hidden">
-                <cashout:CashOutAll/>
-            </Grid>
+            <Grid x:Name="CachOutRepo" Grid.Row="0" Grid.RowSpan="3" Visibility="Hidden"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -183,5 +183,48 @@ namespace noskhe_drugstore_app.Controller
             }
             throw new NOT_RESPONDING();
         }
+        public async Task<bool> ToggleONOFF(bool OnOff)
+        {
+            responseMessage = await client.PutAsync(ConnectionUrls.ROUTE + "/toggle-state",null);
+
+            var output = await responseMessage.Content.ReadAsAsync<ResonTemplate>();
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                if (output.Error == "True")
+                    return true;
+                else
+                    return false;
+            }
+                        
+            if (output.Error == "PEC0")
+            {
+                throw new TOKEN_EXPIRATION();
+            }
+            else if (output.Error == "PEC1")
+            {
+                throw new API_FAILURE();
+            }
+            throw new NOT_RESPONDING();
+        }
+        public async Task<List<Models.Minimals.Output.Settle>> Get_AllSettle()
+        {
+            responseMessage = await client.GetAsync(ConnectionUrls.ROUTE + "/settles");
+
+            if (responseMessage.IsSuccessStatusCode)
+                return await responseMessage.Content.ReadAsAsync<List<Models.Minimals.Output.Settle>>();
+
+            var output = await responseMessage.Content.ReadAsAsync<Descriptive>();
+            if (output.error == "PEC0")
+            {
+                throw new TOKEN_EXPIRATION();
+            }
+            else if (output.error == "PEC1")
+            {
+                throw new API_FAILURE();
+            }
+            throw new NOT_RESPONDING();
+        }
+
     }
 }
