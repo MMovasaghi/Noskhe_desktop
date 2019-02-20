@@ -332,6 +332,7 @@
     <Compile Include="Models\Courier.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerToken.cs" />
+    <Compile Include="Models\CustomExceptions\TOGGLE_FAILURE.cs" />
     <Compile Include="Models\CustomExceptions\PICTURE_FAILURE.cs" />
     <Compile Include="Models\CustomExceptions\DATABASE_FAILURE.cs" />
     <Compile Include="Models\CustomExceptions\DATA_IS_NOT_AVAILABE.cs" />
@@ -441,11 +442,9 @@
     <Compile Include="Profile\ProfileUC.xaml.cs">
       <DependentUpon>ProfileUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Star\StarModel.cs" />
     <Compile Include="Star\StarUC.xaml.cs">
       <DependentUpon>StarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Star\StarViewModel.cs" />
     <Compile Include="Status\StatusUC.xaml.cs">
       <DependentUpon>StatusUC.xaml</DependentUpon>
     </Compile>
